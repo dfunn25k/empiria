@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="OrderReceipt" t-inherit="point_of_sale.OrderReceipt" t-inherit-mode="extension" owl="1">
+        <xpath expr="//div[@class='cashier']" position="after">
+            <div>
+                <t t-if="receipt.curr_receipt_mode">
+                    Currency: <t t-esc="env.pos.dict_curr_list[receipt.order_currency_id].name"/>
+                </t>
+            </div>
+        </xpath>
+        <xpath expr="//div[@class='orderlines']" position="replace">
+            <t t-foreach="receipt.orderlines" t-as="line" t-key="line.id">
+
+                <t t-if="isSimple(line)">
+                    <div>
+                        <t t-esc="line.product_name_wrapped[0]"/>
+                        <!-- Multi currency  -->
+                        <t t-if="receipt.curr_receipt_mode">
+                            <span t-esc="env.pos.format_currency_no_symbol(line.line_amount_currency)" class="price_display pos-receipt-right-align"/>
+                        </t>
+                        <t t-else="">
+                            <span t-esc="env.pos.format_currency_no_symbol(line.price_display)" class="price_display pos-receipt-right-align"/>
+                        </t>
+                    </div>
+                    <WrappedProductNameLines line="line"/>
+                </t>
+
+                <t t-else="">
+                    <div t-esc="line.product_name_wrapped[0]"/>
+                    <WrappedProductNameLines line="line"/>
+                    <!--  lack  -->
+                    <t t-if="line.display_discount_policy == 'without_discount' and line.price != line.price_lst">
+                        <div class="pos-receipt-left-padding">
+                            <t t-esc="env.pos.format_currency_no_symbol(line.price_lst)"/>
+                            ->
+                            <t t-esc="env.pos.format_currency_no_symbol(line.price)"/>
+                        </div>
+                    </t>
+                    <t t-elif="line.discount !== 0">
+                        <div class="pos-receipt-left-padding">
+
+                            <!-- Multi currency  -->
+                            <t t-if="receipt.curr_receipt_mode">
+                                <t t-if="env.pos.config.iface_tax_included === 'total'">
+                                    <t t-esc="convert_currency(receipt.order_currency_id, line.price_with_tax_before_discount)"/>
+                                </t>
+                                <t t-else="">
+                                    <t t-esc="convert_currency(receipt.order_currency_id, line.price)"/>
+                                </t>
+                            </t>
+                            <t t-else="">
+                                <t t-if="env.pos.config.iface_tax_included === 'total'">
+                                    <t t-esc="env.pos.format_currency_no_symbol(line.price_with_tax_before_discount)"/>
+                                </t>
+                                <t t-else="">
+                                    <t t-esc="env.pos.format_currency_no_symbol(line.price)"/>
+                                </t>
+                            </t>
+
+                        </div>
+                    </t>
+                    <t t-if="line.discount !== 0">
+                        <div class="pos-receipt-left-padding">
+                            Discount: <t t-esc="line.discount"/>%
+                        </div>
+                    </t>
+                    <div class="pos-receipt-left-padding">
+                        <t t-esc="Math.round(line.quantity * Math.pow(10, env.pos.dp['Product Unit of Measure'])) / Math.pow(10, env.pos.dp['Product Unit of Measure'])"/>
+                        <t t-if="!line.is_in_unit" t-esc="line.unit_name"/>
+                        x
+                        <!-- Multi currency  -->
+                        <t t-if="receipt.curr_receipt_mode">
+                            <t t-esc="convert_currency(receipt.order_currency_id, line.price_display_one)"/>
+                            <span class="price_display pos-receipt-right-align">
+                                <t t-esc="convert_currency(receipt.order_currency_id, line.price_display)"/>
+                            </span>
+                        </t>
+                        <t t-else="">
+                            <t t-esc="env.pos.format_currency_no_symbol(line.price_display_one)"/>
+                            <span class="price_display pos-receipt-right-align">
+                                <t t-esc="env.pos.format_currency_no_symbol(line.price_display)"/>
+                            </span>
+                        </t>
+
+                    </div>
+                </t>
+                <t t-if="line.customer_note">
+                    <div class="pos-receipt-left-padding pos-receipt-customer-note">
+                        <t t-esc="line.customer_note"/>
+                    </div>
+                </t>
+                <t t-if="line.pack_lot_lines">
+                    <div class="pos-receipt-left-padding">
+                        <ul>
+                            <t t-foreach="line.pack_lot_lines" t-as="lot" t-key="lot.cid">
+                                <li>
+                                    SN <t t-esc="lot.attributes['lot_name']"/>
+                                </li>
+                            </t>
+                        </ul>
+                    </div>
+                </t>
+            </t>
+        </xpath>
+
+        <!-- Subtotal -->
+        <xpath expr="//t[@t-if='!isTaxIncluded']" position="replace">
+            <div class="pos-receipt-right-align">--------</div>
+            <br/>
+            <!-- Multi currency  -->
+            <t t-if="receipt.curr_receipt_mode">
+                <div>
+                    Subtotal<span
+                        t-esc="format_foreign(convert_currency(receipt.order_currency_id, receipt.subtotal), env.pos.dict_curr_list[receipt.order_currency_id])"
+                        class="pos-receipt-right-align"/>
+                </div>
+                <t t-foreach="receipt.tax_details" t-as="tax" t-key="tax.name">
+                    <div>
+                        <t t-esc="tax.name"/>
+                        <span t-esc='convert_currency(receipt.order_currency_id, tax.amount)' class="pos-receipt-right-align"/>
+                    </div>
+                </t>
+            </t>
+            <t t-else="">
+                <div>
+                    Subtotal<span t-esc="env.pos.format_currency(receipt.subtotal)" class="pos-receipt-right-align"/>
+                </div>
+                <t t-foreach="receipt.tax_details" t-as="tax" t-key="tax.name">
+                    <div>
+                        <t t-esc="tax.name"/>
+                        <span t-esc='env.pos.format_currency_no_symbol(tax.amount)' class="pos-receipt-right-align"/>
+                    </div>
+                </t>
+            </t>
+
+        </xpath>
+
+
+        <!-- Total -->
+        <xpath expr="//span[@t-esc='env.pos.format_currency(receipt.total_with_tax)']" position="replace">
+
+            <!-- Multi currency  -->
+            <t t-if="receipt.curr_receipt_mode">
+                <span t-esc="format_foreign(convert_currency(receipt.order_currency_id, receipt.total_with_tax), env.pos.dict_curr_list[receipt.order_currency_id])"
+                              class="pos-receipt-right-align"/>
+            </t>
+            <t t-else="">
+                <span t-esc="env.pos.format_currency(receipt.total_with_tax)" class="pos-receipt-right-align"/>
+            </t>
+
+        </xpath>
+
+
+        <xpath expr="//t[@t-if='receipt.total_rounded != receipt.total_with_tax']" position="replace">
+
+            <t t-if="receipt.curr_receipt_mode">
+                <t t-if="receipt.total_rounded != receipt.total_with_tax">
+                    <div class="pos-receipt-amount">
+                        Rounding
+                        <span t-esc="format_foreign(convert_currency(receipt.order_currency_id, receipt.rounding_applied), env.pos.dict_curr_list[receipt.order_currency_id])"
+                            class="pos-receipt-right-align"/>
+                    </div>
+                    <div class="pos-receipt-amount">
+                        To Pay
+                        <span t-esc="format_foreign(convert_currency(receipt.order_currency_id, receipt.total_rounded), env.pos.dict_curr_list[receipt.order_currency_id])"
+                            class="pos-receipt-right-align"/>
+                    </div>
+                </t>
+            </t>
+            <t t-else="">
+                <t t-if="receipt.total_rounded != receipt.total_with_tax">
+                    <div class="pos-receipt-amount">
+                        Rounding
+                        <span t-esc='env.pos.format_currency(receipt.rounding_applied)' class="pos-receipt-right-align"/>
+                    </div>
+                    <div class="pos-receipt-amount">
+                        To Pay
+                        <span t-esc='env.pos.format_currency(receipt.total_rounded)' class="pos-receipt-right-align"/>
+                    </div>
+                </t>
+            </t>
+
+        </xpath>
+
+       <!-- Payment Lines -->
+        <xpath expr="//span[@t-esc='env.pos.format_currency_no_symbol(line.amount)']" position="replace">
+            <!-- Multi currency  -->
+            <t t-if="receipt.curr_receipt_mode">
+                <span t-esc="convert_currency(receipt.order_currency_id, line.amount)" class="pos-receipt-right-align"/>
+            </t>
+            <t t-else="">
+                <span t-esc="env.pos.format_currency_no_symbol(line.amount)" class="pos-receipt-right-align"/>
+            </t>
+        </xpath>
+
+        <!-- Change -->
+        <xpath expr="//span[@t-esc='env.pos.format_currency(receipt.change)']" position="replace">
+            <t t-if="receipt.curr_receipt_mode">
+                <span t-esc="format_foreign(convert_currency(receipt.order_currency_id, receipt.change), env.pos.dict_curr_list[receipt.order_currency_id])"
+                      class="pos-receipt-right-align"/>
+            </t>
+            <t t-else="">
+                <span t-esc="env.pos.format_currency(receipt.change)" class="pos-receipt-right-align"/>
+            </t>
+        </xpath>
+
+        <!-- Discounts-->
+        <xpath expr="//span[@t-esc='env.pos.format_currency(receipt.total_discount)']" position="replace">
+            <t t-if="receipt.curr_receipt_mode">
+                <span t-esc="format_foreign(convert_currency(receipt.order_currency_id, receipt.total_discount), env.pos.dict_curr_list[receipt.order_currency_id])"
+                    class="pos-receipt-right-align"/>
+            </t>
+            <t t-else="">
+                <span t-esc="env.pos.format_currency(receipt.total_discount)" class="pos-receipt-right-align"/>
+            </t>
+        </xpath>
+
+        <xpath expr="//t[@t-if='isTaxIncluded']" position="replace">
+            <t t-if="receipt.curr_receipt_mode">
+                <t t-if="isTaxIncluded">
+                    <t t-foreach="receipt.tax_details" t-as="tax" t-key="tax.name">
+                        <div>
+                            <t t-esc="tax.name" />
+                            <span t-esc="convert_currency(receipt.order_currency_id, tax.amount)" class="pos-receipt-right-align"/>
+                        </div>
+                    </t>
+                    <div>
+                        Total Taxes
+                        <span t-esc="format_foreign(convert_currency(receipt.order_currency_id, receipt.total_tax), env.pos.dict_curr_list[receipt.order_currency_id])"
+                            class="pos-receipt-right-align"/>
+                    </div>
+                </t>
+            </t>
+            <t t-else="">
+                <t t-if="isTaxIncluded">
+                    <t t-foreach="receipt.tax_details" t-as="tax" t-key="tax.name">
+                        <div>
+                            <t t-esc="tax.name" />
+                            <span t-esc="env.pos.format_currency_no_symbol(tax.amount)" class="pos-receipt-right-align"/>
+                        </div>
+                    </t>
+                    <div>
+                        Total Taxes
+                        <span t-esc="env.pos.format_currency(receipt.total_tax)" class="pos-receipt-right-align"/>
+                    </div>
+                </t>
+            </t>
+        </xpath>
+
+    </t>
+
+</templates>

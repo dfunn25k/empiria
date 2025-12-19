@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="0">
+        <!-- 
+        <record id="view_stock_request_order_product_ids_form" model="ir.ui.view">
+            <field name="name">view.stock.request.order.product.ids.form</field>
+            <field name="model">stock.request.order</field>
+            <field name="inherit_id" ref="stock_request.stock_request_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group/group/field[@name='picking_policy']" position="after">
+                    <field name="product_ids" string="Productos" placeholder="Seleccione productos" widget="many2many_tags" options="{'no_create': True, 'no_open': True, 'no_edit': True}"/>
+                </xpath>
+            </field>
+        </record> 
+        -->
+
+        <!-- Hereda la vista de búsqueda de stock.request.order para agregar el campo product_id -->
+        <record id="view_stock_request_order_product_ids_search" model="ir.ui.view">
+            <field name="name">view.stock.request.order.product.ids.search</field>
+            <field name="model">stock.request.order</field>
+            <field name="inherit_id" ref="stock_request.stock_request_order_search"/>
+            <field name="arch" type="xml">
+                <xpath expr="//search/field[@name='name']" position="after">
+                    <field name="stock_request_ids" string="Producto" filter_domain="[('stock_request_ids.product_id', 'ilike', self)]"/>
+                    <field name="product_ids" string="Variante" />
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

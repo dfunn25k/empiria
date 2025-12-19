@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="paperformat_contract_addendum" model="report.paperformat">
+            <field name="name">Formato de Adenda de Contrato</field>
+            <field name="default" eval="False" />
+            <field name="format">A4</field>
+            <!-- Orientación vertical para etiquetas -->
+            <field name="orientation">Portrait</field>
+            <!-- Márgenes en cero para aprovechar toda el área -->
+            <field name="margin_top">20</field>
+            <field name="margin_bottom">20</field>
+            <field name="margin_left">30</field>
+            <field name="margin_right">30</field>
+            <!-- Sin encabezado -->
+            <field name="header_spacing">0</field>
+            <field name="dpi">90</field>
+            <!-- Desactiva el ajuste automático del tamaño del contenido -->
+            <field name="disable_shrinking" eval="True"/>
+            <field name="print_page_width">210</field>
+            <field name="print_page_height">297</field>
+        </record>
+
+        <record id="action_report_contract_addendum" model="ir.actions.report">
+            <field name="name">Adenda de Contrato</field>
+            <field name="model">hr.contract.addendum.wizard</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">l10n_pe_hr_contract_addendum.report_addendum_template</field>
+            <field name="report_file">l10n_pe_hr_contract_addendum.report_addendum_template</field>
+            <field name="print_report_name">'Adenda - %s' % (object.employee_id.name)</field>
+            <field name="binding_model_id" ref="l10n_pe_hr_contract_addendum.model_hr_contract_addendum_wizard"/>
+            <field name="binding_type">report</field>
+            <field name="paperformat_id" ref="paperformat_contract_addendum"/>
+        </record>
+    </data>
+</odoo>

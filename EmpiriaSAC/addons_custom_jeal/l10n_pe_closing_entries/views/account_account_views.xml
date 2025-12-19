@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_account_form_closing_config" model="ir.ui.view">
+            <field name="name">account.account.form.closing.config</field>
+            <field name="model">account.account</field>
+            <field name="inherit_id" ref="account.view_account_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook/page[@name='accounting']" position="after">
+                    <page name="closing_config" string="Configuración de Cierre">
+                        <group>
+                            <field name="is_closing_account" />
+                            <field name="closing_account_id"/>
+                            <field name="detailed_by_product" attrs="{'invisible': [('code', '=like', '2%')]}"/>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

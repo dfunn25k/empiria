@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="external_layout_ple_0307">
+        <div class="article doc_report_layout_standard" t-att-data-oe-model="doc and doc._name"
+             t-att-data-oe-id="doc and doc.id"
+             t-att-data-oe-lang="doc and doc.env.context.get('lang')">
+            <t t-call="web.address_layout"/>
+            <t t-out='0'/>
+        </div>
+    </template>
+
+    <template id="print_status_finance">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="ple_inv_and_bal_0307.external_layout_ple_0307">
+                    <div class="page">
+                        <link href="/ple_inv_and_bal_0307/static/src/css/main.css" rel="stylesheet"/>
+                        <t t-if="not company">
+                            <!-- Multicompany -->
+                            <t t-if="company_id">
+                                <t t-set="company" t-value="company_id"/>
+                            </t>
+                            <t t-elif="doc and 'company_id' in doc">
+                                <t t-set="company" t-value="doc.company_id.sudo()"/>
+                            </t>
+                            <t t-else="else">
+                                <t t-set="company" t-value="res_company"/>
+                            </t>
+                        </t>
+                        <div class="title">
+                            <strong>
+                                FORMATO 3.7: "LIBRO DE INVENTARIOS Y BALANCES - MERCADERIAS Y PRODUCTOS TERMINADOS"
+                            </strong>
+                        </div>
+                        <div style="width: 100% !important;" class="subtitle">                         
+                            <strong>EJERCICIO : </strong>                        
+                            <span t-esc="doc.date_end.strftime('%Y')"/>
+                            <br/>            
+                            <strong>RUC : </strong>
+                            <span t-field="company.partner_id.vat"/>
+                            <br/>    
+                            <strong>APELLIDOS Y NOMBRES, DENOMINACIÓN O RAZÓN SOCIAL : </strong>
+                            <span t-field="company.partner_id.name"/>      
+                        </div>
+                        <br/>
+                        <div>
+                            <strong>MÉTODO DE EVALUACIÓN APLICADO:</strong>
+                            <t t-if="doc.line_ids">
+                                <t t-if="doc.line_ids[0].property_cost_method=='1'">
+                                    <span>PROMEDIO PONDERADO</span>
+                                </t>
+                                <t t-elif="doc.line_ids[0].property_cost_method=='2'">
+                                    <span>PRIMERAS ENTRADAS, PRIMERAS SALIDAS</span>
+                                </t>
+                                <t t-elif="doc.line_ids[0].property_cost_method=='9'">
+                                    <span>OTROS</span>
+                                </t>
+                                <t t-else="">
+                                </t>
+                            </t>
+                        </div>
+                        <table class="data_header">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <strong>CODIGO DE LA EXISTENCIA</strong>
+                                    </th>
+                                    <th>
+                                        <strong>TIPO DE EXISTENCIA</strong>
+                                    </th>
+                                    <th>
+                                        <strong>DESCRIPCION</strong>
+                                    </th>
+                                    <th>
+                                        <strong>CODIGO DE LA UNIDAD DE MEDIDA (TABLA 6)</strong>
+                                    </th>
+                                    <th>
+                                        <strong>CANTIDAD</strong>
+                                    </th>
+                                    <th>
+                                        <strong>COSTO UNITARIO</strong>
+                                    </th>
+                                    <th>
+                                        <strong>COSTO TOTAL</strong>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-set="sum_total" t-value="0"/>
+                                <tr t-foreach="doc.line_ids.sorted(key=lambda x: x.product_id)[:1000]" t-as="line">
+                                    <td>
+                                        <span t-esc="line.stock_catalog"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="line.stock_type"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="line.product_description"/>
+                                    </td>
+                                    <td style="text-align: center;">
+                                        <span t-esc="line.product_udm"/>
+                                    </td>
+                                    <td style="text-align: center;">
+                                        <span t-esc="round(line.quantity_product_hand,2)"/>
+                                    </td>
+                                    <td style="text-align: center;">
+                                        <span t-esc="round(line.standard_price,2)"/>
+                                    </td>
+                                    <td style="text-align: center;">
+                                        <span t-esc="round(line.total,2)"/>
+                                    </td>
+                                    <t t-set="sum_total" t-value="sum_total+line.total"/>
+                                </tr>
+                                <t t-if="len(doc.line_ids) > 1000">
+                                    <tr>
+                                        <td colspan="7" style="text-align: center; color: red; font-weight: bold;">
+                                            SE TIENE MÁS DE 1000 LÍNEAS (...), VER EL DETALLE COMPLETO EN EL EXCEL O TXT.
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="4"/>
+                                    <td colspan="2">
+                                        <strong>COSTO TOTAL GENERAL</strong>
+                                    </td>
+                                    <td colspan="1" style="border:2px solid black;font-weight:bold;">
+                                        <span t-esc="round(sum_total,2)"/>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>

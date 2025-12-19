@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- Categoría de Módulo: Retención -->
+        <record id="module_category_retention" model="ir.module.category">
+            <field name="name">Custom Account</field>
+            <field name="sequence">22</field>
+            <field name="description">Gestión de Retenciones para Perú</field>
+        </record>
+
+        <!-- Grupo de Seguridad: Operador de Retenciones -->
+        <record id="group_retention_operador" model="res.groups">
+            <field name="name">Operador</field>
+            <field name="category_id" ref="module_category_retention"/>
+            <!-- 
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+            <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/> 
+            -->
+            <field name="comment">Este grupo permite a los usuarios gestionar las retenciones.</field>
+        </record>
+
+        <!-- Regla de Seguridad: Comprobantes Multi-Company -->
+        <record id="comprobante_comp_rule" model="ir.rule">
+            <field name="name">Acceso Multi-Company para Comprobantes</field>
+            <field name="model_id" ref="model_account_retention"/>
+            <field name="groups" eval="[(4, ref('group_retention_operador'))]"/>
+            <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
+        </record>
+    </data>
+</odoo>

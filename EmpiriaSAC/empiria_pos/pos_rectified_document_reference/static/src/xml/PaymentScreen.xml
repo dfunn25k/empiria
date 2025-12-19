@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="PaymentScreen" t-inherit="point_of_sale.PaymentScreen" t-inherit-mode="extension" owl="1">
+        <xpath expr="//t[@t-if='!currentOrder.is_to_invoice() and env.pos.get_ticket_type_document_ids().length > 0']" position="after">
+            <div class="rectified_document_reference_div" id="reference_data_id">
+                <div class="rectified_document_reference_date_div">
+                    <div class="reference_date_rectified_div">
+                        <p class="label_invoice" for="reference_rectified">Reference</p>
+                        <input autocomplete="off" class="input_invoice" type="text" id="reference_rectified" name="reference_rectified"/>
+                    </div>
+                    <div class="reference_date_rectified_div">
+                        <p class="label_invoice" for="date_rectified">Date</p>
+                        <input class="input_invoice" type="date" id="date_rectified" name="date_rectified"/>
+                    </div>
+                </div>
+                <t t-if="currentOrder.is_to_invoice() and env.pos.get_invoice_type_document_ids().length > 0">
+                    <div class="invoice_reference_type_l10n_latam_document_type_ids_div" id="div_invoice_reference_type_l10n_latam_document_type_ids">
+                        <p class="label_invoice" for="invoice_reference_type_l10n_latam_document_type_ids">Document Type Reference</p>
+                        <select class="select_invoice" name="invoice_reference_type_l10n_latam_document_type_ids"
+                                id="invoice_reference_type_l10n_latam_document_type_ids">
+                            <t t-foreach="invoice_l10n_latam_document_type_ids_reference" t-as="invoice_doc" t-key="invoice_doc.id">
+                                <t t-if="(currentOrder.get_total_with_tax() + currentOrder.get_rounding_applied()) >= 0">
+                                    <t t-if="invoice_doc.internal_type != 'credit_note' and invoice_doc.internal_type != 'debit_note'">
+                                        <t t-if="(invoice_doc.internal_type == 'invoice' or invoice_doc.internal_type == False)">
+                                            <option t-att-value="invoice_doc.id">
+                                                <t t-esc="invoice_doc.name" id="invoice_esc_max"/>
+                                            </option>
+                                        </t>
+                                    </t>
+                                </t>
+                                <t t-else="">
+                                    <t t-if="invoice_doc.internal_type == 'invoice'">
+                                        <option t-att-value="invoice_doc.id">
+                                            <t t-esc="invoice_doc.name" id="invoice_esc_min"/>
+                                        </option>
+                                    </t>
+                                </t>
+                            </t>
+                        </select>
+                    </div>
+                </t>
+                <t t-if="!currentOrder.is_to_invoice() and env.pos.get_ticket_type_document_ids().length > 0">
+                    <div class="ticket_reference_type_l10n_latam_document_type_ids_div" id="div_ticket_reference_type_l10n_latam_document_type_ids">
+                        <p class="label_invoice" for="ticket_reference_type_l10n_latam_document_type_ids">Document Type Reference</p>
+                        <select class="select_invoice" name="ticket_reference_type_l10n_latam_document_type_ids"
+                                id="ticket_reference_type_l10n_latam_document_type_ids">
+                            <t t-foreach="ticket_l10n_latam_document_type_ids_reference" t-as="ticket_doc" t-key="ticket_doc.id">
+                                <t t-if="(currentOrder.get_total_with_tax() + currentOrder.get_rounding_applied()) >= 0">
+                                    <t t-if="ticket_doc.internal_type != 'debit_note' and ticket_doc.internal_type != 'credit_note'">
+                                        <t t-if="ticket_doc.internal_type == 'invoice'">
+                                            <option t-att-value="ticket_doc.id">
+                                                <t t-esc="ticket_doc.name" id="ticket_esc_max"/>
+                                            </option>
+                                        </t>
+                                    </t>
+                                </t>
+                                <t t-else="">
+                                    <t t-if="ticket_doc.internal_type == 'invoice'">
+                                        <option t-att-value="ticket_doc.id">
+                                            <t t-esc="ticket_doc.name" id="ticket_esc_min"/>
+                                        </option>
+                                    </t>
+                                </t>
+                            </t>
+                        </select>
+                    </div>
+                </t>
+            </div>
+        </xpath>
+    </t>
+</templates>

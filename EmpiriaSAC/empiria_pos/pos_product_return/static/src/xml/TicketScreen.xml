@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-inherit="point_of_sale.TicketScreen" t-inherit-mode="extension" owl="1">
+        <xpath expr="//div[hasclass('header-row')]/div[4]" position="before">
+            <div class="col wide">Document type</div>
+            <div class="col wide">Invoice number</div>
+        </xpath>
+    </t>
+    <t t-inherit="point_of_sale.TicketScreen" t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('order-row')]/div[4]" position="before">
+            <div class="col wide">
+                <div t-if="env.isMobile">Document type</div>
+                <div><t t-esc="order.account_move_rel_document_type"/></div>
+            </div>
+            <div class="col wide">
+                <div t-if="env.isMobile">Invoice number</div>
+                <div><t t-esc="order.account_move_rel_name"/></div>
+            </div>
+        </xpath>
+    </t>
+</templates>

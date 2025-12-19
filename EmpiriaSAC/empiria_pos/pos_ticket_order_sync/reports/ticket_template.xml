@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="report_pos_ticket_session_info" inherit_id="pos_ticket_format_invoice.report_invoice_document_tickets">
+            <xpath expr="//table[@class='table-pos-receipt-vendor']/tbody/tr[4]" position="after">
+                <tr>
+                    <td>
+                        <strong>Comercial</strong>
+                    </td>
+                    <td>:</td>
+                    <td>
+                        <t t-foreach="o.pos_order_ids" t-as="order_id">
+                            <t t-if="order_id_first ">
+                                <t t-esc="order_id.quote_id.session_id.user_id.name "/>
+                            </t>
+                        </t>
+                    </td>
+                </tr>
+            </xpath>
+        </template>
+    </data>
+</odoo>

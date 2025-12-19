@@ -1,0 +1,16 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_airport_catalog_all_users,airport.catalog,model_airport_catalog,,1,0,0,0
+access_airport_catalog_account_user,airport.catalog,model_airport_catalog,account.group_account_user,1,1,1,1
+access_airport_catalog_account_manager,airport.catalog,model_airport_catalog,account.group_account_manager,1,1,1,1
+
+access_port_catalog_all_users,port.catalog,model_port_catalog,,1,0,0,0
+access_port_catalog_account_user,port.catalog,model_port_catalog,account.group_account_user,1,1,1,1
+access_port_catalog_account_manager,port.catalog,model_port_catalog,account.group_account_manager,1,1,1,1
+
+access_tariff_subheading_all_users,tariff.subheading,model_tariff_subheading,,1,0,0,0
+access_tariff_subheading_account_user,tariff.subheading,model_tariff_subheading,account.group_account_user,1,1,1,1
+access_tariff_subheading_account_manager,tariff.subheading,model_tariff_subheading,account.group_account_manager,1,1,1,1
+
+access_identification_code_tax_concept_all_users,identification.code.tax.concept,model_identification_code_tax_concept,,1,0,0,0
+access_identification_code_tax_concept_account_user,identification.code.tax.concept,model_identification_code_tax_concept,account.group_account_user,1,1,1,1
+access_identification_code_tax_concept_account_manager,identification.code.tax.concept,model_identification_code_tax_concept,account.group_account_manager,1,1,1,1

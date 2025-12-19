@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="view_hr_contract_form_inherit_addendum" model="ir.ui.view">
+            <field name="name">hr.contract.form.inherit.addendum</field>
+            <field name="model">hr.contract</field>
+            <field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>
+            <field name="arch" type="xml">
+                <header>
+                    <button name="action_open_addendum_wizard"
+                    string  = "Generar Contrato"
+                    type    = "object"
+                    class   = "oe_highlight"
+                    attrs   = "{'invisible': [('state', '!=', 'open')]}"/>
+                </header>
+            </field>
+        </record>
+    </data>
+</odoo>

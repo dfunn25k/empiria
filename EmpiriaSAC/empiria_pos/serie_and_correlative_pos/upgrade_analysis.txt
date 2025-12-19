@@ -1,0 +1,9 @@
+---Models in module 'serie_and_correlative_pos'---
+new inherit model res.config.settings [transient]
+---Fields in module 'serie_and_correlative_pos'---
+base      / res.config.settings          / pos_invoice_l10n_latam_document_type_ids (many2many)  : new related
+base      / res.config.settings          / pos_ticket_l10n_latam_document_type_ids (many2many)  : new related
+---XML records in module 'serie_and_correlative_pos'---
+DEL ir.ui.view: serie_and_correlative_pos.pos_config_form_view_inherit_serie_and_correlative_pos
+NEW ir.ui.view: serie_and_correlative_pos.res_config_settings_form_view_inherit_serie_and_correlative_pos
+-- Depends in module 'serie_and_correlative_pos' --

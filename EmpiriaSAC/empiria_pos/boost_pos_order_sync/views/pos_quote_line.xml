@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_pos_quotes_line_tree" model="ir.ui.view">
+        <field name="name">pos.quotes.line.tree</field>
+        <field name="model">pos.quote.line</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="Synchronized Quotes Lines">
+                <field name="product_id"/>
+                <field name="qty"/>
+                <field name="price_unit" widget="monetary"/>
+                <field name="discount" widget="monetary"/>
+                <field name="tax_ids" widget="many2many_tags"/>
+                <field name="price_subtotal" widget="monetary"/>
+                <field name="price_subtotal_incl" widget="monetary"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_pos_quote_line_form" model="ir.ui.view">
+        <field name="name">pos.quote.line.form</field>
+        <field name="model">pos.quote.line</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Synchronized Quotes Lines">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="product_id"/>
+                            <field name="product_uom"/>
+                            <field name="qty"/>
+                            <field name="discount" widget="monetary"/>
+                            <field name="price_unit" widget="monetary"/>
+                        </group>
+                        <group>
+                            <field name="price_subtotal" widget="monetary"/>
+                            <field name="price_subtotal_incl" widget="monetary"/>
+                            <field name="tax_ids" widget="many2many_tags"/>
+                            <!--<field name="notice"/>-->
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_pos_quote_line" model="ir.actions.act_window">
+        <field name="name">Synchronized POS Quotes Lines</field>
+        <field name="res_model">pos.quote.line</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

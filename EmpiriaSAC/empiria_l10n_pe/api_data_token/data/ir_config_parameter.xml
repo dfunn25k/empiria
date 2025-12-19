@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="api_access_token_first" model="ir.config_parameter">
+        <field name="key">api.access_token_first</field>
+        <field name="value">RAcSGWD1TgC7VdjCTOZSVA==</field>
+    </record>
+
+</odoo>
+

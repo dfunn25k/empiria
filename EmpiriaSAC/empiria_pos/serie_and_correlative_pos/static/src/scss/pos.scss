@@ -1,0 +1,36 @@
+.serie_and_correlative_div {
+    text-align: center;
+    font-size: 16px;
+    padding-bottom: 1em;
+    border-bottom: solid 1px #C9CCD2;
+}
+
+.serie_and_correlative_div select {
+    appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+}
+
+.serie_and_correlative_div select:focus-visible {
+    outline: none;
+}
+
+.serie_and_correlative_div .select_invoice {
+    cursor: pointer;
+    background-color: transparent;
+    width: 90%;
+    outline: 0;
+    padding: 0.5em;
+    color: #4A4F59;
+    font-size: 16px;
+    border: solid 1px #C9CCD2;
+    transition: all 0.25s ease;
+}
+
+@media screen and (max-width: 992px) {
+    .serie_and_correlative_div {
+        padding-bottom: 2em;
+        padding-top: 1em;
+        background: #fff;
+    }
+}

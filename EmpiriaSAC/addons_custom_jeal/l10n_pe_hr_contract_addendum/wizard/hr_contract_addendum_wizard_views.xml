@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="view_hr_contract_addendum_wizard_form" model="ir.ui.view">
+            <field name="name">hr.contract.addendum.wizard.form</field>
+            <field name="model">hr.contract.addendum.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Parámetros para Adenda">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="contract_id"/>
+                                <field name="company_id"/>
+                                <field name="employee_id"/>
+                                <field name="template_id"/>
+                            </group>
+                        </group>
+
+                        <group string="Datos para el Documento">
+                            <field name="relacion_laboral_date"/>
+                            <field name="clausula_modificada_ids" widget="many2many_tags"/>
+                            <field name="jornada_trabajo_id"/>
+                            <field name="suscrito_date"/>
+                            <field name="fecha_impresion"/>
+                        </group>
+                    </sheet>
+
+                    <footer>
+                        <button name="action_print_report" string="Imprimir" type="object" class="btn-primary"/>
+                        <button string="Cancelar" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

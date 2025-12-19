@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-inherit="point_of_sale.PartnerDetailsEdit" t-inherit-mode="extension">
+        <xpath expr="//div[@class='partner-details-box clearfix']/div[@class='partner-details-left']/div[@class='partner-detail'][1]" position="before">
+            <div class='partner-detail'>
+                <span class='label'>Document type</span>
+                <select class='detail partner-document-type' t-model="changes.l10n_latam_identification_type_id" name='l10n_latam_identification_type_id' t-on-change="captureChange">
+                    <option value="">None</option>
+                    <t t-foreach="env.pos.documents_by_id" t-as='doc' t-key="doc.id">
+                        <option t-att-value='doc.id'>
+                            <t t-esc='doc.name'/>
+                        </option>
+                    </t>
+                </select>
+            </div>
+            <div class='partner-detail'>
+                <span class='label'>Document N°</span>
+                <input class='detail vat' name='vat' t-model="changes.vat" t-on-change="captureChange" t-att-value='props.partner.vat || ""'/>
+            </div>
+        </xpath>
+    </t>
+</templates>

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="account_retention_tap_invoice_view" model="ir.ui.view">
+            <field name="name">account.retention.tap.invoice.view</field>
+            <field name="model">account.retention</field>
+            <field name="inherit_id" ref="l10n_pe_account_reten.view_account_retention_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//notebook/page[@name='invoice']" position="inside">
+                    <field name="retention_line_ids">
+                        <tree create="1" delete="1" edit="1" editable="bottom">
+                            <!-- Campo invisible para el socio relacionado -->
+                            <field name="partner_id" invisible="1"/>
+
+                            <!-- Factura asociada, sin opción de abrir o crear nuevas facturas -->
+                            <field name="invoice_id" string="Factura" options="{'no_open': True, 'no_create': True}" />
+
+                            <!-- Fecha de la factura -->
+                            <field name="invoice_date" string="Fecha factura" />
+
+                            <!-- Tipo de factura: compra, venta, etc. -->
+                            <field name="type" string="Tipo de Factura" optional="hide" />
+
+                            <!-- Moneda de la factura -->
+                            <field name="currency_id" string="Moneda Factura" />
+
+                            <!-- Importe total de la factura -->
+                            <field name="amount_total" string="Total" sum="Total de Facturas" />
+
+                            <!-- Importe total pagado (invisible) -->
+                            <field name="amount_paid" string="Total Pagado" sum="Total Pagado" invisible="1" />
+
+                            <!-- Porcentaje del importe total pagado (invisible) -->
+                            <field name="percentage_paid" string="% Total Pagado" invisible="1" />
+
+                            <!-- Importe restante después del pago -->
+                            <field name="amount" string="Importe" sum="Importe" />
+
+                            <!-- Porcentaje del importe restante -->
+                            <field name="percentage_remaining" string="% Importe" />
+
+                            <!-- Base de la retención calculada -->
+                            <field name="amount_rt_base" string="Retención Base" sum="Retención Base" />
+
+                            <!-- Moneda de la compañía (opcional) -->
+                            <field name="company_currency_id" string="Moneda Compañía" optional="hide" />
+
+                            <!-- Tipo de Cambio entre la moneda de la factura y la moneda de la compañía -->
+                            <field name="oper_rate" string="Tipo de Cambio" />
+
+                            <!-- Importe total convertido a la moneda de la compañía -->
+                            <field name="amount_total_converted" string="Total Convertido" sum="Total Convertido" optional="hide" decoration-success="amount_total_converted > 0" />
+
+                            <!-- Importe restante convertido a la moneda de la compañía -->
+                            <field name="amount_converted" string="Importe Convertido" sum="Importe Convertido" decoration-success="amount_converted > 0" />
+
+                            <!-- Retención aplicada sobre el importe total -->
+                            <field name="amount_rt" string="Retención Aplicada" sum="Retención Aplicada" decoration-info="amount_rt > 0" />
+                        </tree>
+
+                        <form>
+                            <!-- Campo invisible para el socio relacionado -->
+                            <field name="partner_id" invisible="1" />
+
+                            <!-- Campo invisible para el total pagado -->
+                            <field name="amount_paid" string="Total Pagado" invisible="1" />
+
+                            <!-- Campo invisible para el porcentaje pagado -->
+                            <field name="percentage_paid" string="% Total Pagado" invisible="1" />
+
+                            <!-- Título con la factura relacionada -->
+                            <label for="invoice_id" string="Factura" />
+                            <div class="oe_title">
+                                <h1>
+                                    <field name="invoice_id" options="{'no_open': True, 'no_create': True}" />
+                                </h1>
+                            </div>
+
+                            <!-- Grupo de Información de la Factura -->
+                            <group string="Información de la Factura">
+                                <group>
+                                    <!-- Fecha de emisión de la factura -->
+                                    <field name="invoice_date" string="Fecha de Factura" />
+
+                                    <!-- Tipo de factura: compra, venta, etc. -->
+                                    <field name="type" string="Tipo de Factura" />
+                                </group>
+
+                                <group>
+                                    <!-- Moneda utilizada en la factura -->
+                                    <field name="currency_id" string="Moneda Factura" />
+
+                                    <!-- Moneda de la compañía -->
+                                    <field name="company_currency_id" string="Moneda Compañía" />
+
+                                    <!-- Tipo de cambio utilizado -->
+                                    <field name="oper_rate" string="Tipo de Cambio" />
+                                </group>
+                            </group>
+
+                            <group string="Totales e Importes">
+                                <group>
+                                    <group>
+                                        <!-- Importe total de la factura -->
+                                        <field name="amount_total" string="Total" />
+                                        <!-- Importe restante y su porcentaje -->
+                                        <field name="amount" string="Importe" />
+                                        <!-- Base para la retención calculada -->
+                                        <field name="amount_rt_base" string="Retención Base" />
+                                    </group>
+
+                                    <group>
+                                        <br></br>
+                                        <br></br>
+                                        <field name="percentage_remaining" string="% Importe" class="text-start" />
+                                    </group>
+                                </group>
+
+
+                                <!-- Hacer este grupo invisible si las monedas de la factura y la compañía son iguales -->
+                                <group attrs="{'invisible': [('oper_rate', '=', 1.000000)]}">
+                                    <!-- Total convertido a la moneda de la compañía, con decoración si es mayor a 0 -->
+                                    <field name="amount_total_converted" string="Total Convertido" decoration-success="amount_total_converted > 0" />
+
+                                    <!-- Importe restante convertido a la moneda de la compañía, con decoración si es mayor a 0 -->
+                                    <field name="amount_converted" string="Importe Convertido" decoration-success="amount_converted > 0" />
+
+                                    <!-- Monto total de la retención, con decoración si es mayor a 0 -->
+                                    <field name="amount_rt" string="Retención Aplicada" decoration-info="amount_rt > 0" />
+                                </group>
+                            </group>
+                        </form>
+                    </field>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

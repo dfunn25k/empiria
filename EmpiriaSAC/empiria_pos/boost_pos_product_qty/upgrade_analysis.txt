@@ -1,0 +1,6 @@
+---Models in module 'boost_pos_product_qty'---
+new inherit model res.config.settings [transient]
+---Fields in module 'boost_pos_product_qty'---
+base      / res.config.settings          / pos_location_id (Many2one)  : new many2one
+---XML records in module 'boost_pos_product_qty'---
+-- Depends in module 'boost_pos_product_qty' --

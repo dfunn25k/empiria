@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="view_retention_res_partner_inh_form" model="ir.ui.view">
+            <field name="name">view.retention.res.partner.inh.form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//group/group/field[@name='category_id']" position="after">
+                    <field name="is_retention_agent" string="¿Es agente de retención?" widget="boolean_toggle" groups="l10n_pe_account_reten.group_retention_operador"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

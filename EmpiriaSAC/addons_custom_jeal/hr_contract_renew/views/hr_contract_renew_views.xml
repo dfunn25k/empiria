@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="0">
+        <!-- ===================================================== -->
+        <!-- Vista Form de Renovar Contratos                       -->
+        <!-- ===================================================== -->
+        <record id="view_hr_contract_renew_form" model="ir.ui.view">
+            <field name="name">view.hr.contract.renew.form</field>
+            <field name="model">hr.contract.renew</field>
+            <field name="arch" type="xml">
+                <form string="Renovación de Contratos" create="1" edit="1">
+                    <header>
+                        <!-- Acciones Principales (Siempre visibles y resaltadas) -->
+                        <button name="action_generate_renewal_lines"
+                                string  = "Buscar Contratos"
+                                type    = "object"
+                                class   = "oe_highlight"
+                                states  = "draft"
+                                icon    = "fa-search"/>
+
+                        <button name="action_approve_renewals"
+                                string  = "Aprobar y Procesar"
+                                type    = "object"
+                                class   = "oe_highlight"
+                                states  = "generated"
+                                icon    = "fa-check"
+                                confirm = "¿Estás seguro de que deseas aprobar este proceso? Esta acción marcará los contratos y los preparará para la renovación automática."/>
+
+                        <!-- Acciones Secundarias (Menos prominentes y con confirmación) -->
+                        <button name="button_to_draft"
+                                string  = "Restablecer a Borrador"
+                                type    = "object"
+                                states  = "generated,cancel"
+                                icon    = "fa-undo"
+                                confirm = "Atención: Se eliminarán todas las líneas y se restablecerá el estado de los contratos. ¿Deseas continuar?"/>
+
+                        <button name="button_cancel"
+                                string  = "Cancelar Proceso"
+                                type    = "object"
+                                states  = "generated,processed"
+                                icon    = "fa-times"
+                                confirm = "¿Estás seguro de que quieres cancelar este proceso? Los contratos relacionados serán restablecidos."/>
+
+                        <!-- Barra de Estado (Widget interactivo) -->
+                        <field name="state" widget="statusbar" statusbar_clickable="1"/>
+                    </header>
+
+                    <sheet>
+                        <!-- Título principal y código de secuencia -->
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name" readonly="1" placeholder="Proceso de Renovación..."/>
+                            </h1>
+                            <h2 class="o_row">
+                                <field name="sequence" readonly="1"/>
+                            </h2>
+                        </div>
+
+                        <group>
+                            <group>
+                                <!-- Sección de Configuración -->
+                                <label for="company_id" string="Compañia"/>
+                                <div class="o_row">
+                                    <field name="company_id"/>
+                                </div>
+                            </group>
+                            <group>
+                                <!-- Sección de Rango de Fechas -->
+                                <label for="date_from" string="Rango de Vencimiento"/>
+                                <div class="o_row">
+                                    <field name="date_from"/>
+                                    <span>-</span>
+                                    <field name="date_to"/>
+                                </div>
+                            </group>
+                        </group>
+
+                        <notebook>
+                            <page string="Líneas de Renovación">
+                                <field name="renewal_line_ids">
+                                    <!-- Vista de árbol rediseñada para máxima claridad -->
+                                    <tree editable="bottom" edit="1" create="0" delete="1">
+                                        <field name="to_renew" string="¿Renovar?"/>
+                                        <field name="employee_id" string="Empleado"/>
+                                        <field name="current_contract_id" string="Contrato Actual"/>
+                                        <field name="new_date_from" string="Nueva Fecha Inicio"/>
+                                        <field name="new_date_to" string="Nueva Fecha Fin"/>
+                                        <field name="wage" string="Salario Actual" widget="monetary"/>
+                                        <field name="new_wage" string="Nuevo Salario" widget="monetary"/>
+                                        <field name="new_contract_id" string="Contrato Generado" optional="hide"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <!-- ===================================================== -->
+        <!-- Vista Tree de Renovar Contratos                       -->
+        <!-- ===================================================== -->
+        <record id="view_hr_contract_renew_tree" model="ir.ui.view">
+            <field name="name">view.hr.contract.renew.tree</field>
+            <field name="model">hr.contract.renew</field>
+            <field name="arch" type="xml">
+                <tree string="Procesos de Renovación">
+                    <field name="sequence"/>
+                    <field name="name"/>
+                    <field name="company_id"/>
+                    <field name="date_from"/>
+                    <field name="date_to"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- ===================================================== -->
+        <!-- Vista Search de Renovar Contratos                     -->
+        <!-- ===================================================== -->
+        <record id="view_hr_contract_renew_search" model="ir.ui.view">
+            <field name="name">view.hr.contract.renew.search</field>
+            <field name="model">hr.contract.renew</field>
+            <field name="arch" type="xml">
+                <search string="Buscar Procesos de Renovación">
+                    <field name="sequence"/>
+                    <field name="name"/>
+                    <field name="company_id"/>
+                    <field name="date_from"/>
+                    <field name="date_to"/>
+                    <field name="state"/>
+
+                    <filter string="Borradores" name="filter_draft" domain="[('state','=','draft')]"/>
+                    <filter string="Procesados" name="filter_processed" domain="[('state','=','processed')]"/>
+
+                    <group expand="0" string="Agrupar por">
+                        <filter string="Compañía" name="groupby_company_id" context="{'group_by': 'company_id'}"/>
+                        <filter string="Estado" name="groupby_state" context="{'group_by': 'state'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- ===================================================== -->
+        <!-- Acción de menú para Renovar Contratos                 -->
+        <!-- ===================================================== -->
+        <record id="action_view_hr_contract_renew" model="ir.actions.act_window">
+            <field name="name">Renovar Contratos</field>
+            <field name="res_model">hr.contract.renew</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="hr_contract_renew.view_hr_contract_renew_search"/>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Cree un nuevo proceso para automatizar la renovación de contratos de empleados.
+                </p>
+            </field>
+        </record>
+    </data>
+</odoo>

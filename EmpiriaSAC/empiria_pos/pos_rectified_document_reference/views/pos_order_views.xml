@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="pos_order_form_view_inherit_serie_and_correlative_pos" model="ir.ui.view">
+        <field name="name">pos.order.form.view.inherit.serie_and_correlative_pos</field>
+        <field name="model">pos.order</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_pos_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='payments']" position='after'>
+                <page string="Data Reference" name="data_reference">
+                    <group>
+                        <field name="reference_rectified"/>
+                        <field name="date_rectified"/>
+                        <field name="invoice_reference_type_l10n_latam_document_type_ids" string="Invoice document number"/>
+                        <field name="ticket_reference_type_l10n_latam_document_type_ids" string="Ticket document number"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

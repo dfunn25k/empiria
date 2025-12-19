@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="view_hr_document_template_form" model="ir.ui.view">
+            <field name="name">hr.document.template.form</field>
+            <field name="model">hr.document.template</field>
+            <field name="arch" type="xml">
+                <form string="Plantilla de Documento">
+                    <header>
+                        <field name="active" widget="boolean_toggle"/>
+                    </header>
+
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name" placeholder="Ej: Adenda de Contrato"/>
+                            </h1>
+                        </div>
+
+                        <notebook>
+                            <page string="Cláusulas del Documento" name="document_lines">
+                                <field name="line_ids">
+                                    <tree create="1" delete="1" edit="0" editable="bottom">
+                                        <field name="sequence" widget="handle"/>
+                                        <field name="display_type"/>
+                                        <field name="clausula_id"/>
+                                        <field name="title"/>
+                                        <field name="content" invisible="1"/>
+                                    </tree>
+
+                                    <form>
+                                        <group>
+                                            <field name="display_type"/>
+                                            <field name="clausula_id"/>
+                                            <field name="title"/>
+                                            <field name="content"/>
+                                        </group>
+                                    </form>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_hr_document_template_tree" model="ir.ui.view">
+            <field name="name">hr.document.template.tree</field>
+            <field name="model">hr.document.template</field>
+            <field name="arch" type="xml">
+                <tree string="Plantillas de Documento">
+                    <field name="name"/>
+                    <field name="active"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_hr_document_template" model="ir.actions.act_window">
+            <field name="name">Plantillas de Documentos</field>
+            <field name="res_model">hr.document.template</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</odoo>

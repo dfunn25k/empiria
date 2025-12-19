@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="product_product_view_form_inherit_intra_inventory_api_pe" model="ir.ui.view">
+        <field name="name">product.product.view.form.inherit.intra_inventory_api_pe</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_normal_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='group_lots_and_weight']" position="inside">
+                <field name="intralot"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

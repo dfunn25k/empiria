@@ -1,0 +1,59 @@
+.table-session-payment-method {
+    margin-top: 3px;
+    table-layout: fixed;
+    border-collapse: collapse;
+    width: 40%;
+}
+
+.table-session-payment-method thead {
+    font-size: 10px;
+    padding-left: 2px;
+    border-top: 1px solid black;
+}
+
+.table-session-payment-method tbody {
+    font-size: 9px;
+}
+
+.table-session-payment-method thead th:nth-child(1) {
+    width: 40%;
+}
+
+.table-session-payment-method thead th:nth-child(2) {
+    width: 50%;
+}
+
+.table-session-payment-method-inv {
+    display: none;
+}
+
+.table-session-payment-method-change {
+    margin-top: 3px;
+    table-layout: fixed;
+    border-collapse: collapse;
+    width: 40%;
+    margin-right: 0px;
+    margin-left: auto;
+}
+
+.table-session-payment-method-change-inv {
+    display: none;
+}
+
+.table-session-payment-method-change thead {
+    font-size: 10px;
+    padding-left: 2px;
+    border-top: 1px solid black;
+}
+
+.table-session-payment-method-change tbody {
+    font-size: 9px;
+}
+
+.table-session-payment-method-change thead th:nth-child(1) {
+    width: 60%;
+}
+
+.table-session-payment-method-change thead th:nth-child(2) {
+    width: 40%;
+}

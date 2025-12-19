@@ -1,0 +1,1 @@
+from . import test_l10n_pe_delivery_note_20_extension

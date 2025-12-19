@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="0">
+        <!-- <record id="view_hr_employee_form_custom" model="ir.ui.view">
+            <field name="name">formulario_empleado_personalizado</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//notebook/page[@name='personal_information']/group/group/field[@name='address_home_id']" position="before">
+                    <field name="work_contact_id" context="{
+                       'show_address': 1,
+                       'default_type': 'private',
+                       'form_view_ref': 'base.res_partner_view_form_private'
+                   }" options='{
+                       "always_reload": True, 
+                       "highlight_first_line": True
+                   }'/>
+                </xpath>
+            </field>
+        </record> -->
+    </data>
+</odoo>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="PartnerLineVAT" t-inherit="point_of_sale.PartnerLine" t-inherit-mode="extension" owl="1">
+        <xpath expr="//td[hasclass('partner-line-email')]" position="after">
+            <td>
+                <t t-esc='props.partner.vat or " "'/>
+            </td>
+        </xpath>
+    </t>
+
+    <t t-name="PartnerListScreenVAT" t-inherit="point_of_sale.PartnerListScreen" t-inherit-mode="extension" owl="1">
+        <xpath expr="//th[hasclass('partner-line-email')]" position="after">
+            <th>VAT</th>
+        </xpath>
+    </t>
+
+</templates>

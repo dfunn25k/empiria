@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="KitchenOrderChangeReceipt">
+        <div class="pos-receipt">
+            <div class="pos-receipt-order-data"><t t-esc="changes.name" /></div>
+            <t t-if="changes.floor_name || changes.table_name">
+                <br/>
+                <div class="pos-receipt-title">
+                    <t t-esc="changes.floor_name" /> / <t t-esc="changes.table_name"/>
+                </div>
+            </t>
+            <br/>
+            <t t-if="changes.cancelled.length > 0">
+                <div color='red'>
+                    <div><b>CANCELLED<t t-esc='changes.time.hours'/>:
+                        <t t-esc='changes.time.minutes'/></b> </div>
+                    <table class='receipt-orderlines-cancelled' align="center;" width="100%">
+                        <colgroup>
+                            <col width='70%'/>
+                            <col width='30%'/>
+                        </colgroup>
+                        <tr style="border-bottom: solid 1px rgb(209, 209, 209);">
+                            <th style="text-align : left;font-size: 12px;">Product</th>
+                            <th style="float: right;font-size: 12px;">Units</th>
+                        </tr>
+                        <t t-foreach="changes.cancelled" t-as="change">
+                            <tr>
+                                <td class="pos-right-align" style="text-align : left;font-size: 15px;">
+                                    <t t-esc="change.name"/>
+                                </td>
+                                <td class="pos-right-align" style="font-size: 15px;">
+                                    <t t-esc="change.quantity"/>
+                                </td>
+                            </tr>
+                            <t t-if="change.note">
+                                <tr>
+                                    <td class="pos-right-align" style="text-align : left;font-size: 12px;font-style: italic;">
+                                        <b>Note:</b>
+                                        <t t-esc="change.note"/>
+                                    </td>
+                                    <td class="pos-right-align">
+
+                                    </td>
+                                </tr>
+                            </t>
+                        </t>
+                    </table>
+                </div>
+            </t>
+            <t t-if="changes.new.length > 0">
+                <div><b>NEW <t t-esc='changes.time.hours'/>:
+                    <t t-esc='changes.time.minutes'/></b></div>
+                <table class='receipt-orderlines-add' align="center;" width="100%">
+                    <colgroup>
+                        <col width='70%'/>
+                        <col width='30%'/>
+                    </colgroup>
+                    <tr style="border-bottom: solid 1px rgb(209, 209, 209);">
+                        <th style="text-align : left;font-size: 12px;">Product</th>
+                        <th style="float: right;font-size: 12px;">Units</th>
+                    </tr>
+                    <t t-foreach="changes.new" t-as="change">
+                        <tr>
+                            <td class="pos-right-align" style="text-align : left;font-size: 15px;">
+                                <t t-esc="change.name"/>
+                            </td>
+                            <td class="pos-right-align" style="font-size: 15px;">
+                                <t t-esc="change.quantity"/>
+                            </td>
+                        </tr>
+                        <t t-if="change.note">
+                            <tr>
+                                <td class="pos-right-align" style="text-align : left;font-size: 12px;font-style: italic;">
+                                    <b>Note:</b>
+                                    <t t-esc="change.note"/>
+                                </td>
+                                <td class="pos-right-align">
+
+                                </td>
+                            </tr>
+                        </t>
+                    </t>
+                </table>
+            </t>
+        </div>
+    </t>
+
+</templates>

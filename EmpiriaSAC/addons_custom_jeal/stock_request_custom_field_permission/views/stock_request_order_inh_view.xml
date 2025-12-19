@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <data noupdate="0">
+    <record id="view_stock_request_order_inh_form" model="ir.ui.view">
+      <field name="name">view.stock.request.order.inh.form</field>
+      <field name="model">stock.request.order</field>
+      <field name="inherit_id" ref="stock_request.stock_request_order_form" />
+      <field name="arch" type="xml">
+        <xpath expr="//sheet/notebook/page[@name='items']/field[@name='stock_request_ids']/tree/field[@name='state']" position="before">
+          <!-- Campo editable solo visible para el grupo 'group_edit_comment_stock_request' -->
+          <field name="comment_editable" string="Comentario" groups="stock_request_custom_field_permission.group_edit_comment_stock_request"/>
+
+          <!-- Campo de solo lectura, visible cuando el campo 'comment_editable' es invisible (cuando el usuario no tiene permisos) -->
+          <field name="comment_readonly" string="Comentario" groups="stock_request_custom_field_permission.group_view_comment_stock_request"/>
+        </xpath>
+      </field>
+    </record>
+  </data>
+</odoo>

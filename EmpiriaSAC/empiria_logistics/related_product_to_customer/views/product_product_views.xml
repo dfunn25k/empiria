@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="product_product_view_form_inherit_related_product_to_customer" model="ir.ui.view">
+        <field name="name">product.product.view.form.inherit.related_product_to_customer</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_normal_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='group_general']" position="inside">
+                <field name="partner_ids" widget="many2many_tags"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

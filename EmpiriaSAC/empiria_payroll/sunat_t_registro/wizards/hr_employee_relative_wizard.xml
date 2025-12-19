@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="hr_employee_relative_wizard_view_form" model="ir.ui.view">
+        <field name="name">hr.employee.relative.wizard.view.form</field>
+        <field name="model">hr.employee.relative.wizard</field>
+        <field name="arch" type="xml">
+            <form string="HR Employee Relative Wizard">
+                <group name="group_top">
+                    <group name="group_left">
+                        <field name="relation_id"/>
+                        <field name="name"/>
+                        <field name="type_identification_id"/>
+                        <field name="high_date"/>
+                        <field name="low_date"/>
+                        <field name="reason_leave" attrs="{'invisible': [('low_date', '=', False)]}"/>
+                        <field name="document_country_id"/>
+                    </group>
+                    <group name="group_right">
+                        <field name="month_pregnant" attrs="{'invisible': [('relation_type', '!=', '04')]}"/>
+                        <field name="first_lastname"/>
+                        <field name="second_lastname"/>
+                        <field name="doc_acreditation"/>
+                        <field name="n_doc_acred"/>
+                        <field name="relation_type"/>
+                    </group>
+                </group>
+                <footer>
+                    <button name="save_close_changes" string="Guardar" type="object" class="btn-primary"/>
+                    <button string="Descartar" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

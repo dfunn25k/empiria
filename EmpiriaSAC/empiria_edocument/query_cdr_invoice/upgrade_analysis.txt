@@ -1,0 +1,3 @@
+---Models in module 'query_cdr_invoice'---
+---Fields in module 'query_cdr_invoice'---
+---XML records in module 'query_cdr_invoice'---

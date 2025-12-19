@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="0">
+        <!-- Menú para el comprobante de retención - PDT 626 -->
+        <menuitem 
+            id          = "menu_retention_file_txt" 
+            name        = "Generar Comprobante de Retención PDT 626" 
+            action      = "retention_file_txt_action" 
+            parent      = "l10n_pe_account_reten.menu_retencion_root" 
+            sequence    = "2" />
+    </data>
+</odoo>

@@ -1,0 +1,271 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_combo_reload
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-11 12:47+0000\n"
+"PO-Revision-Date: 2023-01-11 12:47+0000\n"
+"Last-Translator: Leo Daniel Flores Sánchez <leo.dev.ganemo@gmail.com>\n"
+"Language-Team: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pos_combo_reload
+#. odoo-javascript
+#: code:addons/pos_combo_reload/static/src/js/ProductSelectionPopup.js:0
+#, python-format
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: pos_combo_reload
+#: model:ir.model.fields,field_description:pos_combo_reload.field_product_selection_topping__product_categ_id
+msgid "Category"
+msgstr "Categoría"
+
+#. module: pos_combo_reload
+#. odoo-javascript
+#: code:addons/pos_combo_reload/static/src/js/ProductSelectionPopup.js:0
+#, python-format
+msgid "Confirm"
+msgstr "Confirmar"
+
+#. module: pos_combo_reload
+#: model:ir.model.fields,field_description:pos_combo_reload.field_product_selection_topping__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: pos_combo_reload
+#: model:ir.model.fields,field_description:pos_combo_reload.field_product_selection_topping__create_date
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: pos_combo_reload
+#: model:ir.model.fields,field_description:pos_combo_reload.field_product_selection_topping__description
+msgid "Description"
+msgstr "Descripción"
+
+#. module: pos_combo_reload
+#: model:ir.model.fields,field_description:pos_combo_reload.field_product_selection_topping__display_name
+msgid "Display Name"
+msgstr "Nombre"
+
+#. module: pos_combo_reload
+#: model:ir.model.fields,field_description:pos_combo_reload.field_product_selection_topping__id
+msgid "ID"
+msgstr "ID"
+
+#. module: pos_combo_reload
+#: model:ir.model.fields,field_description:pos_combo_reload.field_product_selection_topping__include_all
+msgid "Include all Products"
+msgstr "Incluir todos los productos"
+
+#. module: pos_combo_reload
+#: model:ir.model.fields,field_description:pos_combo_reload.field_product_product__include_price
+#: model:ir.model.fields,field_description:pos_combo_reload.field_product_template__include_price
+msgid "Include the price of the products in the combo"
+msgstr "Incluir el precio del los productos en el combo"
+
+#. module: pos_combo_reload
+#: model:ir.model.fields,field_description:pos_combo_reload.field_product_selection_topping__product_template_id
+msgid "Item"
+msgstr "Producto"
+
+#. module: pos_combo_reload
+#. odoo-javascript
+#: code:addons/pos_combo_reload/static/src/xml/ProductSelectionPopup.xml:0
+#, python-format
+msgid "Item Price ="
+msgstr "Precio ="
+
+#. module: pos_combo_reload
+#: model:ir.model.fields,field_description:pos_combo_reload.field_product_selection_topping____last_update
+msgid "Last Modified on"
+msgstr "Última modificación el"
+
+#. module: pos_combo_reload
+#: model:ir.model.fields,field_description:pos_combo_reload.field_product_selection_topping__write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: pos_combo_reload
+#: model:ir.model.fields,field_description:pos_combo_reload.field_product_selection_topping__write_date
+msgid "Last Updated on"
+msgstr "Ultima actualización en"
+
+#. module: pos_combo_reload
+#: model:ir.model.fields,field_description:pos_combo_reload.field_product_selection_topping__no_of_items
+msgid "Max Items"
+msgstr "Máximo de productos"
+
+#. module: pos_combo_reload
+#. odoo-javascript
+#: code:addons/pos_combo_reload/static/src/js/MessagePopup.js:0
+#, python-format
+msgid "Message"
+msgstr "Mensaje"
+
+#. module: pos_combo_reload
+#: model:ir.model.fields,field_description:pos_combo_reload.field_product_selection_topping__no_of_min_items
+msgid "Min Items"
+msgstr "Mínimo de productos"
+
+#. module: pos_combo_reload
+#: model:ir.model.fields,field_description:pos_combo_reload.field_product_selection_topping__multi_selection
+msgid "Multiple Selection"
+msgstr "Selección múltiple"
+
+#. module: pos_combo_reload
+#. odoo-javascript
+#: code:addons/pos_combo_reload/static/src/js/MessagePopup.js:0
+#, python-format
+msgid "Ok"
+msgstr ""
+
+#. module: pos_combo_reload
+#: model:ir.model.fields,field_description:pos_combo_reload.field_pos_order_line__own_data
+msgid "Order Data"
+msgstr ""
+
+#. module: pos_combo_reload
+#: model:ir.model.fields,field_description:pos_combo_reload.field_pos_order_line__order_menu
+msgid "Order Menu"
+msgstr ""
+
+#. module: pos_combo_reload
+#. odoo-python
+#: code:addons/pos_combo_reload/models/product.py:0
+#, python-format
+msgid "Please select category to include all product in combo"
+msgstr "Seleccione la categoría para incluir todos los productos en el combo"
+
+#. module: pos_combo_reload
+#: model:ir.model,name:pos_combo_reload.model_pos_order_line
+msgid "Point of Sale Order Lines"
+msgstr "Líneas de Orden de Punto de Venta"
+
+#. module: pos_combo_reload
+#: model:ir.model,name:pos_combo_reload.model_pos_order
+msgid "Point of Sale Orders"
+msgstr "Pedidos del TPV"
+
+#. module: pos_combo_reload
+#: model:ir.model,name:pos_combo_reload.model_pos_session
+msgid "Point of Sale Session"
+msgstr "Sesión TPV"
+
+#. module: pos_combo_reload
+#: model:ir.model,name:pos_combo_reload.model_product_template
+msgid "Product"
+msgstr "Producto"
+
+#. module: pos_combo_reload
+#. odoo-javascript
+#: code:addons/pos_combo_reload/static/src/xml/ProductItem.xml:0
+#, python-format
+msgid "Product Combo"
+msgstr "Producto Combo"
+
+#. module: pos_combo_reload
+#: model:ir.model,name:pos_combo_reload.model_product_selection_topping
+msgid "Product Selection Topping"
+msgstr ""
+
+#. module: pos_combo_reload
+#: model:ir.model.fields,field_description:pos_combo_reload.field_product_product__product_topping_ids
+#: model:ir.model.fields,field_description:pos_combo_reload.field_product_template__product_topping_ids
+msgid "Product Toppings"
+msgstr ""
+
+#. module: pos_combo_reload
+#: model:ir.model.fields,field_description:pos_combo_reload.field_product_selection_topping__product_ids
+msgid "Products"
+msgstr "Productos"
+
+#. module: pos_combo_reload
+#: model:ir.model.fields,field_description:pos_combo_reload.field_product_product__is_selection_combo
+#: model:ir.model.fields,field_description:pos_combo_reload.field_product_template__is_selection_combo
+#: model_terms:ir.ui.view,arch_db:pos_combo_reload.point_of_sale_product_template_form_view_topping
+msgid "Selection Combo"
+msgstr "Combo de selección"
+
+#. module: pos_combo_reload
+#: model:ir.model.fields,field_description:pos_combo_reload.field_pos_order_line__is_selection_combo
+msgid "Selection Combo Line"
+msgstr ""
+
+#. module: pos_combo_reload
+#: model_terms:ir.ui.view,arch_db:pos_combo_reload.point_of_sale_product_template_form_view_topping
+msgid "Taxes"
+msgstr "Impuestos"
+
+#. module: pos_combo_reload
+#. odoo-javascript
+#: code:addons/pos_combo_reload/static/src/xml/SelectionComboProductList.xml:0
+#, python-format
+msgid "There are no products in this category."
+msgstr "No hay productos en esta categoría."
+
+#. module: pos_combo_reload
+#: model:ir.model.fields,help:pos_combo_reload.field_product_product__is_selection_combo
+#: model:ir.model.fields,help:pos_combo_reload.field_product_template__is_selection_combo
+msgid "This will use for Selecting items from Combo Pack"
+msgstr "Esto se usará para seleccionar artículos del Combo"
+
+#. module: pos_combo_reload
+#. odoo-javascript
+#: code:addons/pos_combo_reload/static/src/xml/ProductSelectionPopup.xml:0
+#, python-format
+msgid "Total ="
+msgstr ""
+
+#. module: pos_combo_reload
+#: model:ir.model.fields,field_description:pos_combo_reload.field_pos_order_line__worthless_combo
+msgid "Worthless Combo"
+msgstr ""
+
+#. module: pos_combo_reload
+#. odoo-javascript
+#: code:addons/pos_combo_reload/static/src/js/ProductSelectionPopup.js:0
+#, python-format
+msgid "You Must Have to Select"
+msgstr "Debes tener que seleccionar"
+
+#. module: pos_combo_reload
+#: model:ir.model.fields,field_description:pos_combo_reload.field_product_product__is_editable_items
+#: model:ir.model.fields,field_description:pos_combo_reload.field_product_template__is_editable_items
+msgid "You can edit the combo"
+msgstr "Se puede editar el combo?"
+
+#. module: pos_combo_reload
+#. odoo-javascript
+#: code:addons/pos_combo_reload/static/src/js/ProductSelectionPopup.js:0
+#, python-format
+msgid "You can not confirm without select any item of min qty"
+msgstr "No puede confirmar sin seleccionar cualquier artículo de cantidad mínima"
+
+#. module: pos_combo_reload
+#. odoo-javascript
+#: code:addons/pos_combo_reload/static/src/js/ProductSelectionPopup.js:0
+#, python-format
+msgid "You can only select"
+msgstr "Solo puedes seleccionar"
+
+#. module: pos_combo_reload
+#. odoo-javascript
+#: code:addons/pos_combo_reload/static/src/js/ProductSelectionPopup.js:0
+#, python-format
+msgid "You can select only one item"
+msgstr "Puedes seleccionar solo un artículo"
+
+#. module: pos_combo_reload
+#. odoo-javascript
+#: code:addons/pos_combo_reload/static/src/js/ProductSelectionPopup.js:0
+#: code:addons/pos_combo_reload/static/src/js/ProductSelectionPopup.js:0
+#, python-format
+msgid "item from"
+msgstr "producto de"

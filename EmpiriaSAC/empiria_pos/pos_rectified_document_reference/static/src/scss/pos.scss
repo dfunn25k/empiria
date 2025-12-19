@@ -1,0 +1,96 @@
+.rectified_document_reference_div {
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.rectified_document_reference_date_div {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+}
+
+.rectified_document_reference_date_div .reference_date_rectified_div {
+    display: flex;
+    flex-direction: column;
+}
+
+.reference_date_rectified_div input {
+    appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+}
+
+.reference_date_rectified_div input:focus-visible {
+    outline: none;
+}
+
+.reference_date_rectified_div .input_invoice {
+    cursor: pointer;
+    background-color: transparent;
+    width: 100%;
+    outline: 0;
+    padding: 0.5em 0px;
+    text-align: center;
+    color: #4A4F59;
+    font-size: 16px;
+    border: solid 1px #C9CCD2;
+}
+
+.reference_date_rectified_div input[type="text"] {
+    padding: 0.6em 0px;
+}
+
+.invoice_reference_type_l10n_latam_document_type_ids_div {
+    width: 100%;
+}
+
+.ticket_reference_type_l10n_latam_document_type_ids_div {
+    width: 100%;
+}
+
+.invoice_reference_type_l10n_latam_document_type_ids_div {
+    text-align: center;
+    font-size: 16px;
+    padding-bottom: 0em;
+}
+
+.invoice_reference_type_l10n_latam_document_type_ids_div select {
+    appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+}
+
+.invoice_reference_type_l10n_latam_document_type_ids_div select:focus-visible {
+    outline: none;
+}
+
+.invoice_reference_type_l10n_latam_document_type_ids_div .select_invoice {
+    cursor: pointer;
+    background-color: transparent;
+    width: 90%;
+    outline: 0;
+    padding: 0.5em;
+    color: #4A4F59;
+    font-size: 16px;
+    border: solid 1px #C9CCD2;
+    transition: all 0.25s ease;
+}
+
+@media screen and (max-width: 768px) {
+    .rectified_document_reference_date_div {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .rectified_document_reference_date_div .reference_date_rectified_div {
+        align-items: center;
+        width: 100%;
+    }
+
+    .rectified_document_reference_date_div .reference_date_rectified_div input {
+        width: 87%;
+    }
+}

@@ -1,0 +1,11 @@
+---Models in module 'autocreate_pos_invoice'---
+new inherit model res.config.settings [transient]
+---Fields in module 'autocreate_pos_invoice'---
+base      / res.config.settings          / pos_always_move_account (boolean)  : new related
+base      / res.config.settings          / pos_ticket_user_id (many2one)  : new related
+base      / res.config.settings          / pos_invoice_journal_id (many2one)  : new related
+base      / res.config.settings          / pos_ticket_journal_id (many2one)  : new related
+---XML records in module 'autocreate_pos_invoice'---
+DEL ir.ui.view: autocreate_pos_invoice.pos_config_form_view_inherit_autocreate_pos_invoice
+NEW ir.ui.view: autocreate_pos_invoice.res_config_settings_form_view_inherit_autocreate_pos_invoice
+-- Depends in module 'autocreate_pos_invoice' --

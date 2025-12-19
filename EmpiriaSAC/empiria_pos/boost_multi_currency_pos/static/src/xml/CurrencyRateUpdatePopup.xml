@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="CurrencyRateUpdatePopup" owl="1">
+        <div class="modal-dialog">
+            <div class="popup popup-textinput rate_update">
+                <p class="title">
+                    <t t-esc="props.title"/>
+                </p>
+                <div class="popup_currency_info">
+                    Current rate 1 <t t-esc="env.pos.company.currency_id[1]"/>
+                        =
+                        <t t-esc="props.currency.rate"/>
+                        <t t-esc="props.currency.name"/>
+                </div>
+                <div>
+                    <span id="conversion_rate">1 <t t-esc="env.pos.company.currency_id[1]"/>
+                        =
+                        <input placeholder="New Rate" id="new_rate" style="margin: 10px; width: 50%; line-height: 29px;"/>
+                        <t t-esc="props.currency.name"/>
+                    </span>
+                </div>
+                <div class="footer">
+                    <div class="button confirm highlight" t-on-click="_update_rate">
+                        Apply
+                    </div>
+                    <div class="button cancel" t-on-click="cancel">
+                        <t t-esc="props.cancelText" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+</templates>

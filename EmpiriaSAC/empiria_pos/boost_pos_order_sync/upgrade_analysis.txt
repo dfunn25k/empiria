@@ -1,0 +1,3 @@
+---Models in module 'boost_pos_order_sync'---
+---Fields in module 'boost_pos_order_sync'---
+---XML records in module 'boost_pos_order_sync'---

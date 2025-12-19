@@ -1,0 +1,4 @@
+---Models in module 'document_type_on_pos'---
+---Fields in module 'document_type_on_pos'---
+---XML records in module 'document_type_on_pos'---
+-- Depends in module 'document_type_on_pos' --

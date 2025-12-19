@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="port_catalog_pub" model="port.catalog">
+            <field name="name">Bayóvar</field>
+            <field name="code">PUB</field>
+            <field name="ubigeo">200801</field>
+            <field name="department">Piura</field>
+            <field name="province">Sechura</field>
+            <field name="district">Sechura</field>
+            <field name="address">Jorge Chávez 369 Paita</field>
+            <field name="state">Vigente</field>
+        </record>
+
+        <record id="port_catalog_cll" model="port.catalog">
+            <field name="name">Callao</field>
+            <field name="code">CLL</field>
+            <field name="ubigeo">070101</field>
+            <field name="department">Lima</field>
+            <field name="province">Prov. Const. del Callao</field>
+            <field name="district">Callao</field>
+            <field name="address">Contralmirante Raygada Cdra. 1 Callao</field>
+            <field name="state">Vigente</field>
+        </record>
+
+        <record id="port_catalog_con" model="port.catalog">
+            <field name="name">Conchán</field>
+            <field name="code">CON</field>
+            <field name="ubigeo">150119</field>
+            <field name="department">Lima</field>
+            <field name="province">Lima</field>
+            <field name="district">Lurín</field>
+            <field name="address">Carretera Panamericana Sur Km.26.5</field>
+            <field name="state">Vigente</field>
+        </record>
+
+        <record id="port_catalog_chy" model="port.catalog">
+            <field name="name">Chancay</field>
+            <field name="code">CHY</field>
+            <field name="ubigeo">150605</field>
+            <field name="department">Lima</field>
+            <field name="province">Huaral</field>
+            <field name="district">Chancay</field>
+            <field name="address">Av. Roosevelt 680 Chancay</field>
+            <field name="state">Vigente</field>
+        </record>
+
+        <record id="port_catalog_chm" model="port.catalog">
+            <field name="name">Chimbote</field>
+            <field name="code">CHM</field>
+            <field name="ubigeo">021801</field>
+            <field name="department">Ancash</field>
+            <field name="province">Santa</field>
+            <field name="district">Chimbote</field>
+            <field name="address">Av. Malecón Grau N°519 Chimbote</field>
+            <field name="state">Vigente</field>
+        </record>
+
+        <record id="port_catalog_een" model="port.catalog">
+            <field name="name">Eten</field>
+            <field name="code">EEN</field>
+            <field name="ubigeo">140113</field>
+            <field name="department">Lambayeque</field>
+            <field name="province">Chiclayo</field>
+            <field name="district">Reque</field>
+            <field name="address">Playa Lobos s/n</field>
+            <field name="state">Vigente</field>
+        </record>
+
+        <record id="port_catalog_hco" model="port.catalog">
+            <field name="name">Huacho</field>
+            <field name="code">HCO</field>
+            <field name="ubigeo">150801</field>
+            <field name="department">Lima</field>
+            <field name="province">Huaura</field>
+            <field name="district">Huacho</field>
+            <field name="address">Luna Arrieta Cdra. 6</field>
+            <field name="state">Vigente</field>
+        </record>
+
+        <record id="port_catalog_huy" model="port.catalog">
+            <field name="name">Huarmey</field>
+            <field name="code">HUY</field>
+            <field name="ubigeo">021101</field>
+            <field name="department">Ancash</field>
+            <field name="province">Huarmey</field>
+            <field name="district">Huarmey</field>
+            <field name="address">Puerto Punta de Lobitos</field>
+            <field name="state">Vigente</field>
+        </record>
+
+        <record id="port_catalog_ilq" model="port.catalog">
+            <field name="name">Ilo</field>
+            <field name="code">ILQ</field>
+            <field name="ubigeo">180301</field>
+            <field name="department">Moquegua</field>
+            <field name="province">Ilo</field>
+            <field name="district">Ilo</field>
+            <field name="address">Calle Matará N°104</field>
+            <field name="state">Vigente</field>
+        </record>
+
+        <record id="port_catalog_iqt" model="port.catalog">
+            <field name="name">Iquitos</field>
+            <field name="code">IQT</field>
+            <field name="ubigeo">160101</field>
+            <field name="department">Loreto</field>
+            <field name="province">Maynas</field>
+            <field name="district">Iquitos</field>
+            <field name="address">Av. La Marina N°1383</field>
+            <field name="state">Vigente</field>
+        </record>
+
+        <record id="port_catalog_mri" model="port.catalog">
+            <field name="name">Matarani</field>
+            <field name="code">MRI</field>
+            <field name="ubigeo">040701</field>
+            <field name="department">Arequipa</field>
+            <field name="province">Islay</field>
+            <field name="district">Mollendo</field>
+            <field name="address">Terminal Portuario Matarani S/N</field>
+            <field name="state">Vigente</field>
+        </record>
+
+        <record id="port_catalog_pai" model="port.catalog">
+            <field name="name">Paita</field>
+            <field name="code">PAI</field>
+            <field name="ubigeo">200501</field>
+            <field name="department">Piura</field>
+            <field name="province">Paita</field>
+            <field name="district">Paita</field>
+            <field name="address">Jirón Ferrocarril N°127</field>
+            <field name="state">Vigente</field>
+        </record>
+
+        <record id="port_catalog_pio" model="port.catalog">
+            <field name="name">Pisco</field>
+            <field name="code">PIO</field>
+            <field name="ubigeo">110505</field>
+            <field name="department">Ica</field>
+            <field name="province">Pisco</field>
+            <field name="district">Paracas</field>
+            <field name="address">Carretera Pisco-Paracas Km.11.5</field>
+            <field name="state">Vigente</field>
+        </record>
+
+        <record id="port_catalog_pcl" model="port.catalog">
+            <field name="name">Pucallpa</field>
+            <field name="code">PCL</field>
+            <field name="ubigeo">250101</field>
+            <field name="department">Ucayali</field>
+            <field name="province">Coronel portillo</field>
+            <field name="district">Callería</field>
+            <field name="address">Jirón 2 de Mayo N°150</field>
+            <field name="state">Vigente</field>
+        </record>
+
+        <record id="port_catalog_pun" model="port.catalog">
+            <field name="name">Puno</field>
+            <field name="code">PUN</field>
+            <field name="ubigeo">210101</field>
+            <field name="department">Puno</field>
+            <field name="province">Puno</field>
+            <field name="district">Puno</field>
+            <field name="address">Av. El Sol Puno</field>
+            <field name="state">Vigente</field>
+        </record>
+
+        <record id="port_catalog_svy" model="port.catalog">
+            <field name="name">Salaverry</field>
+            <field name="code">SVY</field>
+            <field name="ubigeo">130109</field>
+            <field name="department">La libertad</field>
+            <field name="province">Trujillo</field>
+            <field name="district">Salaverry</field>
+            <field name="address">Calle Córdova S/N</field>
+            <field name="state">Vigente</field>
+        </record>
+
+        <record id="port_catalog_snx" model="port.catalog">
+            <field name="name">San Nicolas</field>
+            <field name="code">SNX</field>
+            <field name="ubigeo">110304</field>
+            <field name="department">Ica</field>
+            <field name="province">Nazca</field>
+            <field name="district">Marcona</field>
+            <field name="address">Complejo Metalúrgico de San Nicolás</field>
+            <field name="state">Vigente</field>
+        </record>
+
+        <record id="port_catalog_sup" model="port.catalog">
+            <field name="name">Supe</field>
+            <field name="code">SUP</field>
+            <field name="ubigeo">150204</field>
+            <field name="department">Lima</field>
+            <field name="province">Barranca</field>
+            <field name="district">Supe</field>
+            <field name="address">Calle Callao N°445-460</field>
+            <field name="state">Vigente</field>
+        </record>
+
+        <record id="port_catalog_tyl" model="port.catalog">
+            <field name="name">Talara</field>
+            <field name="code">TYL</field>
+            <field name="ubigeo">200701</field>
+            <field name="department">Piura</field>
+            <field name="province">Talara</field>
+            <field name="district">Pariñas</field>
+            <field name="address">Prolongación Av. G-2 (Área Administrativa)</field>
+            <field name="state">Vigente</field>
+        </record>
+
+        <record id="port_catalog_yms" model="port.catalog">
+            <field name="name">Yurimaguas</field>
+            <field name="code">YMS</field>
+            <field name="ubigeo">160201</field>
+            <field name="department">Loreto</field>
+            <field name="province">Alto amazonas</field>
+            <field name="district">Yurimaguas</field>
+            <field name="address">Calle Mariscal Castilla N°1000</field>
+            <field name="state">Vigente</field>
+        </record>
+
+        <record id="port_catalog_zor" model="port.catalog">
+            <field name="name">Zorritos</field>
+            <field name="code">ZOR</field>
+            <field name="ubigeo">240103</field>
+            <field name="department">Tumbes</field>
+            <field name="province">Tumbes</field>
+            <field name="district">La cruz</field>
+            <field name="address">Puerto Pizarro La Cruz</field>
+            <field name="state">Vigente</field>
+        </record>
+
+    </data>
+</odoo>

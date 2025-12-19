@@ -1,0 +1,4 @@
+---Models in module 'pos_multi_uom_product_right'---
+---Fields in module 'pos_multi_uom_product_right'---
+---XML records in module 'pos_multi_uom_product_right'---
+-- Depends in module 'pos_multi_uom_product_right' --

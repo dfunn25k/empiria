@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+	<t t-name="OrderReceipt" t-inherit="point_of_sale.OrderReceipt" t-inherit-mode="extension" owl="1">
+		<xpath expr="//div[hasclass('pos-receipt-contact')]" position="after">
+            <br/><br/>
+			<t t-if="props.order.delivery">
+				<div style="text-align: center; font-size: 125%;">Delivery Info:</div>
+				<table style="min-width:100%;font-size: 14px;">
+					<tr>
+						<td style="width: 40%;">Name: </td>
+						<td t-if="props.order.d_name"> <t t-esc="props.order.d_name || ''"/></td>
+						<td t-if="!props.order.d_name"> <t t-esc="props.order.get_partner().name || ''"/></td>
+					</tr>
+					<tr >
+						<td>Mobile: </td>
+						<td t-if="props.order.d_name"> <t t-esc="props.order.mobile || props.order.phone || ''"/></td>
+						<td t-if="!props.order.d_name"> <t t-esc="props.order.get_partner().mobile || props.order.get_partner().phone || ''"/></td>
+					</tr>
+					<tr >
+						<td>Deliver By: </td>
+						<td> <t t-esc="deliveryPerson || ''"/></td>
+					</tr>
+					<tr>
+						<td>Date: </td>
+						<td>
+							<t t-esc="hddate"/>
+						</td>
+					</tr>
+					<tr>
+						<td style="padding-bottom: 25px;">Address: </td>
+						<td t-if="props.order.d_name" style="line-height: 1;">
+							<t t-esc="props.order.address || ''"/><br/>
+							<t t-esc="props.order.street || ''"/><br/>
+							<t t-esc="props.order.city || ''"/>,
+							<t t-esc="props.order.zip || ''"/><br/>
+						</td>
+						<td t-if="!props.order.d_name" style="line-height: 1;">
+							<t t-esc="props.order.get_partner().street || ''"/><br/>
+							<t t-esc="props.order.get_partner().street2 || ''"/><br/>
+							<t t-esc="props.order.get_partner().city || ''"/>,
+							<t t-esc="props.order.get_partner().zip || ''"/><br/>
+						</td>
+					</tr>
+				</table>
+				<br/>
+			</t>
+		</xpath>
+	</t>
+</templates>

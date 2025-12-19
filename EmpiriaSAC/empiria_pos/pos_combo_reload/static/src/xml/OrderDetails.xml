@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="OrderDetails" t-inherit="point_of_sale.OrderDetails" t-inherit-mode="extension" owl="1">
+        <xpath expr="//ul[@class='orderlines']" position="replace">
+            <ul class="orderlines">
+                <t t-foreach="orderlines" t-as="orderline" t-key="orderline.id">
+                    <t t-if="!orderline.worthless_combo">
+                        <OrderlineDetails line="orderline" isSelected="orderline.id == props.selectedOrderlineId" />
+                    </t>
+                </t>
+            </ul>
+        </xpath>
+    </t>
+</templates>

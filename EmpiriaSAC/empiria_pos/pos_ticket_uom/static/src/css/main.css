@@ -1,0 +1,15 @@
+.table-ticket {
+    table-layout: fixed;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.table-ticket thead {
+    font-size: 10px;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+.table-ticket tbody {
+    font-size: 9px;
+}

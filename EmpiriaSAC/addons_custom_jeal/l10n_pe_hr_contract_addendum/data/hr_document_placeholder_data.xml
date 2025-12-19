@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="ph_company_name" model="hr.document.placeholder">
+            <field name="name">[EMPRESA.RAZON_SOCIAL]</field>
+            <field name="expression">o.contract_id.company_id.name or '[RAZÓN SOCIAL FALTANTE]'</field>
+            <field name="description">EMPRESA: Nombre o Razón Social.</field>
+        </record>
+        <record id="ph_company_id_type" model="hr.document.placeholder">
+            <field name="name">[EMPRESA.TIPO_IDENTIFICACION]</field>
+            <field name="expression">o.contract_id.company_id.partner_id.l10n_latam_identification_type_id.name or '[TIPO DOC. FALTANTE]'</field>
+            <field name="description">EMPRESA: Tipo de identificación (ej: RUC).</field>
+        </record>
+        <record id="ph_company_vat" model="hr.document.placeholder">
+            <field name="name">[EMPRESA.RUC]</field>
+            <field name="expression">o.contract_id.company_id.vat or '[RUC FALTANTE]'</field>
+            <field name="description">EMPRESA: Número de identificación (RUC).</field>
+        </record>
+        <record id="ph_company_street1" model="hr.document.placeholder">
+            <field name="name">[EMPRESA.CALLE1]</field>
+            <field name="expression">o.contract_id.company_id.partner_id.street or ''</field>
+            <field name="description">EMPRESA: Dirección - Calle principal.</field>
+        </record>
+        <record id="ph_company_street2" model="hr.document.placeholder">
+            <field name="name">[EMPRESA.CALLE2]</field>
+            <field name="expression">o.contract_id.company_id.partner_id.street2 or ''</field>
+            <field name="description">EMPRESA: Dirección - Calle secundaria o referencia.</field>
+        </record>
+        <record id="ph_company_district" model="hr.document.placeholder">
+            <field name="name">[EMPRESA.DISTRITO]</field>
+            <field name="expression">o.contract_id.company_id.partner_id.l10n_pe_district.name or ''</field>
+            <field name="description">EMPRESA: Dirección - Distrito.</field>
+        </record>
+        <record id="ph_company_city" model="hr.document.placeholder">
+            <field name="name">[EMPRESA.PROVINCIA]</field>
+            <field name="expression">o.contract_id.company_id.partner_id.city_id.name or ''</field>
+            <field name="description">EMPRESA: Dirección - Provincia.</field>
+        </record>
+        <record id="ph_company_state" model="hr.document.placeholder">
+            <field name="name">[EMPRESA.DEPARTAMENTO]</field>
+            <field name="expression">o.contract_id.company_id.partner_id.state_id.name or ''</field>
+            <field name="description">EMPRESA: Dirección - Departamento.</field>
+        </record>
+        <record id="ph_company_full_address" model="hr.document.placeholder">
+            <field name="name">[EMPRESA.DIRECCION_COMPLETA]</field>
+            <field name="expression">', '.join(filter(None, [
+                o.contract_id.company_id.partner_id.street,
+                o.contract_id.company_id.partner_id.street2,
+                o.contract_id.company_id.partner_id.l10n_pe_district.name,
+                o.contract_id.company_id.partner_id.city_id.name,
+                o.contract_id.company_id.partner_id.state_id.name
+            ])) or '[DIRECCIÓN DE EMPRESA FALTANTE]'</field>
+            <field name="description">EMPRESA: Dirección completa y formateada.</field>
+        </record>
+
+        <record id="ph_legal_rep_name" model="hr.document.placeholder">
+            <field name="name">[REPRESENTANTE.NOMBRE]</field>
+            <field name="expression">o.contract_id.company_id.legal_representative.name or '[NOMBRE REPRESENTANTE FALTANTE]'</field>
+            <field name="description">REPRESENTANTE: Nombre completo.</field>
+        </record>
+        <record id="ph_legal_rep_id_type" model="hr.document.placeholder">
+            <field name="name">[REPRESENTANTE.TIPO_IDENTIFICACION]</field>
+            <field name="expression">o.contract_id.company_id.legal_representative.l10n_latam_identification_type_id.name or '[TIPO DOC. FALTANTE]'</field>
+            <field name="description">REPRESENTANTE: Tipo de identificación.</field>
+        </record>
+        <record id="ph_legal_rep_vat" model="hr.document.placeholder">
+            <field name="name">[REPRESENTANTE.NUMERO_IDENTIFICACION]</field>
+            <field name="expression">o.contract_id.company_id.legal_representative.vat or '[NRO. DOC. FALTANTE]'</field>
+            <field name="description">REPRESENTANTE: Número de identificación.</field>
+        </record>
+
+        <record id="ph_employee_name" model="hr.document.placeholder">
+            <field name="name">[TRABAJADOR.NOMBRE_COMPLETO]</field>
+            <field name="expression">o.employee_id.name or '[NOMBRE TRABAJADOR FALTANTE]'</field>
+            <field name="description">TRABAJADOR: Nombre completo.</field>
+        </record>
+        <record id="ph_employee_id_type" model="hr.document.placeholder">
+            <field name="name">[TRABAJADOR.TIPO_IDENTIFICACION]</field>
+            <field name="expression">o.employee_id.type_identification_id.name or '[TIPO DOC. FALTANTE]'</field>
+            <field name="description">TRABAJADOR: Tipo de identificación (ej: DNI).</field>
+        </record>
+        <record id="ph_employee_vat" model="hr.document.placeholder">
+            <field name="name">[TRABAJADOR.NUMERO_IDENTIFICACION]</field>
+            <field name="expression">o.employee_id.identification_id or '[NRO. DOC. FALTANTE]'</field>
+            <field name="description">TRABAJADOR: Número de identificación (DNI).</field>
+        </record>
+        <record id="ph_employee_address" model="hr.document.placeholder">
+            <field name="name">[TRABAJADOR.DIRECCION]</field>
+            <field name="expression">o.employee_id.address_home_id.street or '[DIRECCIÓN TRABAJADOR FALTANTE]'</field>
+            <field name="description">TRABAJADOR: Dirección de domicilio (calle principal).</field>
+        </record>
+
+        <record id="ph_contract_start_date_formatted" model="hr.document.placeholder">
+            <field name="name">[CONTRATO.FECHA_INICIO_FORMATO]</field>
+            <field name="expression">o.relacion_laboral_date.strftime('%d de %B de %Y') if o.relacion_laboral_date else '[FECHA FALTANTE]'</field>
+            <field name="description">CONTRATO: Fecha de inicio de la relación laboral (formato texto).</field>
+        </record>
+        <record id="ph_contract_job_title" model="hr.document.placeholder">
+            <field name="name">[CONTRATO.PUESTO_TRABAJO]</field>
+            <field name="expression">o.contract_id.job_id.name or '[PUESTO FALTANTE]'</field>
+            <field name="description">CONTRATO: Puesto de trabajo.</field>
+        </record>
+        <record id="ph_addendum_modified_clauses" model="hr.document.placeholder">
+            <field name="name">[ADENDA.CLAUSULAS_MODIFICADAS]</field>
+            <field name="expression">', '.join(o.clausula_modificada_ids.mapped('name')) or '[NO SE ESPECIFICARON CLÁUSULAS]'</field>
+            <field name="description">ADENDA: Lista de cláusulas que se están modificando.</field>
+        </record>
+
+        <record id="ph_contract_original_signed_date" model="hr.document.placeholder">
+            <field name="name">[CONTRATO.FECHA_SUSCRITO_ORIGINAL_FORMATO]</field>
+            <field name="expression">o.suscrito_date.strftime('%d de %B de %Y') if o.suscrito_date else '[FECHA SUSCRITO FALTANTE]'</field>
+            <field name="description">CONTRATO: Fecha en que se firmó el contrato original.</field>
+        </record>
+
+        <record id="ph_addendum_print_date" model="hr.document.placeholder">
+            <field name="name">[ADENDA.FECHA_IMPRESION_FORMATO]</field>
+            <field name="expression">o.fecha_impresion.strftime('%d de %B de %Y') if o.fecha_impresion else '[FECHA IMPRESIÓN FALTANTE]'</field>
+            <field name="description">ADENDA: Fecha de impresión de este documento.</field>
+        </record>
+    </data>
+</odoo>

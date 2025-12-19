@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.api.data.token</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="0" />
+        <field name="inherit_id" ref="base_setup.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+<!--            <widget name='res_config_dev_tool'/>-->
+            <xpath expr="//widget[@name='res_config_dev_tool']" position="before">
+                <div id="api_integration">
+                    <h2>API TOKEN</h2>
+                    <div class="row mt16 o_settings_container" name="api_data_integration">
+                        <div class="col-12 col-lg-6 o_setting_box" id="api_data_token">
+                            <div class="o_setting_left_pane"/>
+                            <div class="o_setting_right_pane">
+                                <label string="API token" for="api_data_token"/>
+                                <a href="https://www.ganemo.co" title="Documentation" class="o_doc_link" target="_blank"/>
+                                <div class="text-muted">
+                                    Sincroniza con la API para tener los datos de TC, PRIMAS
+                                </div>
+                                <span>
+                                    Token:
+                                    <field name="api_data_token" password="True"/>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>

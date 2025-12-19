@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_hr_document_placeholder_user,HrDocumentPlaceholder,model_hr_document_placeholder,base.group_user,1,1,1,1
+access_hr_contract_clause,hr.contract.clause,model_hr_contract_clause,base.group_user,1,1,1,1
+access_hr_document_template,hr.document.template,model_hr_document_template,base.group_user,1,1,1,1
+access_hr_document_template_line,hr.document.template.line,model_hr_document_template_line,base.group_user,1,1,1,1
+access_hr_contract_addendum_wizard,hr.contract.addendum.wizard,model_hr_contract_addendum_wizard,base.group_user,1,1,1,1

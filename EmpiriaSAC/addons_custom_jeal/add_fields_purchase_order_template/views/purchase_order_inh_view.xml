@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="purchase_order_form_inh" model="ir.ui.view">
+            <field name="name">purchase.order.form.inh</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//group/group/field[@name='partner_id']" position="after">
+                    <label for="account_number_partner_id"/>
+
+                    <div name="account_number_partner_id_div" class="o_row">
+                        <field name="account_number_partner_id" placeholder="Selecione una cuenta" widget="res_partner_many2one" domain="[('partner_id', '=', partner_id)]"/>
+                        <field name="currency_partner_id" widget="res_partner_many2one" nolabel="1"/>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

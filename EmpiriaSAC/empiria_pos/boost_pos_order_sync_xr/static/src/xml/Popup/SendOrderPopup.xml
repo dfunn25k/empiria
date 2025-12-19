@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="SendOrderPopup" t-inherit="boost_pos_order_sync.SendOrderPopup" t-inherit-mode="extension" owl="1">
+        <xpath expr="//div[@id='active_session_div']" position="after">
+            <div id='wk_floor_table' style='display: none;'>
+                <div style="display: inline-block; width: 90%;">
+                    <div style="float:left; width: 50%;">
+                        <span class='wk_floor'>Floor : </span>
+                        <select id="wk_change_floor" t-on-change="change_tables" style="width: 60%;">
+                            <option value=''>None</option>
+                        </select>
+                    </div>
+                    <div style="float:right; width: 50%;">
+                        <span class='wk_table'>Table : </span>
+                        <select id="wk_change_table" t-on-click="click_table" style="width: 60%;">
+                            <option value=''>None</option>
+                        </select>
+                    </div>
+                </div>
+                <p class="show_info">Please select floor and table</p>
+            </div>
+        </xpath>
+    </t>
+</templates>

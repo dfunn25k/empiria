@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="view_account_payment_register_forced_exchange_rate_inh_form" model="ir.ui.view">
+            <field name="name">view.account.payment.register.forced.exchange.rate.inh.form</field>
+            <field name="model">account.payment.register</field>
+            <field name="inherit_id" ref="account.view_account_payment_register_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//group/group/field[@name='payment_date']" position="before">
+                    <field name="exchange_rate" string="Tipo de Cambio" digits="[12,6]" attrs="{'invisible': ['|', ('can_edit_wizard', '=', False), '&amp;', ('can_group_payments', '=', True), ('group_payment', '=', False)]}"/>
+                    <field name="to_force_exchange_rate" string="Forzar T.C." digits="[12,12]" attrs="{'invisible': ['|', ('can_edit_wizard', '=', False), '&amp;', ('can_group_payments', '=', True), ('group_payment', '=', False)]}"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

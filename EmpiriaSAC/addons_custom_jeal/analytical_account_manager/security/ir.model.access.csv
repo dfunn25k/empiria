@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_analytical_account_manager_analytical_account_manager,analytical_account_manager.analytical_account_manager,model_analytical_account_manager_analytical_account_manager,base.group_user,1,1,1,1

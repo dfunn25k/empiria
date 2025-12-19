@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="report_invoice_document_tickets_inherit" inherit_id="pos_ticket_format_invoice.report_invoice_document_tickets">
+            <xpath expr="//div[@name='total_write_post_ticket_format_invoice']" position="after">
+                <t t-set="lot_values" t-value="o._get_invoiced_lot_values()"/>
+                <t t-if="lot_values">
+                    <table class="table-ticket-snls" name="invoice_snln_table" style="border-color: #fff;">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <span>Productos</span>
+                                </th>
+                                <th style="text-align: right;">
+                                    <span>Cantidad</span>
+                                </th>
+                                <th style="text-align: right;">
+                                    <span>SN/LN</span>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="lot_values" t-as="snln_line">
+                                <tr>
+                                    <td>
+                                        <t t-esc="snln_line['product_name']"/>
+                                    </td>
+                                    <td style="text-align: right;">
+                                        <t t-esc="snln_line['quantity']"/>
+                                        <t t-esc="snln_line['uom_name']" groups="uom.group_uom"/>
+                                    </td>
+                                    <td style="text-align: right;">
+                                        <t t-esc="snln_line['lot_name']"/>
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                </t>
+            </xpath>
+        </template>
+
+    </data>
+</odoo>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="view_picking_edi_form_l10n_pe_edi_stock_inherit_l10n_pe_delivery_note_20_extension" model="ir.ui.view">
+        <field name="name">view.picking.edi.form.l10n.pe.edi.stock.inherit.l10n_pe_delivery_note_20_extension</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="l10n_pe_edi_stock.view_picking_edi_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='pe_edi_group_transport']" position="after">
+                <group string="Importación/Exportación" name="import_export" attrs="{'readonly': [('l10n_pe_edi_status', 'not in', (False, 'to_send', 'to_cancel'))]}">
+                    <field name="is_transfer_total_assets_dam_ds" attrs="{'readonly': [('l10n_pe_edi_status', 'not in', (False, 'to_send', 'to_cancel'))]}"/>
+                    <field name="airport_catalog_id" attrs="{'readonly': [('l10n_pe_edi_status', 'not in', (False, 'to_send', 'to_cancel'))], 'invisible': [('port_catalog_id', '!=', False)]}"/>
+                    <field name="port_catalog_id" attrs="{'readonly': [('l10n_pe_edi_status', 'not in', (False, 'to_send', 'to_cancel'))], 'invisible': [('airport_catalog_id', '!=', False)]}"/>
+                    <field name="container_number_one" attrs="{'readonly': [('l10n_pe_edi_status', 'not in', (False, 'to_send', 'to_cancel'))]}"/>
+                    <div class="o_td_label" attrs="{'invisible': [('container_number_one', 'not in', ('of_the_dam', 'another_container'))]}">
+                        <label for="container_one_registered_number" string="Contenedor 1 registrado en la DAM" style="font-weight:bold;" attrs="{'invisible': [('container_number_one', 'not in', ('of_the_dam'))]}"/>
+                        <label for="container_one_registered_number" string="Nro. del contenedor" style="font-weight:bold;" attrs="{'invisible': [('container_number_one', 'not in', ('another_container'))]}"/>
+                    </div>
+                    <field name="container_one_registered_number" nolabel="1" attrs="{'readonly': [('l10n_pe_edi_status', 'not in', (False, 'to_send', 'to_cancel'))], 'invisible': [('container_number_one', 'not in', ('of_the_dam', 'another_container'))]}"/>
+                    <field name="container_one_precinct_number" attrs="{'readonly': [('l10n_pe_edi_status', 'not in', (False, 'to_send', 'to_cancel'))], 'invisible': [('container_number_one', 'not in', ('of_the_dam', 'another_container'))]}"/>
+                    <field name="pallets_number" attrs="{'readonly': [('l10n_pe_edi_status', 'not in', (False, 'to_send', 'to_cancel'))], 'invisible': [('container_number_one', 'not in', ('without_container'))]}"/>
+                    <field name="container_number_two" attrs="{'readonly': [('l10n_pe_edi_status', 'not in', (False, 'to_send', 'to_cancel'))], 'invisible': [('container_number_one', 'in', ('without_container'))]}"/>
+                    <div class="o_td_label" attrs="{'invisible': [('container_number_two', 'not in', ('of_the_dam', 'another_container'))]}">
+                        <label for="container_one_registered_number" string="Contenedor 2 registrado en la DAM" style="font-weight:bold;" attrs="{'invisible': [('container_number_two', 'not in', ('of_the_dam'))]}"/>
+                        <label for="container_one_registered_number" string="Nro. del contenedor" style="font-weight:bold;" attrs="{'invisible': [('container_number_two', 'not in', ('another_container'))]}"/>
+                    </div>
+                    <field name="container_two_registered_number" nolabel="1" attrs="{'readonly': [('l10n_pe_edi_status', 'not in', (False, 'to_send', 'to_cancel'))], 'invisible': [('container_number_two', 'not in', ('of_the_dam', 'another_container'))]}"/>
+                    <field name="container_two_precinct_number" attrs="{'readonly': [('l10n_pe_edi_status', 'not in', (False, 'to_send', 'to_cancel'))], 'invisible': [('container_number_two', 'not in', ('of_the_dam', 'another_container'))]}"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_picking_edi_form_l10n_pe_edi_stock_20_inherit_l10n_pe_delivery_note_20_extension" model="ir.ui.view">
+        <field name="name">view.picking.edi.form.l10n.pe.edi.stock.20.inherit.l10n_pe_delivery_note_20_extension</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="l10n_pe_edi_stock_20.view_picking_edi_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='l10n_pe_edi_related_document_type']" position="attributes">
+                <attribute name="attrs">{'readonly': [('l10n_pe_edi_status', 'not in', (False, 'to_send', 'to_cancel'))], 'required': [('l10n_pe_edi_reason_for_transfer', 'in', ('08', '09'))]}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='l10n_pe_edi_document_number']" position="attributes">
+                <attribute name="attrs">{'readonly': [('l10n_pe_edi_status', 'not in', (False, 'to_send', 'to_cancel'))], 'required': ['|', ('l10n_pe_edi_related_document_type', '!=', False), ('l10n_pe_edi_reason_for_transfer', 'in', ('08', '09'))]}</attribute>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,618 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* boost_pos_order_sync
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-04 13:14+0000\n"
+"PO-Revision-Date: 2023-01-04 13:14+0000\n"
+"Last-Translator: Leo Daniel Flores Sánchez <leo.dev.ganemo@gmail.com>\n"
+"Language-Team: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: boost_pos_order_sync
+#: model_terms:ir.ui.view,arch_db:boost_pos_order_sync.quote_order_report
+msgid ""
+"<br/>\n"
+"                                Date:"
+msgstr ""
+"<br/>\n"
+"                                Fecha:"
+
+#. module: boost_pos_order_sync
+#: model_terms:ir.ui.view,arch_db:boost_pos_order_sync.res_config_settings_form_view_inherit_boost_pos_order_sync
+msgid "<span class=\"o_form_label\">Send orders to</span>"
+msgstr "<span class=\"o_form_label\">Enviar pedidos a</span>"
+
+#. module: boost_pos_order_sync
+#: model_terms:ir.ui.view,arch_db:boost_pos_order_sync.quote_order_report
+msgid "<span>Quote #</span>"
+msgstr "Cotización #"
+
+#. module: boost_pos_order_sync
+#: model_terms:ir.ui.view,arch_db:boost_pos_order_sync.quote_order_report
+msgid "<strong>Taxes</strong>"
+msgstr "Impuestos"
+
+#. module: boost_pos_order_sync
+#: model_terms:ir.ui.view,arch_db:boost_pos_order_sync.quote_order_report
+msgid "<strong>Total</strong>"
+msgstr ""
+
+#. module: boost_pos_order_sync
+#. odoo-javascript
+#: code:addons/boost_pos_order_sync/static/src/xml/Screens/ListOrderReceivedScreen.xml:0
+#, python-format
+msgid "Back"
+msgstr "Atrás"
+
+#. module: boost_pos_order_sync
+#: model:ir.model.fields.selection,name:boost_pos_order_sync.selection__pos_config__quotation_print_type__pdf
+msgid "Browser based (PDF Report)"
+msgstr "Basado en navegador (Informe en PDF)"
+
+#. module: boost_pos_order_sync
+#. odoo-javascript
+#: code:addons/boost_pos_order_sync/static/src/js/Buttons/SendButton.js:0
+#: model:ir.model.fields.selection,name:boost_pos_order_sync.selection__pos_quote__state__cancel
+#: model_terms:ir.ui.view,arch_db:boost_pos_order_sync.view_pos_quote_form
+#, python-format
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: boost_pos_order_sync
+#. odoo-javascript
+#: code:addons/boost_pos_order_sync/static/src/xml/Buttons/CashMoveButton.xml:0
+#, python-format
+msgid "Cash In/Out"
+msgstr "Entrada/salida de efectivo"
+
+#. module: boost_pos_order_sync
+#: model:ir.model,name:boost_pos_order_sync.model_res_config_settings
+msgid "Config Settings"
+msgstr "Opciones de configuración"
+
+#. module: boost_pos_order_sync
+#: model:ir.model.fields,field_description:boost_pos_order_sync.field_pos_quote__create_uid
+#: model:ir.model.fields,field_description:boost_pos_order_sync.field_pos_quote_line__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: boost_pos_order_sync
+#: model:ir.model.fields,field_description:boost_pos_order_sync.field_pos_quote__create_date
+#: model:ir.model.fields,field_description:boost_pos_order_sync.field_pos_quote_line__create_date
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: boost_pos_order_sync
+#. odoo-javascript
+#: code:addons/boost_pos_order_sync/static/src/xml/Popup/QuoteHistoryPopup.xml:0
+#: code:addons/boost_pos_order_sync/static/src/xml/Screens/ListOrderReceivedScreen.xml:0
+#: model:ir.model.fields,field_description:boost_pos_order_sync.field_pos_quote__partner_id
+#, python-format
+msgid "Customer"
+msgstr "Cliente"
+
+#. module: boost_pos_order_sync
+#: model_terms:ir.ui.view,arch_db:boost_pos_order_sync.quote_order_report
+msgid "Description"
+msgstr "Descripción"
+
+#. module: boost_pos_order_sync
+#: model:ir.model.fields,field_description:boost_pos_order_sync.field_pos_quote_line__discount
+msgid "Discount (%)"
+msgstr "Descuento (%)"
+
+#. module: boost_pos_order_sync
+#: model:ir.model.fields,field_description:boost_pos_order_sync.field_pos_quote__display_name
+#: model:ir.model.fields,field_description:boost_pos_order_sync.field_pos_quote_line__display_name
+msgid "Display Name"
+msgstr "Nombre"
+
+#. module: boost_pos_order_sync
+#: model:ir.model.fields.selection,name:boost_pos_order_sync.selection__pos_quote__state__done
+msgid "Done"
+msgstr "Hecho"
+
+#. module: boost_pos_order_sync
+#: model:ir.model.fields.selection,name:boost_pos_order_sync.selection__pos_quote__state__draft
+msgid "Draft"
+msgstr "Borrador"
+
+#. module: boost_pos_order_sync
+#. odoo-javascript
+#: code:addons/boost_pos_order_sync/static/src/js/Buttons/SendButton.js:0
+#, python-format
+msgid "Empty quotation"
+msgstr "Cotización vacía"
+
+#. module: boost_pos_order_sync
+#. odoo-javascript
+#: code:addons/boost_pos_order_sync/static/src/js/Popup/SendOrderPopup.js:0
+#, python-format
+msgid "Error ID"
+msgstr ""
+
+#. module: boost_pos_order_sync
+#. odoo-javascript
+#: code:addons/boost_pos_order_sync/static/src/js/Buttons/QuoteHistory.js:0
+#: code:addons/boost_pos_order_sync/static/src/js/Buttons/SendButton.js:0
+#: code:addons/boost_pos_order_sync/static/src/js/Popup/SendOrderPopup.js:0
+#: code:addons/boost_pos_order_sync/static/src/js/Popup/SendOrderPopup.js:0
+#, python-format
+msgid "Error Network"
+msgstr "Error de Red"
+
+#. module: boost_pos_order_sync
+#. odoo-javascript
+#: code:addons/boost_pos_order_sync/static/src/js/Popup/SendOrderPopup.js:0
+#, python-format
+msgid "Error Quote"
+msgstr "Error de Cotización"
+
+#. module: boost_pos_order_sync
+#. odoo-javascript
+#: code:addons/boost_pos_order_sync/static/src/js/Buttons/QuoteNotification.js:0
+#, python-format
+msgid "Error Quotes"
+msgstr "Error de Cotización"
+
+#. module: boost_pos_order_sync
+#. odoo-javascript
+#: code:addons/boost_pos_order_sync/static/src/js/Buttons/SendButton.js:0
+#, python-format
+msgid "Error Sequence"
+msgstr "Error de Secuencia"
+
+#. module: boost_pos_order_sync
+#: model_terms:ir.ui.view,arch_db:boost_pos_order_sync.view_pos_quote_form
+msgid "Extra Info"
+msgstr "Información extra"
+
+#. module: boost_pos_order_sync
+#: model:ir.model.fields,field_description:boost_pos_order_sync.field_pos_quote__fiscal_position_id
+msgid "Fiscal position"
+msgstr "Posición fiscal"
+
+#. module: boost_pos_order_sync
+#: model:ir.model.fields,field_description:boost_pos_order_sync.field_pos_quote__session_id
+msgid "From POS Session"
+msgstr "Desde la sesión TPV"
+
+#. module: boost_pos_order_sync
+#. odoo-javascript
+#: code:addons/boost_pos_order_sync/static/src/xml/Screens/ListOrderReceivedScreen.xml:0
+#, python-format
+msgid "From session"
+msgstr "Desde la sesión"
+
+#. module: boost_pos_order_sync
+#: model:ir.model.fields,field_description:boost_pos_order_sync.field_pos_quote__id
+#: model:ir.model.fields,field_description:boost_pos_order_sync.field_pos_quote_line__id
+msgid "ID"
+msgstr ""
+
+#. module: boost_pos_order_sync
+#: model:ir.model.fields,field_description:boost_pos_order_sync.field_pos_quote__note
+msgid "Internal Notes"
+msgstr "Nota interna"
+
+#. module: boost_pos_order_sync
+#: model:ir.model.fields,field_description:boost_pos_order_sync.field_pos_quote____last_update
+#: model:ir.model.fields,field_description:boost_pos_order_sync.field_pos_quote_line____last_update
+msgid "Last Modified on"
+msgstr "Última modificación el"
+
+#. module: boost_pos_order_sync
+#: model:ir.model.fields,field_description:boost_pos_order_sync.field_pos_quote__write_uid
+#: model:ir.model.fields,field_description:boost_pos_order_sync.field_pos_quote_line__write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: boost_pos_order_sync
+#: model:ir.model.fields,field_description:boost_pos_order_sync.field_pos_quote__write_date
+#: model:ir.model.fields,field_description:boost_pos_order_sync.field_pos_quote_line__write_date
+msgid "Last Updated on"
+msgstr "Última actualización en"
+
+#. module: boost_pos_order_sync
+#: model:ir.model.fields,field_description:boost_pos_order_sync.field_pos_quote_line__name
+msgid "Line"
+msgstr "Lineas"
+
+#. module: boost_pos_order_sync
+#. odoo-javascript
+#: code:addons/boost_pos_order_sync/static/src/js/Popup/MessagePopup.js:0
+#, python-format
+msgid "Message"
+msgstr "Mensaje"
+
+#. module: boost_pos_order_sync
+#. odoo-javascript
+#: code:addons/boost_pos_order_sync/static/src/js/Buttons/SendButton.js:0
+#, python-format
+msgid "Missing to configure the sequence for the company"
+msgstr "Falta configurar la secuencia para la empresa"
+
+#. module: boost_pos_order_sync
+#: model:ir.model.fields,field_description:boost_pos_order_sync.field_pos_quote__name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: boost_pos_order_sync
+#. odoo-javascript
+#: code:addons/boost_pos_order_sync/static/src/xml/Popup/SendOrderPopup.xml:0
+#, python-format
+msgid "No active session is available."
+msgstr "No hay ninguna sesión activa disponible"
+
+#. module: boost_pos_order_sync
+#. odoo-javascript
+#: code:addons/boost_pos_order_sync/static/src/js/Popup/SendOrderPopup.js:0
+#, python-format
+msgid "No quote ID found"
+msgstr "No se ha encontrado ningún ID de cotización"
+
+#. module: boost_pos_order_sync
+#. odoo-javascript
+#: code:addons/boost_pos_order_sync/static/src/xml/Popup/SendOrderPopup.xml:0
+#, python-format
+msgid "Note For Internal Use"
+msgstr "Nota para uso interno"
+
+#. module: boost_pos_order_sync
+#. odoo-javascript
+#: code:addons/boost_pos_order_sync/static/src/xml/Popup/SendOrderPopup.xml:0
+#, python-format
+msgid "Note:"
+msgstr "Nota:"
+
+#. module: boost_pos_order_sync
+#: model_terms:ir.ui.view,arch_db:boost_pos_order_sync.view_pos_quote_form
+msgid "Notes"
+msgstr "Notas"
+
+#. module: boost_pos_order_sync
+#. odoo-javascript
+#: code:addons/boost_pos_order_sync/static/src/js/Popup/MessagePopup.js:0
+#: code:addons/boost_pos_order_sync/static/src/js/Popup/QuoteHistoryPopup.js:0
+#, python-format
+msgid "Ok"
+msgstr ""
+
+#. module: boost_pos_order_sync
+#: model:ir.model,name:boost_pos_order_sync.model_pos_quote
+msgid "POS quotes"
+msgstr "POS cotizaciones"
+
+#. module: boost_pos_order_sync
+#: model:ir.model,name:boost_pos_order_sync.model_pos_quote_line
+msgid "POS quotes lines"
+msgstr "POS cotizaciones Lineas"
+
+#. module: boost_pos_order_sync
+#: model:ir.model.fields.selection,name:boost_pos_order_sync.selection__pos_config__quotation_print_type__posbox
+msgid "POSBOX (XML Report)"
+msgstr "POSBOX (XML Reporte)"
+
+#. module: boost_pos_order_sync
+#. odoo-javascript
+#: code:addons/boost_pos_order_sync/static/src/js/Buttons/QuoteHistory.js:0
+#: code:addons/boost_pos_order_sync/static/src/js/Buttons/SendButton.js:0
+#: code:addons/boost_pos_order_sync/static/src/js/Popup/SendOrderPopup.js:0
+#: code:addons/boost_pos_order_sync/static/src/js/Popup/SendOrderPopup.js:0
+#, python-format
+msgid "Please make sure you are connected to the network"
+msgstr "Por favor, asegúrese de estar conectado a la red"
+
+#. module: boost_pos_order_sync
+#. odoo-python
+#: code:addons/boost_pos_order_sync/models/pos_quote.py:0
+#, python-format
+msgid ""
+"Please use some other Quote Id !!!\n"
+"This id has already been used for some other quote"
+msgstr ""
+"¡Por favor, use otro ID de cotización!\n"
+"Esta identificación ya se ha utilizado para otra cotización"
+
+#. module: boost_pos_order_sync
+#: model:ir.model,name:boost_pos_order_sync.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr "Configuración del TPV"
+
+#. module: boost_pos_order_sync
+#: model:ir.model,name:boost_pos_order_sync.model_pos_order
+msgid "Point of Sale Orders"
+msgstr "Pedidos del TPV"
+
+#. module: boost_pos_order_sync
+#: model:ir.model.fields,field_description:boost_pos_order_sync.field_pos_quote__pos_res_info
+msgid "Pos info"
+msgstr ""
+
+#. module: boost_pos_order_sync
+#: model_terms:ir.ui.view,arch_db:boost_pos_order_sync.quote_order_report
+msgid "Price"
+msgstr "Precio"
+
+#. module: boost_pos_order_sync
+#: model:ir.model.fields,field_description:boost_pos_order_sync.field_pos_quote__pricelist_id
+msgid "Pricelist"
+msgstr "Tarifa"
+
+#. module: boost_pos_order_sync
+#: model:ir.model.fields,field_description:boost_pos_order_sync.field_pos_quote_line__product_id
+msgid "Product"
+msgstr "Producto"
+
+#. module: boost_pos_order_sync
+#: model_terms:ir.ui.view,arch_db:boost_pos_order_sync.view_pos_quote_form
+msgid "Products"
+msgstr "Productos"
+
+#. module: boost_pos_order_sync
+#: model:ir.model.fields,field_description:boost_pos_order_sync.field_pos_quote_line__qty
+#: model_terms:ir.ui.view,arch_db:boost_pos_order_sync.quote_order_report
+msgid "Quantity"
+msgstr "Cantidad"
+
+#. module: boost_pos_order_sync
+#. odoo-javascript
+#: code:addons/boost_pos_order_sync/static/src/js/Screens/ListOrderReceivedScreen.js:0
+#, python-format
+msgid "Quotation is already loaded & in progress"
+msgstr "La cotización ya está cargada y en progreso"
+
+#. module: boost_pos_order_sync
+#: model:ir.model.fields,field_description:boost_pos_order_sync.field_pos_config__quotation_print_type
+#: model:ir.model.fields,field_description:boost_pos_order_sync.field_res_config_settings__pos_quotation_print_type
+msgid "Quotation print type"
+msgstr "Tipo de impresión de cotización"
+
+#. module: boost_pos_order_sync
+#: model:ir.model.fields,field_description:boost_pos_order_sync.field_pos_quote_line__quote_id
+msgid "Quote"
+msgstr "Cotización"
+
+#. module: boost_pos_order_sync
+#: model:ir.model.fields,field_description:boost_pos_order_sync.field_pos_quote__date_order
+msgid "Quote Date"
+msgstr "Fecha de cotización"
+
+#. module: boost_pos_order_sync
+#. odoo-javascript
+#: code:addons/boost_pos_order_sync/static/src/xml/Popup/SendOrderPopup.xml:0
+#, python-format
+msgid "Quote ID :"
+msgstr "Cotización ID :"
+
+#. module: boost_pos_order_sync
+#. odoo-javascript
+#: code:addons/boost_pos_order_sync/static/src/xml/Popup/QuoteHistoryPopup.xml:0
+#: code:addons/boost_pos_order_sync/static/src/xml/Screens/ListOrderReceivedScreen.xml:0
+#, python-format
+msgid "Quote Id"
+msgstr "Cotización ID"
+
+#. module: boost_pos_order_sync
+#. odoo-javascript
+#: code:addons/boost_pos_order_sync/static/src/js/Screens/ListOrderReceivedScreen.js:0
+#, python-format
+msgid "Quote Loaded"
+msgstr "Se cargo la cotización"
+
+#. module: boost_pos_order_sync
+#: model:ir.model.fields,field_description:boost_pos_order_sync.field_pos_quote__quote_id
+msgid "Quote identifier"
+msgstr "ID"
+
+#. module: boost_pos_order_sync
+#: model:ir.model.fields,field_description:boost_pos_order_sync.field_pos_quote__lines
+msgid "Quote lines"
+msgstr "Lineas de cotización"
+
+#. module: boost_pos_order_sync
+#: model:ir.model.fields,field_description:boost_pos_order_sync.field_pos_quote__quote_sent
+msgid "Quote sent"
+msgstr "Cotización enviada"
+
+#. module: boost_pos_order_sync
+#: model:ir.actions.report,name:boost_pos_order_sync.report_quote
+msgid "Receipt"
+msgstr "Recibo"
+
+#. module: boost_pos_order_sync
+#: model:ir.model.fields,field_description:boost_pos_order_sync.field_pos_order__quote_id
+msgid "Related Quote"
+msgstr "Cotización relacionada"
+
+#. module: boost_pos_order_sync
+#: model_terms:ir.ui.view,arch_db:boost_pos_order_sync.res_config_settings_form_view_inherit_boost_pos_order_sync
+msgid ""
+"Select between the option to print quotation as browser based Pdf Reprot or "
+"Xml Receipt (POSBOX)"
+msgstr ""
+"Seleccione entre la opción de imprimir la cotización como informe en PDF "
+"basado en navegador o Recibo XML (POSBOX)"
+
+#. module: boost_pos_order_sync
+#. odoo-javascript
+#: code:addons/boost_pos_order_sync/static/src/xml/Popup/SendOrderPopup.xml:0
+#, python-format
+msgid "Send"
+msgstr "Enviar"
+
+#. module: boost_pos_order_sync
+#. odoo-javascript
+#: code:addons/boost_pos_order_sync/static/src/js/Buttons/SendButton.js:0
+#, python-format
+msgid "Send Quotation"
+msgstr "Enviar"
+
+#. module: boost_pos_order_sync
+#. odoo-javascript
+#: code:addons/boost_pos_order_sync/static/src/xml/Popup/SendOrderPopup.xml:0
+#, python-format
+msgid "Send and Print"
+msgstr "Enviar e Imprimir"
+
+#. module: boost_pos_order_sync
+#: model:ir.model.fields,field_description:boost_pos_order_sync.field_pos_config__send_orders_ids
+#: model:ir.model.fields,field_description:boost_pos_order_sync.field_res_config_settings__pos_send_orders_ids
+msgid "Send orders to"
+msgstr "Enviar pedidos a"
+
+#. module: boost_pos_order_sync
+#. odoo-javascript
+#: code:addons/boost_pos_order_sync/static/src/xml/Popup/QuoteHistoryPopup.xml:0
+#: model:ir.model.fields,field_description:boost_pos_order_sync.field_pos_quote__state
+#, python-format
+msgid "State"
+msgstr "Estado"
+
+#. module: boost_pos_order_sync
+#: model:ir.model.fields,field_description:boost_pos_order_sync.field_pos_quote_line__price_subtotal_incl
+msgid "Subtotal"
+msgstr ""
+
+#. module: boost_pos_order_sync
+#: model:ir.model.fields,field_description:boost_pos_order_sync.field_pos_quote_line__price_subtotal
+msgid "Subtotal w/o tax"
+msgstr "Subtotal sin impuestos"
+
+#. module: boost_pos_order_sync
+#: model_terms:ir.ui.view,arch_db:boost_pos_order_sync.view_pos_quotes_tree
+msgid "Synchronized POS Quotes"
+msgstr "Cotizaciones POS Sincronizadas"
+
+#. module: boost_pos_order_sync
+#: model:ir.actions.act_window,name:boost_pos_order_sync.action_pos_quote_line
+msgid "Synchronized POS Quotes Lines"
+msgstr "Lineas de Cotizaciones POS Sincronizadas"
+
+#. module: boost_pos_order_sync
+#. odoo-javascript
+#: code:addons/boost_pos_order_sync/static/src/js/Popup/QuoteHistoryPopup.js:0
+#, python-format
+msgid "Synchronized Quote History"
+msgstr "Historial de Cotizaciones Sincronizadas"
+
+#. module: boost_pos_order_sync
+#: model:ir.actions.act_window,name:boost_pos_order_sync.action_pos_quote
+#: model:ir.ui.menu,name:boost_pos_order_sync.point_of_sale_order_quotes_menu
+#: model_terms:ir.ui.view,arch_db:boost_pos_order_sync.view_pos_quote_form
+msgid "Synchronized Quotes"
+msgstr "Cotizaciones Sincronizadas"
+
+#. module: boost_pos_order_sync
+#: model_terms:ir.ui.view,arch_db:boost_pos_order_sync.view_pos_quote_form
+#: model_terms:ir.ui.view,arch_db:boost_pos_order_sync.view_pos_quote_line_form
+#: model_terms:ir.ui.view,arch_db:boost_pos_order_sync.view_pos_quotes_line_tree
+msgid "Synchronized Quotes Lines"
+msgstr "Lineas de Cotizaciones Sincronizadas"
+
+#. module: boost_pos_order_sync
+#: model:ir.model.fields,field_description:boost_pos_order_sync.field_pos_quote__table_json
+msgid "Table JSON"
+msgstr "Tabla JSON"
+
+#. module: boost_pos_order_sync
+#: model:ir.model.fields,field_description:boost_pos_order_sync.field_pos_quote__amount_tax
+#: model:ir.model.fields,field_description:boost_pos_order_sync.field_pos_quote_line__tax_ids
+msgid "Taxes"
+msgstr "Impuestos"
+
+#. module: boost_pos_order_sync
+#. odoo-javascript
+#: code:addons/boost_pos_order_sync/static/src/js/Buttons/QuoteNotification.js:0
+#, python-format
+msgid "There are no quotes sent for this session"
+msgstr "No hay cotizaciones enviadas para esta sesión"
+
+#. module: boost_pos_order_sync
+#. odoo-javascript
+#: code:addons/boost_pos_order_sync/static/src/js/Screens/ListOrderReceivedScreen.js:0
+#, python-format
+msgid ""
+"This quotation is already in progress. Please proceed with Order Reference"
+msgstr ""
+"Esta cotización ya está en proceso. Continúe con la referencia del pedido"
+
+#. module: boost_pos_order_sync
+#. odoo-javascript
+#: code:addons/boost_pos_order_sync/static/src/js/Popup/SendOrderPopup.js:0
+#, python-format
+msgid "This quote ID has already been used"
+msgstr "Este ID de cotización ya se ha utilizado"
+
+#. module: boost_pos_order_sync
+#. odoo-javascript
+#: code:addons/boost_pos_order_sync/static/src/xml/Popup/QuoteHistoryPopup.xml:0
+#: model:ir.model.fields,field_description:boost_pos_order_sync.field_pos_quote__to_session_id
+#, python-format
+msgid "To POS session"
+msgstr "A la sesión de TPV"
+
+#. module: boost_pos_order_sync
+#: model:ir.model.fields,field_description:boost_pos_order_sync.field_pos_quote__amount_total
+msgid "Total"
+msgstr ""
+
+#. module: boost_pos_order_sync
+#. odoo-javascript
+#: code:addons/boost_pos_order_sync/static/src/xml/Popup/QuoteHistoryPopup.xml:0
+#: code:addons/boost_pos_order_sync/static/src/xml/Screens/ListOrderReceivedScreen.xml:0
+#, python-format
+msgid "Total Amount"
+msgstr "Monto Total"
+
+#. module: boost_pos_order_sync
+#: model_terms:ir.ui.view,arch_db:boost_pos_order_sync.quote_order_report
+msgid "Unit Price"
+msgstr "Precio unitario"
+
+#. module: boost_pos_order_sync
+#: model:ir.model.fields,field_description:boost_pos_order_sync.field_pos_quote_line__product_uom
+msgid "Unit of measure"
+msgstr "Unidad de medida"
+
+#. module: boost_pos_order_sync
+#: model:ir.model.fields,field_description:boost_pos_order_sync.field_pos_quote_line__price_unit
+msgid "Unit price"
+msgstr "Precio unitario"
+
+#. module: boost_pos_order_sync
+#: model:ir.model.fields,field_description:boost_pos_order_sync.field_pos_quote__user_id
+msgid "User session"
+msgstr "Usuario"
+
+#. module: boost_pos_order_sync
+#: model_terms:ir.ui.view,arch_db:boost_pos_order_sync.quote_order_report
+msgid "User:"
+msgstr "Usuario:"
+
+#. module: boost_pos_order_sync
+#. odoo-python
+#: code:addons/boost_pos_order_sync/models/pos_config.py:0
+#, python-format
+msgid ""
+"You can not print XML receipt. Please check receipt printer in Hardware "
+"Proxy/PosBox"
+msgstr ""
+"No puede imprimir el recibo XML. Verifique la impresora de recibos en "
+"Hardware Proxy/Pos Box"
+
+#. module: boost_pos_order_sync
+#. odoo-javascript
+#: code:addons/boost_pos_order_sync/static/src/js/Buttons/SendButton.js:0
+#, python-format
+msgid "You can't send an empty quotation, please add some products in cart"
+msgstr ""
+"No puede enviar una cotización vacía, agregue algunos productos en el "
+"carrito"

@@ -1,0 +1,4 @@
+---Models in module 'pos_ticket_batches_and_series'---
+---Fields in module 'pos_ticket_batches_and_series'---
+---XML records in module 'pos_ticket_batches_and_series'---
+-- Depends in module 'pos_ticket_batches_and_series' --

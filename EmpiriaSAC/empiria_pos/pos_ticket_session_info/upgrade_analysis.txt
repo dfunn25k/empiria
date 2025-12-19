@@ -1,0 +1,8 @@
+---Models in module 'pos_ticket_session_info'---
+---Fields in module 'pos_ticket_session_info'---
+Se crearon los campos float para almacenar el vuelto de las ordenes
+account.move
+pos_order_change
+pos.order
+order_change
+---XML records in module 'pos_ticket_session_info'---

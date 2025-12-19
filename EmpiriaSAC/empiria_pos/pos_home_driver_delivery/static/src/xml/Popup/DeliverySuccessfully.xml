@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="DeliverySuccessfully" owl="1">
+		<div class="modal-dialog">
+			<div class="popup popup-textinput confirm-notify-popup">
+				<div class="order_status">
+					<div class="show_tick draw"/>
+				</div>
+				<h2 id="quote_status">
+					<t t-esc="props.title"/>
+				</h2>
+			</div>
+		</div>
+    </t>
+</templates>

@@ -1,0 +1,14 @@
+---Models in module 'boost_multi_currency_pos'---
+new inherit model res.config.settings [transient]
+---Fields in module 'boost_multi_currency_pos'---
+point_of_sale       / pos.congi                     / pos_currencies --> currencies_ids name change                                        
+base                / res.config.settings           / pos_enable_multi_currency (boolean)  : new related
+base                / res.config.settings           / pos_display_conversion (boolean)  : new related
+base                / res.config.settings           / pos_fetch_master (boolean)  : new related
+base                / res.config.settings           / pos_currencies_ids (many2many)  : new related
+---XML records in module 'boost_multi_currency_pos'---
+DEL ir.ui.view: boost_multi_currency_pos.pos_config_view_form_inherit_multi_currency
+NEW ir.ui.view: boost_multi_currency_pos.res_config_settings_form_view_inherit_boost_multi_currency_pos
+DEL ir.ui.view: boost_multi_currency_pos.view_pos_pos_form_inherit_multi_currency
+NEW ir.ui.view: boost_multi_currency_pos.pos_order_form_view_inherit_boost_multi_currency_pos
+-- Depends in module 'boost_multi_currency_pos' --

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="view_sale_order_commercial_partner_inh_tree" model="ir.ui.view">
+            <field name="name">view.sale.order.commercial.partner.inh.tree</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='user_id']" position="after">
+                    <field name="enable_external_commercial" invisible="1" />
+
+                    <field name="external_commercial_id" 
+                        string      = "Comercial" 
+                        optional    = "show"
+                        attrs       = "{'invisible': [('enable_external_commercial', '!=', True)]}" />
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_sale_order_commercial_partner_inh_quotation_tree" model="ir.ui.view">
+            <field name="name">view.sale.order.commercial.partner.inh.quotation.tree</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_quotation_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='user_id']" position="after">
+                    <field name="enable_external_commercial" invisible="1" />
+
+                    <field name="external_commercial_id" 
+                        string      = "Comercial" 
+                        optional    = "show"
+                        attrs       = "{'invisible': [('enable_external_commercial', '!=', True)]}" />
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_sale_order_commercial_partner_inh_form" model="ir.ui.view">
+            <field name="name">view.sale.order.commercial.partner.inh.form</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='other_information']/group/group[@name='sales_person']/field[@name='user_id']" position="after">
+                    <field name="enable_external_commercial" invisible="1" />
+
+                    <field name="external_commercial_id" 
+                        string      = "Comercial" 
+                        placeholder = "Ingrese el comercial" 
+                        options     = "{'no_create': True, 'no_open': True}" 
+                        attrs       = "{'invisible': [('enable_external_commercial', '!=', True)]}" />
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

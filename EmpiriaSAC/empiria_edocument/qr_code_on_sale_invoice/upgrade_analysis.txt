@@ -1,0 +1,3 @@
+---Models in module 'qr_code_on_sale_invoice'---
+---Fields in module 'qr_code_on_sale_invoice'---
+---XML records in module 'qr_code_on_sale_invoice'---

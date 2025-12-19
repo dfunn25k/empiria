@@ -1,0 +1,11 @@
+---Models in module 'l10n_pe_edocument'---
+Add _compute_detraction_retation with set checkbox for the invoices.
+---Fields in module 'l10n_pe_edocument'---
+account                 / account.move.line                 / account_internal_type -> account_type NAME CHANGE
+base                    / res.company                       / street_name -> street NAME CHANGE
+base                    / res.company                       / street_number DEL
+l10n_in_edi             / account.edi.format                / invoice_line_tax_details -> tax_details_per_record NAME CHANGE
+account                 / account.move.line                 / analytic_tag_ids -> analytic_distribution NAME CHANGE
+account                 / account.move.line                 / analytic_account_id -> analytic_distribution NAME CHANGE
+---XML records in module 'l10n_pe_edocument'---
+CHANGE REF ir.ui.view: account.view_payment_term_line_form -> payment_term_lines_extension.view_payment_term_line_extension_form

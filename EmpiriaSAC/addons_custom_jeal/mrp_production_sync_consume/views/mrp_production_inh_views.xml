@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="view_mrp_production_sync_consume_inh_form" model="ir.ui.view">
+            <field name="name">view.mrp.production.sync.consume.inh.form</field>
+            <field name="model">mrp.production</field>
+            <field name="inherit_id" ref="mrp.mrp_production_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook/page[@name='components']/field[@name='move_raw_ids']/tree/field[@name='product_uom'][last()]" position="after">
+                    <field name="state" string="Estado" optional="show"/>
+                </xpath>
+
+                <xpath expr="//notebook/page[@name='components']/field[@name='move_raw_ids']/tree/button[@name='action_show_details'][last()]" position="after">
+                    <button name="force_consume_materials" type="object" string="Forzar Consumo" icon="fa-retweet" attrs="{'invisible': ['|', ('show_details_visible', '=', False), ('state', 'not in', ['confirmed', 'partially_available', 'assigned'])]}"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

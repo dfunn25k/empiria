@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="mail_template_intralot_sync_stock_picking" model="mail.template">
+            <field name="name">Intralot: Intrainventario Error De Sync </field>
+            <field name="subject">Intrainventario Error De Sync - {{object.name}}</field>
+            <field name="email_to">{{ (object.get_emails(object.message_follower_ids)) or '' }}</field>
+            <field name="model_id" ref="stock.model_stock_picking"/>
+            <field name="lang">{{object.partner_id.lang}}</field>
+            <field name="use_default_to" eval="True"/>
+            <field name="auto_delete" eval="True"/>
+            <field name="body_html"><![CDATA[
+                <p>Guardar Movimiento - Mensaje: <t t-out="object.message_api_intra or ''"/></p>
+                <p>MensajexActivo: <t t-out="object.message_api_intra_exactivo or ''"/></p>
+            ]]></field>
+        </record>
+
+    </data>
+</odoo>

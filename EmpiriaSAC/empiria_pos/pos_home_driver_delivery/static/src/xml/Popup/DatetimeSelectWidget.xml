@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="DatetimeSelectWidget" owl="1">
+		<div role="dialog" class="modal-dialog">
+			<div class="popup" style="height: 550px !important;">
+				<main class="body">
+					<header class="title">
+						<t t-esc="props.title" />
+					</header>
+					<div class="body">
+						<div class="form-group" style="position:relative;display:inline;">
+							<label class="control-label">Appointment Time</label>
+							<div class='input-group date' id='del_date'>
+								<input type='text' class="form-control " />
+								<span class="input-group-addon">
+									<span class="fa fa-calendar"></span>
+								</span>
+							</div>
+						</div>
+					</div>
+				</main>
+				<div class="footer">
+					<div class="button cancel" t-on-click="cancel">
+						<t t-esc="props.cancelText" />
+					</div>
+					<div class="button confirm highlight" t-on-click="confirm">
+						<t t-esc="props.confirmText" />
+					</div>
+				</div>
+			</div>
+		</div>
+	</t>
+</templates>

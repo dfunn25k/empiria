@@ -1,0 +1,48 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_multi_uom_product_right
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-02-17 06:30+0000\n"
+"PO-Revision-Date: 2023-02-17 06:30+0000\n"
+"Last-Translator: Barrionuevo P. Fabricio Jose <fbarrionuevop@unsa.edu>, 2023\n"
+"Language-Team: Spanish (Peru)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: es_PE\n"
+"Plural-Forms: \n"
+
+#. module: pos_multi_uom_product_right
+#: model:ir.model.fields,field_description:pos_multi_uom_product_right.field_pos_config__allow_multi_uom
+msgid "Product multi UOM"
+msgstr "UOM múltiple de producto"
+
+#. module: pos_multi_uom_product_right
+#: model:ir.model.fields,field_description:pos_multi_uom_product_right.field_product_template__has_multi_uom
+msgid "Has multi UOM"
+msgstr "Tiene múltiples uom"
+
+#. module: pos_multi_uom_product_right
+#: model:ir.model.fields,field_description:pos_multi_uom_product_right.field_product_template__show_all_uom
+msgid "Show All UOM in POS"
+msgstr "Mostrar todo UOM en POS"
+
+#. module: pos_multi_uom_product_right
+#: model:ir.model.fields,field_description:pos_multi_uom_product_right.field_product_template__allow_uoms
+msgid "Allow UOMS"
+msgstr "Permitir UOMS"
+
+#. module: pos_multi_uom_product_right
+#: model:ir.model.fields,field_description:pos_multi_uom_product_right.field_pos_order_line__product_uom
+msgid "Unit of measure"
+msgstr "Unidad de medida"
+
+#. module: pos_multi_uom_product_right
+#: model:ir.actions.act_window,name:sale.product_template_action
+#: model_terms:ir.ui.view,arch_db:pos_multi_uom_product_right.product_template_form_view_inherit_pos_multi_uom_product_right
+msgid "Point of sale UOM"
+msgstr "Punto de venta UOM"

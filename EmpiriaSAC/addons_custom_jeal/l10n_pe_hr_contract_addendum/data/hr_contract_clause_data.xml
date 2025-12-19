@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="clause_01" model="hr.contract.clause">
+            <field name="sequence">1</field>
+            <field name="name">PRIMERA</field>
+        </record>
+        <record id="clause_02" model="hr.contract.clause">
+            <field name="sequence">2</field>
+            <field name="name">SEGUNDA</field>
+        </record>
+        <record id="clause_03" model="hr.contract.clause">
+            <field name="sequence">3</field>
+            <field name="name">TERCERA</field>
+        </record>
+        <record id="clause_04" model="hr.contract.clause">
+            <field name="sequence">4</field>
+            <field name="name">CUARTA</field>
+        </record>
+        <record id="clause_05" model="hr.contract.clause">
+            <field name="sequence">5</field>
+            <field name="name">QUINTA</field>
+        </record>
+        <record id="clause_06" model="hr.contract.clause">
+            <field name="sequence">6</field>
+            <field name="name">SEXTA</field>
+        </record>
+        <record id="clause_07" model="hr.contract.clause">
+            <field name="sequence">7</field>
+            <field name="name">SÉPTIMA</field>
+        </record>
+        <record id="clause_08" model="hr.contract.clause">
+            <field name="sequence">8</field>
+            <field name="name">OCTAVA</field>
+        </record>
+        <record id="clause_09" model="hr.contract.clause">
+            <field name="sequence">9</field>
+            <field name="name">NOVENA</field>
+        </record>
+        <record id="clause_10" model="hr.contract.clause">
+            <field name="sequence">10</field>
+            <field name="name">DÉCIMA</field>
+        </record>
+        <record id="clause_11" model="hr.contract.clause">
+            <field name="sequence">11</field>
+            <field name="name">UNDÉCIMA</field>
+        </record>
+        <record id="clause_12" model="hr.contract.clause">
+            <field name="sequence">12</field>
+            <field name="name">DUODÉCIMA</field>
+        </record>
+        <record id="clause_13" model="hr.contract.clause">
+            <field name="sequence">13</field>
+            <field name="name">DÉCIMA TERCERA</field>
+        </record>
+        <record id="clause_14" model="hr.contract.clause">
+            <field name="sequence">14</field>
+            <field name="name">DÉCIMA CUARTA</field>
+        </record>
+        <record id="clause_15" model="hr.contract.clause">
+            <field name="sequence">15</field>
+            <field name="name">DÉCIMA QUINTA</field>
+        </record>
+        <record id="clause_16" model="hr.contract.clause">
+            <field name="sequence">16</field>
+            <field name="name">DÉCIMA SEXTA</field>
+        </record>
+        <record id="clause_17" model="hr.contract.clause">
+            <field name="sequence">17</field>
+            <field name="name">DÉCIMA SÉPTIMA</field>
+        </record>
+        <record id="clause_18" model="hr.contract.clause">
+            <field name="sequence">18</field>
+            <field name="name">DÉCIMA OCTAVA</field>
+        </record>
+        <record id="clause_19" model="hr.contract.clause">
+            <field name="sequence">19</field>
+            <field name="name">DÉCIMA NOVENA</field>
+        </record>
+        <record id="clause_20" model="hr.contract.clause">
+            <field name="sequence">20</field>
+            <field name="name">VIGÉSIMA</field>
+        </record>
+    </data>
+</odoo>

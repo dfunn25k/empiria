@@ -1,0 +1,4 @@
+---Models in module 'ple_inv_and_bal_0307'---
+---Fields in module 'ple_inv_and_bal_0307'---
+---XML records in module 'ple_inv_and_bal_0307'---
+---Depends of the module automatic_account_change for the fields pay_sell_force_account_id ---

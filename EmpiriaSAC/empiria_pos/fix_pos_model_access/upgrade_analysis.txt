@@ -1,0 +1,3 @@
+---Models in module 'fix_pos_model_access'---
+---Fields in module 'fix_pos_model_access'---
+---XML records in module 'fix_pos_model_access'---

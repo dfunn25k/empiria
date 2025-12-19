@@ -1,0 +1,4 @@
+---Models in module 'pos_combo_reload_restaurant'---
+---Fields in module 'pos_combo_reload_restaurant'---
+---XML records in module 'pos_combo_reload_restaurant'---
+-- Depends in module 'pos_combo_reload_restaurant' --

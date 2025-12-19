@@ -1,0 +1,581 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="identification_code_tax_concept_3001" model="identification.code.tax.concept">
+            <field name="name">Detracciones: Recursos Hidrobiológicos-Matrícula de la embarcación</field>
+            <field name="code">3001</field>
+        </record>
+
+        <record id="identification_code_tax_concept_3002" model="identification.code.tax.concept">
+            <field name="name">Detracciones: Recursos Hidrobiológicos-Nombre de la embarcación</field>
+            <field name="code">3002</field>
+        </record>
+
+        <record id="identification_code_tax_concept_3003" model="identification.code.tax.concept">
+            <field name="name">Detracciones: Recursos Hidrobiológicos-Tipo de especie vendida</field>
+            <field name="code">3003</field>
+        </record>
+
+        <record id="identification_code_tax_concept_3004" model="identification.code.tax.concept">
+            <field name="name">Detracciones: Recursos Hidrobiológicos-Lugar de descarga</field>
+            <field name="code">3004</field>
+        </record>
+
+        <record id="identification_code_tax_concept_3005" model="identification.code.tax.concept">
+            <field name="name">Detracciones: Recursos Hidrobiológicos-Fecha de descarga</field>
+            <field name="code">3005</field>
+        </record>
+
+        <record id="identification_code_tax_concept_3006" model="identification.code.tax.concept">
+            <field name="name">Detracciones: Recursos Hidrobiológicos-Cantidad de especie vendida</field>
+            <field name="code">3006</field>
+        </record>
+
+        <record id="identification_code_tax_concept_3050" model="identification.code.tax.concept">
+            <field name="name">Transporte Terrestre - Número de asiento</field>
+            <field name="code">3050</field>
+        </record>
+
+        <record id="identification_code_tax_concept_3051" model="identification.code.tax.concept">
+            <field name="name">Transporte Terrestre - Información de manifiesto de pasajeros</field>
+            <field name="code">3051</field>
+        </record>
+
+        <record id="identification_code_tax_concept_3052" model="identification.code.tax.concept">
+            <field name="name">Transporte Terrestre - Número de documento de identidad del pasajero</field>
+            <field name="code">3052</field>
+        </record>
+
+        <record id="identification_code_tax_concept_3053" model="identification.code.tax.concept">
+            <field name="name">Transporte Terrestre - Tipo de documento de identidad del pasajero</field>
+            <field name="code">3053</field>
+        </record>
+
+        <record id="identification_code_tax_concept_3054" model="identification.code.tax.concept">
+            <field name="name">Transporte Terrestre - Nombres y apellidos del pasajero</field>
+            <field name="code">3054</field>
+        </record>
+
+        <record id="identification_code_tax_concept_3055" model="identification.code.tax.concept">
+            <field name="name">Transporte Terrestre - Ciudad o lugar de destino - Ubigeo</field>
+            <field name="code">3055</field>
+        </record>
+
+        <record id="identification_code_tax_concept_3056" model="identification.code.tax.concept">
+            <field name="name">Transporte Terrestre - Ciudad o lugar de destino - Dirección detallada</field>
+            <field name="code">3056</field>
+        </record>
+
+        <record id="identification_code_tax_concept_3057" model="identification.code.tax.concept">
+            <field name="name">Transporte Terrestre - Ciudad o lugar de origen - Ubigeo</field>
+            <field name="code">3057</field>
+        </record>
+
+        <record id="identification_code_tax_concept_3058" model="identification.code.tax.concept">
+            <field name="name">Transporte Terrestre - Ciudad o lugar de origen - Dirección detallada</field>
+            <field name="code">3058</field>
+        </record>
+
+        <record id="identification_code_tax_concept_3059" model="identification.code.tax.concept">
+            <field name="name">Transporte Terrestre - Fecha de inicio programado</field>
+            <field name="code">3059</field>
+        </record>
+
+        <record id="identification_code_tax_concept_3060" model="identification.code.tax.concept">
+            <field name="name">Transporte Terrestre - Hora de inicio programado</field>
+            <field name="code">3060</field>
+        </record>
+
+        <record id="identification_code_tax_concept_4000" model="identification.code.tax.concept">
+            <field name="name">Beneficio Hospedajes-Paquete turístico: Código de país de emisión del pasaporte</field>
+            <field name="code">4000</field>
+        </record>
+
+        <record id="identification_code_tax_concept_4001" model="identification.code.tax.concept">
+            <field name="name">Beneficio Hospedajes: Código de país de residencia del sujeto no domiciliado</field>
+            <field name="code">4001</field>
+        </record>
+
+        <record id="identification_code_tax_concept_4002" model="identification.code.tax.concept">
+            <field name="name">Beneficio Hospedajes: Fecha de ingreso al país</field>
+            <field name="code">4002</field>
+        </record>
+
+        <record id="identification_code_tax_concept_4003" model="identification.code.tax.concept">
+            <field name="name">Beneficio Hospedajes: Fecha de Ingreso al Establecimiento</field>
+            <field name="code">4003</field>
+        </record>
+
+        <record id="identification_code_tax_concept_4004" model="identification.code.tax.concept">
+            <field name="name">Beneficio Hospedajes: Fecha de Salida del Establecimiento</field>
+            <field name="code">4004</field>
+        </record>
+
+        <record id="identification_code_tax_concept_4005" model="identification.code.tax.concept">
+            <field name="name">Beneficio Hospedajes: Número de Días de Permanencia</field>
+            <field name="code">4005</field>
+        </record>
+
+        <record id="identification_code_tax_concept_4006" model="identification.code.tax.concept">
+            <field name="name">Beneficio Hospedajes: Fecha de Consumo</field>
+            <field name="code">4006</field>
+        </record>
+
+        <record id="identification_code_tax_concept_4007" model="identification.code.tax.concept">
+            <field name="name">Beneficio Hospedajes-Paquete turístico: Nombres y apellidos del huésped</field>
+            <field name="code">4007</field>
+        </record>
+
+        <record id="identification_code_tax_concept_4008" model="identification.code.tax.concept">
+            <field name="name">Beneficio Hospedajes-Paquete turístico: Tipo de documento de identidad del huésped</field>
+            <field name="code">4008</field>
+        </record>
+
+        <record id="identification_code_tax_concept_4009" model="identification.code.tax.concept">
+            <field name="name">Beneficio Hospedajes-Paquete turístico: Número de documento de identidad del huésped</field>
+            <field name="code">4009</field>
+        </record>
+
+        <record id="identification_code_tax_concept_4030" model="identification.code.tax.concept">
+            <field name="name">Carta Porte Aéreo: Lugar de origen - Código de ubigeo</field>
+            <field name="code">4030</field>
+        </record>
+
+        <record id="identification_code_tax_concept_4031" model="identification.code.tax.concept">
+            <field name="name">Carta Porte Aéreo: Lugar de origen - Dirección detallada</field>
+            <field name="code">4031</field>
+        </record>
+
+        <record id="identification_code_tax_concept_4032" model="identification.code.tax.concept">
+            <field name="name">Carta Porte Aéreo: Lugar de destino - Código de ubigeo</field>
+            <field name="code">4032</field>
+        </record>
+
+        <record id="identification_code_tax_concept_4033" model="identification.code.tax.concept">
+            <field name="name">Carta Porte Aéreo: Lugar de destino - Dirección detallada</field>
+            <field name="code">4033</field>
+        </record>
+
+        <record id="identification_code_tax_concept_4040" model="identification.code.tax.concept">
+            <field name="name">BVME transporte ferroviario: Pasajero - Apellidos y Nombres</field>
+            <field name="code">4040</field>
+        </record>
+
+        <record id="identification_code_tax_concept_4041" model="identification.code.tax.concept">
+            <field name="name">BVME transporte ferroviario: Pasajero - Tipo de documento de identidad</field>
+            <field name="code">4041</field>
+        </record>
+
+        <record id="identification_code_tax_concept_4042" model="identification.code.tax.concept">
+            <field name="name">BVME transporte ferroviario: Servicio transporte: Ciudad o lugar de origen - Código de ubigeo</field>
+            <field name="code">4042</field>
+        </record>
+
+        <record id="identification_code_tax_concept_4043" model="identification.code.tax.concept">
+            <field name="name">BVME transporte ferroviario: Servicio transporte: Ciudad o lugar de origen - Dirección detallada</field>
+            <field name="code">4043</field>
+        </record>
+
+        <record id="identification_code_tax_concept_4044" model="identification.code.tax.concept">
+            <field name="name">BVME transporte ferroviario: Servicio transporte: Ciudad o lugar de destino - Código de ubigeo</field>
+            <field name="code">4044</field>
+        </record>
+
+        <record id="identification_code_tax_concept_4045" model="identification.code.tax.concept">
+            <field name="name">BVME transporte ferroviario: Servicio transporte: Ciudad o lugar de destino - Dirección detallada</field>
+            <field name="code">4045</field>
+        </record>
+
+        <record id="identification_code_tax_concept_4046" model="identification.code.tax.concept">
+            <field name="name">BVME transporte ferroviario: Servicio transporte:Número de asiento</field>
+            <field name="code">4046</field>
+        </record>
+
+        <record id="identification_code_tax_concept_4047" model="identification.code.tax.concept">
+            <field name="name">BVME transporte ferroviario: Servicio transporte: Hora programada de inicio de viaje</field>
+            <field name="code">4047</field>
+        </record>
+
+        <record id="identification_code_tax_concept_4048" model="identification.code.tax.concept">
+            <field name="name">BVME transporte ferroviario: Servicio transporte: Fecha programada de inicio de viaje</field>
+            <field name="code">4048</field>
+        </record>
+
+        <record id="identification_code_tax_concept_4049" model="identification.code.tax.concept">
+            <field name="name">BVME transporte ferroviario: Pasajero - Número de documento de identidad</field>
+            <field name="code">4049</field>
+        </record>
+
+        <record id="identification_code_tax_concept_4060" model="identification.code.tax.concept">
+            <field name="name">Regalía Petrolera: Decreto Supremo de aprobación del contrato</field>
+            <field name="code">4060</field>
+        </record>
+
+        <record id="identification_code_tax_concept_4061" model="identification.code.tax.concept">
+            <field name="name">Regalía Petrolera: Area de contrato (Lote)</field>
+            <field name="code">4061</field>
+        </record>
+
+        <record id="identification_code_tax_concept_4062" model="identification.code.tax.concept">
+            <field name="name">Regalía Petrolera: Periodo de pago - Fecha de inicio</field>
+            <field name="code">4062</field>
+        </record>
+
+        <record id="identification_code_tax_concept_4063" model="identification.code.tax.concept">
+            <field name="name">Regalía Petrolera: Periodo de pago - Fecha de fin</field>
+            <field name="code">4063</field>
+        </record>
+
+        <record id="identification_code_tax_concept_4064" model="identification.code.tax.concept">
+            <field name="name">Regalía Petrolera: Fecha de Pago</field>
+            <field name="code">4064</field>
+        </record>
+
+        <record id="identification_code_tax_concept_5000" model="identification.code.tax.concept">
+            <field name="name">Proveedores Estado: Número de Expediente</field>
+            <field name="code">5000</field>
+        </record>
+
+        <record id="identification_code_tax_concept_5001" model="identification.code.tax.concept">
+            <field name="name">Proveedores Estado: Código de Unidad Ejecutora</field>
+            <field name="code">5001</field>
+        </record>
+
+        <record id="identification_code_tax_concept_5002" model="identification.code.tax.concept">
+            <field name="name">Proveedores Estado: N° de Proceso de Selección</field>
+            <field name="code">5002</field>
+        </record>
+
+        <record id="identification_code_tax_concept_5003" model="identification.code.tax.concept">
+            <field name="name">Proveedores Estado: N° de Contrato</field>
+            <field name="code">5003</field>
+        </record>
+
+        <record id="identification_code_tax_concept_5010" model="identification.code.tax.concept">
+            <field name="name">Numero de Placa</field>
+            <field name="code">5010</field>
+        </record>
+
+        <record id="identification_code_tax_concept_5011" model="identification.code.tax.concept">
+            <field name="name">Categoria</field>
+            <field name="code">5011</field>
+        </record>
+
+        <record id="identification_code_tax_concept_5012" model="identification.code.tax.concept">
+            <field name="name">Marca</field>
+            <field name="code">5012</field>
+        </record>
+
+        <record id="identification_code_tax_concept_5013" model="identification.code.tax.concept">
+            <field name="name">Modelo</field>
+            <field name="code">5013</field>
+        </record>
+
+        <record id="identification_code_tax_concept_5014" model="identification.code.tax.concept">
+            <field name="name">Color</field>
+            <field name="code">5014</field>
+        </record>
+
+        <record id="identification_code_tax_concept_5015" model="identification.code.tax.concept">
+            <field name="name">Motor</field>
+            <field name="code">5015</field>
+        </record>
+
+        <record id="identification_code_tax_concept_5016" model="identification.code.tax.concept">
+            <field name="name">Combustible</field>
+            <field name="code">5016</field>
+        </record>
+
+        <record id="identification_code_tax_concept_5017" model="identification.code.tax.concept">
+            <field name="name">Form. Rodante</field>
+            <field name="code">5017</field>
+        </record>
+
+        <record id="identification_code_tax_concept_5018" model="identification.code.tax.concept">
+            <field name="name">VIN</field>
+            <field name="code">5018</field>
+        </record>
+
+        <record id="identification_code_tax_concept_5019" model="identification.code.tax.concept">
+            <field name="name">Serie/Chasis</field>
+            <field name="code">5019</field>
+        </record>
+
+        <record id="identification_code_tax_concept_5020" model="identification.code.tax.concept">
+            <field name="name">Año fabricacion</field>
+            <field name="code">5020</field>
+        </record>
+
+        <record id="identification_code_tax_concept_5021" model="identification.code.tax.concept">
+            <field name="name">Año modelo</field>
+            <field name="code">5021</field>
+        </record>
+
+        <record id="identification_code_tax_concept_5022" model="identification.code.tax.concept">
+            <field name="name">Version</field>
+            <field name="code">5022</field>
+        </record>
+
+        <record id="identification_code_tax_concept_5023" model="identification.code.tax.concept">
+            <field name="name">Ejes</field>
+            <field name="code">5023</field>
+        </record>
+
+        <record id="identification_code_tax_concept_5024" model="identification.code.tax.concept">
+            <field name="name">Asientos</field>
+            <field name="code">5024</field>
+        </record>
+
+        <record id="identification_code_tax_concept_5025" model="identification.code.tax.concept">
+            <field name="name">Pasajeros</field>
+            <field name="code">5025</field>
+        </record>
+
+        <record id="identification_code_tax_concept_5026" model="identification.code.tax.concept">
+            <field name="name">Ruedas</field>
+            <field name="code">5026</field>
+        </record>
+
+        <record id="identification_code_tax_concept_5027" model="identification.code.tax.concept">
+            <field name="name">Carroceria</field>
+            <field name="code">5027</field>
+        </record>
+
+        <record id="identification_code_tax_concept_5028" model="identification.code.tax.concept">
+            <field name="name">Potencia</field>
+            <field name="code">5028</field>
+        </record>
+
+        <record id="identification_code_tax_concept_5029" model="identification.code.tax.concept">
+            <field name="name">Cilindros</field>
+            <field name="code">5029</field>
+        </record>
+
+        <record id="identification_code_tax_concept_5030" model="identification.code.tax.concept">
+            <field name="name">Cilindrada</field>
+            <field name="code">5030</field>
+        </record>
+
+        <record id="identification_code_tax_concept_5031" model="identification.code.tax.concept">
+            <field name="name">Peso Bruto</field>
+            <field name="code">5031</field>
+        </record>
+
+        <record id="identification_code_tax_concept_5032" model="identification.code.tax.concept">
+            <field name="name">Peso Neto</field>
+            <field name="code">5032</field>
+        </record>
+
+        <record id="identification_code_tax_concept_5033" model="identification.code.tax.concept">
+            <field name="name">Carga Util</field>
+            <field name="code">5033</field>
+        </record>
+
+        <record id="identification_code_tax_concept_5034" model="identification.code.tax.concept">
+            <field name="name">Longitud</field>
+            <field name="code">5034</field>
+        </record>
+
+        <record id="identification_code_tax_concept_5035" model="identification.code.tax.concept">
+            <field name="name">Altura</field>
+            <field name="code">5035</field>
+        </record>
+
+        <record id="identification_code_tax_concept_5036" model="identification.code.tax.concept">
+            <field name="name">Ancho</field>
+            <field name="code">5036</field>
+        </record>
+
+        <record id="identification_code_tax_concept_5060" model="identification.code.tax.concept">
+            <field name="name">Gas Natural - Lectura Anterior</field>
+            <field name="code">5060</field>
+        </record>
+
+        <record id="identification_code_tax_concept_5061" model="identification.code.tax.concept">
+            <field name="name">Gas Natural - Lectura Actual</field>
+            <field name="code">5061</field>
+        </record>
+
+        <record id="identification_code_tax_concept_5062" model="identification.code.tax.concept">
+            <field name="name">Gas Natural - Volumen consumido a Condiciones de lectura</field>
+            <field name="code">5062</field>
+        </record>
+
+        <record id="identification_code_tax_concept_5063" model="identification.code.tax.concept">
+            <field name="name">Gas Natural - Factor de corrección del volumen</field>
+            <field name="code">5063</field>
+        </record>
+
+        <record id="identification_code_tax_concept_5064" model="identification.code.tax.concept">
+            <field name="name">Gas Natural - Volumen a condiciones Estándares</field>
+            <field name="code">5064</field>
+        </record>
+
+        <record id="identification_code_tax_concept_5065" model="identification.code.tax.concept">
+            <field name="name">Gas Natural - Volumen facturado</field>
+            <field name="code">5065</field>
+        </record>
+
+        <record id="identification_code_tax_concept_5066" model="identification.code.tax.concept">
+            <field name="name">Gas Natural - Poder Calorífico Superior Promedio del Gas</field>
+            <field name="code">5066</field>
+        </record>
+
+        <record id="identification_code_tax_concept_6000" model="identification.code.tax.concept">
+            <field name="name">Comercialización de Oro: Código Único Concesión Minera</field>
+            <field name="code">6000</field>
+        </record>
+
+        <record id="identification_code_tax_concept_6001" model="identification.code.tax.concept">
+            <field name="name">Comercialización de Oro: N° declaración compromiso</field>
+            <field name="code">6001</field>
+        </record>
+
+        <record id="identification_code_tax_concept_6002" model="identification.code.tax.concept">
+            <field name="name">Comercialización de Oro: N° Reg. Especial .Comerci. Oro</field>
+            <field name="code">6002</field>
+        </record>
+
+        <record id="identification_code_tax_concept_6003" model="identification.code.tax.concept">
+            <field name="name">Comercialización de Oro: N° Resolución que autoriza Planta de Beneficio</field>
+            <field name="code">6003</field>
+        </record>
+
+        <record id="identification_code_tax_concept_6004" model="identification.code.tax.concept">
+            <field name="name">Comercialización de Oro: Ley Mineral (% concent. oro)</field>
+            <field name="code">6004</field>
+        </record>
+
+        <record id="identification_code_tax_concept_6005" model="identification.code.tax.concept">
+            <field name="name">Comercialización de Oro: Naturaleza del mineral</field>
+            <field name="code">6005</field>
+        </record>
+
+        <record id="identification_code_tax_concept_6006" model="identification.code.tax.concept">
+            <field name="name">Comercialización de Oro: Nombre del derecho minero</field>
+            <field name="code">6006</field>
+        </record>
+
+        <record id="identification_code_tax_concept_7000" model="identification.code.tax.concept">
+            <field name="name">Gastos Art. 37 Renta: Número de Placa</field>
+            <field name="code">7000</field>
+        </record>
+
+        <record id="identification_code_tax_concept_7001" model="identification.code.tax.concept">
+            <field name="name">Empresas del sistema financiero y cooperativas de ahorro y crédito no autorizadas a captar recursos del público: Tipo de préstamo</field>
+            <field name="code">7001</field>
+        </record>
+
+        <record id="identification_code_tax_concept_7002" model="identification.code.tax.concept">
+            <field name="name">Empresas del sistema financiero y cooperativas de ahorro y crédito no autorizadas a captar recursos del público: Indicador de Primera Vivienda</field>
+            <field name="code">7002</field>
+        </record>
+
+        <record id="identification_code_tax_concept_7003" model="identification.code.tax.concept">
+            <field name="name">Empresas del sistema financiero y cooperativas de ahorro y crédito no autorizadas a captar recursos del público: Partida Registral</field>
+            <field name="code">7003</field>
+        </record>
+
+        <record id="identification_code_tax_concept_7004" model="identification.code.tax.concept">
+            <field name="name">Empresas del sistema financiero y cooperativas de ahorro y crédito no autorizadas a captar recursos del público: Número de contrato</field>
+            <field name="code">7004</field>
+        </record>
+
+        <record id="identification_code_tax_concept_7005" model="identification.code.tax.concept">
+            <field name="name">Empresas del sistema financiero y cooperativas de ahorro y crédito no autorizadas a captar recursos del público: Fecha de otorgamiento del crédito</field>
+            <field name="code">7005</field>
+        </record>
+
+        <record id="identification_code_tax_concept_7006" model="identification.code.tax.concept">
+            <field name="name">Empresas del sistema financiero y cooperativas de ahorro y crédito no autorizadas a captar recursos del público: Dirección del predio - Código de ubigeo</field>
+            <field name="code">7006</field>
+        </record>
+
+        <record id="identification_code_tax_concept_7007" model="identification.code.tax.concept">
+            <field name="name">Empresas del sistema financiero y cooperativas de ahorro y crédito no autorizadas a captar recursos del público: Dirección del predio - Dirección completa</field>
+            <field name="code">7007</field>
+        </record>
+
+        <record id="identification_code_tax_concept_7008" model="identification.code.tax.concept">
+            <field name="name">Empresas del sistema financiero y cooperativas de ahorro y crédito no autorizadas a captar recursos del público: Dirección del predio - Urbanización</field>
+            <field name="code">7008</field>
+        </record>
+
+        <record id="identification_code_tax_concept_7009" model="identification.code.tax.concept">
+            <field name="name">Empresas del sistema financiero y cooperativas de ahorro y crédito no autorizadas a captar recursos del público: Dirección del predio - Provincia</field>
+            <field name="code">7009</field>
+        </record>
+
+        <record id="identification_code_tax_concept_7010" model="identification.code.tax.concept">
+            <field name="name">Empresas del sistema financiero y cooperativas de ahorro y crédito no autorizadas a captar recursos del público: Dirección del predio - Distrito</field>
+            <field name="code">7010</field>
+        </record>
+
+        <record id="identification_code_tax_concept_7011" model="identification.code.tax.concept">
+            <field name="name">Empresas del sistema financiero y cooperativas de ahorro y crédito no autorizadas a captar recursos del público: Dirección del predio - Departamento</field>
+            <field name="code">7011</field>
+        </record>
+
+        <record id="identification_code_tax_concept_7012" model="identification.code.tax.concept">
+            <field name="name">Empresas del sistema financiero y cooperativas de ahorro y crédito no autorizadas a captar recursos del público: Monto del crédito otorgado (capital)</field>
+            <field name="code">7012</field>
+        </record>
+
+        <record id="identification_code_tax_concept_7013" model="identification.code.tax.concept">
+            <field name="name">Empresas del sistema de seguro: Número de póliza</field>
+            <field name="code">7013</field>
+        </record>
+
+        <record id="identification_code_tax_concept_7014" model="identification.code.tax.concept">
+            <field name="name">Empresas del sistema de seguro: Fecha de inicio/término de vigencia de cobertura</field>
+            <field name="code">7014</field>
+        </record>
+
+        <record id="identification_code_tax_concept_7015" model="identification.code.tax.concept">
+            <field name="name">Empresas del sistema de seguro: Tipo de seguro</field>
+            <field name="code">7015</field>
+        </record>
+
+        <record id="identification_code_tax_concept_7016" model="identification.code.tax.concept">
+            <field name="name">Empresas del sistema de seguro: Suma asegurada / alcance de cobertura o monto</field>
+            <field name="code">7016</field>
+        </record>
+
+        <record id="identification_code_tax_concept_7017" model="identification.code.tax.concept">
+            <field name="name">AFP: CUSPP</field>
+            <field name="code">7017</field>
+        </record>
+
+        <record id="identification_code_tax_concept_7018" model="identification.code.tax.concept">
+            <field name="name">AFP: Periodo</field>
+            <field name="code">7018</field>
+        </record>
+
+        <record id="identification_code_tax_concept_7019" model="identification.code.tax.concept">
+            <field name="name">AFP: Monto del interes moratorio</field>
+            <field name="code">7019</field>
+        </record>
+
+        <record id="identification_code_tax_concept_7020" model="identification.code.tax.concept">
+            <field name="name">Partida arancelaria</field>
+            <field name="code">7020</field>
+        </record>
+
+        <record id="identification_code_tax_concept_7021" model="identification.code.tax.concept">
+            <field name="name">Numero de declaracion aduanera (DAM)</field>
+            <field name="code">7021</field>
+        </record>
+
+        <record id="identification_code_tax_concept_7022" model="identification.code.tax.concept">
+            <field name="name">Indicador de bien normalizado</field>
+            <field name="code">7022</field>
+        </record>
+
+        <record id="identification_code_tax_concept_7023" model="identification.code.tax.concept">
+            <field name="name">Numero de serie en la DAM o DS</field>
+            <field name="code">7023</field>
+        </record>
+
+    </data>
+</odoo>

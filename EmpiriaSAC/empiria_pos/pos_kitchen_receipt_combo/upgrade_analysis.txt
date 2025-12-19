@@ -1,0 +1,4 @@
+---Models in module 'pos_kitchen_receipt_combo'---
+---Fields in module 'pos_kitchen_receipt_combo'---
+---XML records in module 'pos_kitchen_receipt_combo'---
+-- Depends in module 'pos_kitchen_receipt_combo' --

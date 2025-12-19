@@ -1,0 +1,5 @@
+---Models in module 'show_partner_vat_on_pos'---
+---Fields in module 'show_partner_vat_on_pos'---
+---XML records in module 'show_partner_vat_on_pos'---
+Se cambio el inherit ClientLine por PartnerLine en templates.xml
+Se cambio el inherit ClientListScreen por PartnerListScreen en templates.xml

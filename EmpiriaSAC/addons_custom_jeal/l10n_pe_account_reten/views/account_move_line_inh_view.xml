@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="view_account_move_line_inh_tree" model="ir.ui.view">
+            <field name="name">account.move.line.inh.tree</field>
+            <field name="model">account.move.line</field>
+            <field name="inherit_id" ref="account.view_move_line_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//tree/field" position="after">
+                    <field name="supplier_invoice_name" string="Factura de Proveedor" widget="open_move_widget" optional="hide"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_account_move_line_inh_form" model="ir.ui.view">
+            <field name="name">account.move.line.inh.form</field>
+            <field name="model">account.move.line</field>
+            <field name="inherit_id" ref="account.view_move_line_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook/page[@name='information']/group/group/field[@name='move_id']" position="after">
+                    <field name="supplier_invoice_name" string="Factura de Proveedor" readonly="1" attrs="{'invisible': [('supplier_invoice_name', 'in', [False,''])]}"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

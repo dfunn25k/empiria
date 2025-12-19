@@ -1,0 +1,32 @@
+# This file contains the translation of the following modules:
+# 	* l10n_pe_edi_stock_20
+
+#. module: l10n_pe_edi_stock_20
+#: model_terms:ir.ui.view,arch_db:l10n_pe_edi_stock_20.l10n_pe_edi_guiaremision_report_delivery_document
+msgid "<strong>Transfer indicator in M1 or L category vehicles:</strong>"
+msgstr "<strong>Indicador de transferencia en vehículos de categoría M1 o L:</strong>"
+
+#. module: l10n_pe_edi_stock_20
+#: model_terms:ir.ui.view,arch_db:l10n_pe_edi_stock_20.l10n_pe_edi_guiaremision_report_delivery_document
+msgid "<strong>Issuing entity of the special authorization:</strong>"
+msgstr "<strong>Entidad emisora de la autorización especial:</strong>"
+
+#. module: l10n_pe_edi_stock_20
+#: model_terms:ir.ui.view,arch_db:l10n_pe_edi_stock_20.l10n_pe_edi_guiaremision_report_delivery_document
+msgid "<strong>Related Documents:</strong>"
+msgstr "<strong>Documentos Relacionados:</strong>"
+
+#. module: l10n_pe_edi_stock_20
+#: model_terms:ir.ui.view,arch_db:l10n_pe_edi_stock_20.l10n_pe_edi_guiaremision_report_delivery_document
+msgid "<strong>Special authorization number:</strong>"
+msgstr "<strong>Número de autorización especial:</strong>"
+
+#. module: l10n_pe_edi_stock_20
+#: model_terms:ir.ui.view,arch_db:l10n_pe_edi_stock_20.l10n_pe_edi_guiaremision_report_delivery_document
+msgid "Yes"
+msgstr "Si"
+
+#. module: l10n_pe_edi_stock_20
+#: model:ir.model.fields.selection,name:l10n_pe_edi_stock_20.selection__l10n_pe_edi_vehicle__authorization_issuing_entity__12
+msgid "Regional government"
+msgstr "Gobierno regional"

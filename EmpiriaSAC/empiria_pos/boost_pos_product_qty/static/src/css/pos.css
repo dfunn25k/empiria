@@ -1,0 +1,37 @@
+.pos .product .qty-tag {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    vertical-align: top;
+    color: #FFFFFF;
+    line-height: 13px;
+    background: #008000;
+    padding: 2px 5px;
+    border-radius: 2px;
+    font-weight: bold;
+}
+.pos .product .qty-tag.not-available {
+    background: #FF0000;
+}
+.pos .order .orderline .qty-info {
+    color: #008000;
+    font-weight: bold;
+    font-style: normal;
+}
+.pos .order .orderline .qty-info.not-available {
+    color: #FF0000;
+}
+.pos .category-simple-button {
+    position: relative;
+    display: inline-block;
+    font-size: 14px;
+    margin-right: 1px;
+    margin-left: 1px;
+    margin-bottom: 1px;
+    padding: 5px 12px;
+    line-height: 32px;
+    flex-grow: 1;
+    -webkit-flex-grow: 1;
+    cursor: pointer;
+    background: #e2e2e2;
+}

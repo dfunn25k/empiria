@@ -1,0 +1,5 @@
+---Models in module 'l10n_pe_advance_global_discount'---
+---Fields in module 'l10n_pe_advance_global_discount'---
+Se añadió el tax_totals_json ya que de él dependen varias funcionalidiades de este modulo
+---XML records in module 'l10n_pe_advance_global_discount'---
+NEW ir.ui.view: l10n_pe_advance_global_discount.account_move_form_view_inherit_l10n_pe_advance_global_discount_agent_retention

@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_account_retention,AccountRetention,model_account_retention,l10n_pe_account_reten.group_retention_operador,1,1,1,1
+access_account_retention_line,AccountRetentionLine,model_account_retention_line,l10n_pe_account_reten.group_retention_operador,1,1,1,1

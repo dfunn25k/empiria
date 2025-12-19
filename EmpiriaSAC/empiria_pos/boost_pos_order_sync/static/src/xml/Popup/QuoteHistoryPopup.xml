@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+	<t t-name="QuoteHistoryPopup" owl="1">
+		<div class="modal-dialog">
+			<div class="popup popup-textinput quote-history-popup">
+				<div class='title'>
+					<t t-esc="props.title"/>
+				</div>
+				<div class="subwindow-container-fix quote-history-body">
+					<div>
+						<table class="history">
+							<tr>
+								<th>Quote Id</th>
+								<th>Customer</th>
+								<th>Total Amount</th>
+								<th>To POS session</th>
+								<th>State</th>
+							</tr>
+							<t t-foreach="props.quotes" t-as="quote" t-key="quote.quote_id">
+								<tr>
+									<td>
+										<t t-esc="quote.quote_id"/>
+									</td>
+									<td>
+										<t t-esc="quote.partner_id"/>
+									</td>
+									<td>
+										<t t-esc="env.pos.format_currency_no_symbol(quote.amount_total)"/>
+									</td>
+									<td>
+										<t t-esc="quote.to_session_id"/>
+									</td>
+									<td>
+										<t t-esc="quote.state"/>
+									</td>
+								</tr>
+							</t>
+						</table>
+					</div>
+				</div>
+				<div class="footer">
+                    <div class="button cancel highlight" t-on-click="cancel">
+                        <t t-esc="props.cancelText" />
+                    </div>
+				</div>
+			</div>
+		</div>
+	</t>
+</templates>

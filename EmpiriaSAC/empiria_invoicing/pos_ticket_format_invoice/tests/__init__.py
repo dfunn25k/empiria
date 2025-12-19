@@ -1,0 +1,1 @@
+from . import test_pos_ticket_format_invoice

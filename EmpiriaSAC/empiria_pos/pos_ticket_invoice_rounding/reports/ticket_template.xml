@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_invoice_document_tickets" inherit_id="pos_ticket_format_invoice.report_invoice_document_tickets">
+
+        <xpath expr="//tr[hasclass('o_total')]" position="before">
+            <t t-if="'formatted_rounding_amount' in tax_totals and tax_totals['rounding_amount'] != 0">
+                <tr>
+                    <td>
+                        <span>Redondeo</span>
+                    </td>
+                    <td class="text-end">
+                        <span t-esc="tax_totals['formatted_rounding_amount']"/>
+                    </td>
+                </tr>
+            </t>
+        </xpath>
+
+    </template>
+
+</odoo>

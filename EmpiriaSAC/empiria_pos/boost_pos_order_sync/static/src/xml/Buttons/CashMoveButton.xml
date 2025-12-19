@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="Chrome" t-inherit="point_of_sale.CashMoveButton" t-inherit-mode="extension" owl="1">
+        <xpath expr="//div" position="replace">
+            <div class="cash-move-button" t-on-click="onClick">
+                <i class="fa fa-money" aria-hidden="true"></i>
+                <t t-if="!env.isMobile">
+                    <span style="padding-left: 10px;">Cash In/Out</span>
+                </t>
+            </div>
+        </xpath>
+    </t>
+</templates>

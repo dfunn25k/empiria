@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="view_hr_document_placeholder_tree" model="ir.ui.view">
+            <field name="name">view.hr.document.placeholder.tree</field>
+            <field name="model">hr.document.placeholder</field>
+            <field name="arch" type="xml">
+                <tree editable="bottom">
+                    <field name="name"/>
+                    <field name="expression"/>
+                    <field name="description"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_hr_document_placeholder" model="ir.actions.act_window">
+            <field name="name">Placeholders de Documentos</field>
+            <field name="res_model">hr.document.placeholder</field>
+            <field name="view_mode">tree</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Añade tu primer placeholder
+                </p>
+                <p>
+                    Los placeholders actúan como "alias" o "macros" que puedes usar en tus plantillas de documentos.
+                    Odoo los reemplazará automáticamente por el valor correcto al imprimir el reporte.
+                </p>
+            </field>
+        </record>
+    </data>
+</odoo>

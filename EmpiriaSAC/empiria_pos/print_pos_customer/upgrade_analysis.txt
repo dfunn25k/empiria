@@ -1,0 +1,4 @@
+---Models in module 'print_pos_customer'---
+---Fields in module 'print_pos_customer'---
+---XML records in module 'print_pos_customer'---
+-- Depends in module 'print_pos_customer' --

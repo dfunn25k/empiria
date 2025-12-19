@@ -1,0 +1,4 @@
+---Models in module 'pos_rectified_document_reference'---
+---Fields in module 'pos_rectified_document_reference'---
+---XML records in module 'pos_rectified_document_reference'---
+-- Depends in module 'pos_rectified_document_reference' --

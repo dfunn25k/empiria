@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_boost_pos_order_sync_xr" inherit_id="boost_pos_order_sync.quote_order_report">
+        <xpath expr="//br[@id='block_final']" position="after">
+            <t t-if="o.pos_res_info">
+            <span t-esc="o.pos_res_info"/>
+            <br/><br/>
+            </t>
+        </xpath>
+    </template>
+</odoo>

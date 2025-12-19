@@ -1,0 +1,9 @@
+---Models in module 'pos_home_driver_delivery'---
+new inherit model res.config.settings [transient]
+new inherit model pos.session [model]
+---Fields in module 'pos_home_driver_delivery'---
+base      / res.config.settings          / pos_verify_delivery (boolean)  : new related
+---XML records in module 'pos_home_driver_delivery'---
+DEL ir.ui.view: pos_home_driver_delivery.pos_delivery_order_config_form_view
+NEW ir.ui.view: pos_home_driver_delivery.res_config_settings_form_view_inherit_pos_home_driver_delivery
+-- Depends in module 'pos_home_driver_delivery' --

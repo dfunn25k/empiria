@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="view_report_internal_transfers_form" model="ir.ui.view">
+            <field name="name">view.report.internal.transfers.form</field>
+            <field name="model">report.internal.transfers</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <header>
+                    </header>
+
+                    <sheet>
+                        <group>
+                            <field name="type" widget="radio" options="{'horizontal': true}" />
+                        </group>
+
+                        <group col="2">
+                            <group string="Filtrar por Fecha" attrs="{'invisible': [('type', '=', 'transfer')]}">
+                                <field name="date_start" string="Fecha de Inicio" placeholder="dd/mm/yyyy" attrs="{'required': [('type','=','date')]}"/>
+                                <field name="date_end" string="Fecha Fin" placeholder="dd/mm/yyyy" attrs="{'required': [('type','=','date')]}"/>
+                            </group>
+
+                            <group string="Filtrar por Transferencia" attrs="{'invisible': [('type', '=', 'date')]}">
+                                <field name="transferencia_ids" string="Transferencia" placeholder="transferencias..." widget="many2many_tags" attrs="{'required': [('type','=','transfer')]}" options="{'no_create': True, 'no_open': True, 'no_edit': True}" />
+                            </group>
+
+                            <group string="Selecione el estado">
+                                <field name="company_id" string="Compañia" placeholder="compañia..." options="{'no_create': True, 'no_open': True, 'no_edit': True}" />
+                                <field name="state" string="Estado"/>
+                                <field name="operation_type" string="Tipo de operación"/>
+                            </group>
+                        </group>
+
+                        <group string="Datos" col="2" colspan="2">
+                            <field name="types_operations_ids" string="Tipos de Operaciones" placeholder="tipos de operaciones..." widget="many2many_tags" attrs="{'required': [('type','=','transfer')]}" options="{'no_create': True, 'no_open': True, 'no_edit': True}" />
+                            <field name="product_ids" string="Producto" placeholder="productos..." widget="many2many_tags" options="{'no_create': True, 'no_open': True, 'no_edit': True}" />
+                        </group>
+                    </sheet>
+
+                    <footer>
+                        <!-- <button name="action_search_salida" type="object" string="Generar Informe" class="btn-primary" /> -->
+                        <button name="get_excel_report" string="Imprimir XLSX" type="object" class="btn-primary"/>
+
+                        <button string="Cancelar" class="btn-secondary" special="cancel" />
+
+                        <!-- <button name="get_report" string="Imprimir PDF" type="object" class="btn-primary"/> -->
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_report_internal_transfers" model="ir.actions.act_window">
+            <field name="name">Detalle de Almacén</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">report.internal.transfers</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="detail_report_internal_transfers.view_report_internal_transfers_form" />
+            <field name="target">new</field>
+        </record>
+    </data>
+</odoo>

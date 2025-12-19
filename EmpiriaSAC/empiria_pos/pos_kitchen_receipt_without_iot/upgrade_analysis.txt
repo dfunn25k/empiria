@@ -1,0 +1,9 @@
+---Models in module 'pos_kitchen_receipt_without_iot'---
+new inherit model res.config.settings [transient]
+---Fields in module 'pos_kitchen_receipt_without_iot'---
+base      / res.config.settings          / pos_allow_kitchens_receipt (boolean)  : new related
+base      / res.config.settings          / pos_use_multi_printer (boolean)  : new related
+---XML records in module 'pos_kitchen_receipt_without_iot'---
+DEL ir.ui.view: pos_kitchen_receipt_without_iot.pos_config_form_view_inherit_pos_kitchen_receipt_without_iot
+NEW ir.ui.view: pos_kitchen_receipt_without_iot.res_config_settings_form_view_inherit_pos_kitchen_receipt_without_iot
+-- Depends in module 'pos_kitchen_receipt_without_iot' --

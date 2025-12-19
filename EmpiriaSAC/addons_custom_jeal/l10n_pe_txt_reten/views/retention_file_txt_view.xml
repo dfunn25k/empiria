@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="view_retention_file_txt_form" model="ir.ui.view">
+            <field name="name">view.retention.file.txt.form</field>
+            <field name="model">retention.file.txt</field>
+            <field name="arch" type="xml">
+                <form string="Generar Reporte de Retención TXT">
+                    <!-- Header: Sección para acciones adicionales y barra de estado -->
+                    <header>
+                        <!-- Botón para generar el reporte -->
+                        <button name="action_report" string="Generar Reporte" type="object" class="btn-primary" icon="fa-file-text" states="draft" confirm="¿Estás seguro de que deseas GENERAR EL COMPROBANTE?" />
+
+                        <!-- Botón para cancelar el comprobante -->
+                        <button name="action_cancel" string="Cancelar" type="object" class="btn-secondary" icon="fa-trash" states="draft" confirm="¿Estás seguro de que deseas CANCELAR EL COMPROBANTE?" />
+
+                        <!-- Botón para restablecer a borrador -->
+                        <button name="action_rollback" string="Restablecer a Borrador" type="object" class="btn-secondary" icon="fa-eraser" states="load" confirm="¿Estás seguro de que deseas RESTABLECER EL COMPROBANTE A BORRADOR?" />
+
+                        <!-- Barra de estado -->
+                        <field name="state" widget="statusbar" statusbar_visible="draft,load,cancel"/>
+                    </header>
+
+                    <!-- Cuerpo del formulario -->
+                    <sheet>
+                        <div class="alert alert-warning mb-0" role="alert" attrs="{'invisible': [('error_dialog', 'in', [False,''])]}">
+                            <field name="error_dialog" string="" nolabel="1" decoration-danger="1" decoration-bf="1"/>
+                        </div>
+
+                        <group>
+                            <group col="2" string="Información General">
+                                <!-- Campo de fecha invisible -->
+                                <field name="date" invisible="1" />
+
+                                <!-- Información general -->
+                                <field name="company_id"/>
+                                <field name="year"/>
+                                <field name="period"/>
+                                <field name="today_date"/>
+                            </group>
+
+                            <group col="2" string="Archivos Generados">
+                                <!-- Archivos generados -->
+                                <field name="xls_filename_retention" invisible="1"/>
+                                <field name="xls_binary_retention" filename="xls_filename_retention" readonly="1" widget="binary" string="Archivo Excel Generado"/>
+
+                                <field name="txt_filename_retention" invisible="1"/>
+                                <field name="txt_binary_retention" filename="txt_filename_retention" readonly="1" widget="binary" string="Archivo TXT Generado"/>
+                            </group>
+                        </group>
+
+                        <notebook>
+                            <page string="Comprobantes de Retención">
+                                <field name="record_ids" create="1" delete="1" edit="bottom" string="Comprobantes de Retención"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+
+                    <!-- Footer: Acción -->
+                    <footer>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_retention_file_txt_tree" model="ir.ui.view">
+            <field name="name">view.retention.file.txt.tree</field>
+            <field name="model">retention.file.txt</field>
+            <field name="arch" type="xml">
+                <tree string="Your Custom Tree View">
+                    <field name="date" string="Fecha" />
+                    <field name="year" string="Año" />
+                    <field name="period" string="Período" />
+                    <field name="today_date" string="Fecha Generación" />
+                    <field name="state" decoration-warning="state =='draft'" decoration-success="state =='load'" decoration-danger="state =='cancel'" widget="badge" optional="show"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="retention_file_txt_action" model="ir.actions.act_window">
+            <field name="name">Comprobante de retención - PDT 626</field>
+            <field name="res_model">retention.file.txt</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</odoo>

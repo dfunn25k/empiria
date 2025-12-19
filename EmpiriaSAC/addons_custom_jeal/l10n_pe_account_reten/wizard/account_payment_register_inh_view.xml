@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="view_retention_account_payment_register_inh_form" model="ir.ui.view">
+            <field name="name">view.retention.account.payment.register.inh.form</field>
+            <field name="model">account.payment.register</field>
+            <field name="inherit_id" ref="account.view_account_payment_register_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//group/group/field[@name='partner_bank_id']" position="after">
+                    <field name="action_retention" invisible="1" groups="l10n_pe_account_reten.group_retention_operador" />
+                    <field name="state" widget="radio" invisible="1" options="{'horizontal': true}" groups="l10n_pe_account_reten.group_retention_operador"/>
+
+                    <field name="retention_sequence" invisible="1" groups="l10n_pe_account_reten.group_retention_operador" attrs="{'required': [('action_retention', '=', 'generate')], 'invisible': [('action_retention', '!=', 'generate')]}" />
+                    <field name="retention_id"  invisible="1" groups="l10n_pe_account_reten.group_retention_operador" attrs="{'required': [('action_retention', '=', 'attach')], 'invisible': [('action_retention', '!=', 'attach')]}" options="{'no_open': True, 'no_create': True}" />
+                </xpath>
+
+                <xpath expr="//group/group/label[@for='amount']" position="before">
+                    <field name="is_retention_agent" invisible="1" widget="boolean_toggle"/>
+                    <field name="has_retention" invisible="1" widget="boolean_toggle"/>
+
+                    <label for="amount_total" string="Importe Total" groups="l10n_pe_account_reten.group_retention_operador" attrs="{'invisible': ['|', ('has_retention', '!=', True), '|', ('can_edit_wizard', '=', False), '&amp;', ('can_group_payments', '=', True), ('group_payment', '=', False)]}" />
+                    <div name="amount_total_div" class="o_row" groups="l10n_pe_account_reten.group_retention_operador" attrs="{'invisible': ['|', ('has_retention', '!=', True), '|', ('can_edit_wizard', '=', False), '&amp;', ('can_group_payments', '=', True), ('group_payment', '=', False)]}">
+                        <field name="amount_total" nolabel="1" />
+
+                        <field name="currency_id" required="1" groups="base.group_multi_currency" options="{'no_create': True, 'no_open': True}" />
+                    </div>
+
+                    <label for="amount_paid" string="Importe Pagado" groups="l10n_pe_account_reten.group_retention_operador" attrs="{'invisible': ['|', ('has_retention', '!=', True), '|', ('can_edit_wizard', '=', False), '&amp;', ('can_group_payments', '=', True), ('group_payment', '=', False)]}" />
+                    <div name="amount_paid_div" class="o_row" groups="l10n_pe_account_reten.group_retention_operador" attrs="{'invisible': ['|', ('has_retention', '!=', True), '|', ('can_edit_wizard', '=', False), '&amp;', ('can_group_payments', '=', True), ('group_payment', '=', False)]}">
+                        <field name="amount_paid" nolabel="1" />
+
+                        <label for="percentage_paid" string="% Pagado" />
+                        <field name="percentage_paid" nolabel="1" />
+                    </div>
+                </xpath>
+
+                <xpath expr="//group/group/div[@name='amount_div']/field[@name='amount']" position="after">
+                    <label for="percentage_remaining" string="% Importe" groups="l10n_pe_account_reten.group_retention_operador" attrs="{'invisible': ['|', ('has_retention', '!=', True), '|', ('can_edit_wizard', '=', False), '&amp;', ('can_group_payments', '=', True), ('group_payment', '=', False)]}" />
+                    <field name="percentage_remaining" nolabel="1" groups="l10n_pe_account_reten.group_retention_operador" attrs="{'invisible': ['|', ('has_retention', '!=', True), '|', ('can_edit_wizard', '=', False), '&amp;', ('can_group_payments', '=', True), ('group_payment', '=', False)]}" />
+                </xpath>
+
+                <xpath expr="//group/group/div[@name='amount_div']/field[@name='currency_id']" position="replace">
+                    <field name="currency_id" required="1" groups="base.group_multi_currency" attrs="{'invisible': [('has_retention', '!=', False)]}" options="{'no_create': True, 'no_open': True}" />
+                </xpath>
+
+                <xpath expr="//group/group/div[@name='amount_div']" position="after">
+                    <!-- Etiqueta para el campo amount_retention -->
+                    <label for="amount_retention" string="Importe Retenido" groups="l10n_pe_account_reten.group_retention_operador" attrs="{'invisible': ['|', ('has_retention', '!=', True), '|', ('can_edit_wizard', '=', False), '&amp;', ('can_group_payments', '=', True), ('group_payment', '=', False)]}" />
+                    <!-- Contenedor para los campos de retención -->
+                    <div name="amount_retention_div" class="o_row" groups="l10n_pe_account_reten.group_retention_operador" attrs="{'invisible': ['|', ('has_retention', '!=', True), '|', ('can_edit_wizard', '=', False), '&amp;', ('can_group_payments', '=', True), ('group_payment', '=', False)]}">
+                        <field name="amount_retention" nolabel="1" />
+
+                        <label for="percentage_retention" string="% Retener" />
+                        <field name="percentage_retention" nolabel="1" attrs="{'required': [('has_retention', '=', True)]}"/>
+                    </div>
+
+
+                    <field name="account_payable_id" string="Cuenta por pagar" invisible="1" attrs="{'required': [('has_retention', '=', True)], 'invisible': ['|', ('has_retention', '!=', True), '|', ('can_edit_wizard', '=', False), '&amp;', ('can_group_payments', '=', True), ('group_payment', '=', False)]}" options="{'no_open': True, 'no_create': True}" />
+                    <field name="account_retention_id" string="Cuenta contable" invisible="1" attrs="{'required': [('has_retention', '=', True)], 'invisible': ['|', ('has_retention', '!=', True), '|', ('can_edit_wizard', '=', False), '&amp;', ('can_group_payments', '=', True), ('group_payment', '=', False)]}" options="{'no_open': True, 'no_create': True}" />
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

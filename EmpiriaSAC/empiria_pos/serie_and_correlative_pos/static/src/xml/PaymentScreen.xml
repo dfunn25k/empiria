@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="PaymentScreen" t-inherit="point_of_sale.PaymentScreen" t-inherit-mode="extension" owl="1">
+        <xpath expr="//div[@t-on-click='toggleIsToInvoice']" position="after">
+            <t t-if="env.pos.get_invoice_type_document_ids().length > 0 or env.pos.get_ticket_type_document_ids().length > 0">
+                <div class="serie_and_correlative_div" name="serie_and_correlative_div">
+                    <t t-if="currentOrder.is_to_invoice() and env.pos.get_invoice_type_document_ids().length > 0">
+                        <div class="invoice_document_type_ids" id="div_invoice_l10n_latam_document_type_ids">
+                            <p class="label_invoice" for="invoice_l10n_latam_document_type_ids">Document type</p>
+                            <select class="select_invoice" id="invoice_l10n_latam_document_type_ids" name="invoice_l10n_latam_document_type_ids" t-on-change="onChange_l10n_latam_document_type_id">
+                                <t t-foreach="env.pos.get_invoice_type_document_ids()" t-as="invoice_doc" t-key="invoice_doc.id">
+                                    <t t-if="(currentOrder.get_total_with_tax() + currentOrder.get_rounding_applied()) >= 0">
+                                        <t t-if="(invoice_doc.internal_type == 'invoice' or invoice_doc.internal_type == 'debit_note' or invoice_doc.internal_type == False)">
+                                            <option t-att-value="invoice_doc.id" t-att-selected="currentOrder.l10n_latam_document_type_id and invoice_doc.id == currentOrder.l10n_latam_document_type_id">
+                                                <t t-esc="invoice_doc.name"/>
+                                            </option>
+                                        </t>
+                                    </t>
+                                    <t t-else="">
+                                        <t t-if="invoice_doc.internal_type == 'credit_note' or invoice_doc.internal_type == False">
+                                            <option t-att-value="invoice_doc.id" t-att-selected="currentOrder.l10n_latam_document_type_id and invoice_doc.id == currentOrder.l10n_latam_document_type_id">
+                                                <t t-esc="invoice_doc.name"/>
+                                            </option>
+                                        </t>
+                                    </t>
+                                </t>
+                            </select>
+                        </div>
+                    </t>
+                    <t t-if="!currentOrder.is_to_invoice() and env.pos.get_ticket_type_document_ids().length > 0">
+                        <div class="invoice_document_type_ids" id="div_ticket_l10n_latam_document_type_ids">
+                            <p class="label_invoice" for="ticket_l10n_latam_document_type_ids">Document type</p>
+                            <select class="select_invoice" id="ticket_l10n_latam_document_type_ids" name="ticket_l10n_latam_document_type_ids" t-on-change="onChange_l10n_latam_document_type_id">
+                                <t t-foreach="env.pos.get_ticket_type_document_ids()" t-as="ticket_doc" t-key="ticket_doc.id">
+                                    <t t-if="(currentOrder.get_total_with_tax() + currentOrder.get_rounding_applied()) >= 0">
+                                        <t t-if="(ticket_doc.internal_type == 'invoice' or ticket_doc.internal_type == 'debit_note' or ticket_doc.internal_type == False)">
+                                            <option t-att-value="ticket_doc.id" t-att-selected="currentOrder.l10n_latam_document_type_id and ticket_doc.id == currentOrder.l10n_latam_document_type_id">
+                                                <t t-esc="ticket_doc.name"/>
+                                            </option>
+                                        </t>
+                                    </t>
+                                    <t t-else="">
+                                        <t t-if="ticket_doc.internal_type == 'credit_note' or ticket_doc.internal_type == False">
+                                            <option t-att-value="ticket_doc.id" t-att-selected="currentOrder.l10n_latam_document_type_id and ticket_doc.id == currentOrder.l10n_latam_document_type_id">
+                                                <t t-esc="ticket_doc.name"/>
+                                            </option>
+                                        </t>
+                                    </t>
+                                </t>
+                            </select>
+                        </div>
+                    </t>
+                </div>
+            </t>
+        </xpath>
+    </t>
+</templates>

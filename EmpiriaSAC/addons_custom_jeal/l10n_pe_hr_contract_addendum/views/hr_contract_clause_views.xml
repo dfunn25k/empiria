@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="view_hr_contract_clause_tree" model="ir.ui.view">
+            <field name="name">hr.contract.clause.tree</field>
+            <field name="model">hr.contract.clause</field>
+            <field name="arch" type="xml">
+                <tree editable="bottom">
+                    <field name="sequence" widget="handle"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_hr_contract_clause" model="ir.actions.act_window">
+            <field name="name">Cláusulas de Contrato</field>
+            <field name="res_model">hr.contract.clause</field>
+            <field name="view_mode">tree</field>
+        </record>
+    </data>
+</odoo>

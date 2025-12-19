@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="account_move_form_view_inherit_is_nodomicilied" model="ir.ui.view">
+        <field name="name">account.move.form.view.inherit.is_nodomicilied</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account_exchange_currency.account_move_form_view_inherit_account_exchange_currency"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='exchange_rate_div']" position="after">
+                <field name="is_nodomicilied"/>
+            </xpath>
+            <xpath expr="//page[@name='other_info']" position="before">
+                <page string="No Domiciliado"
+                      attrs="{'invisible': [('is_nodomicilied', '=', False)]}">
+                    <group>
+                        <field name="inv_serie"/>
+                        <field name="inv_correlative"/>
+                        <field name="inv_type_document"/>
+                        <field name="inv_year_dua_dsi"/>
+                        <field name="inv_retention_igv"/>
+                    </group>
+                    <group>
+                        <field name="linkage_id"/>
+                        <field name="hard_rent"/>
+                        <field name="deduccion_cost"/>
+                        <field name="neto_rent"/>
+                        <field name="retention_rate"/>
+                        <field name="tax_withheld"/>
+                        <field name="cdi"/>
+                        <field name="exoneration_nodomicilied_id"/>
+                        <field name="type_rent_id"/>
+                        <field name="taken_id"/>
+                        <field name="application_article"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

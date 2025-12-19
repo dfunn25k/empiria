@@ -1,0 +1,5 @@
+---Models in module 'related_product_to_customer'---
+[ADD] function _onchange_product_id
+---Fields in module 'related_product_to_customer'---
+product_product          / produc.product               / partner_ids (Many2many)         : NEW
+---XML records in module 'related_product_to_customer'---

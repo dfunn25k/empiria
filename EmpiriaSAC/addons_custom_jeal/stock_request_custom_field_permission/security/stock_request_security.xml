@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="0">
+        <!-- Definición del grupo que tiene permiso para editar comentarios en las solicitudes de existencias -->
+        <record id="group_edit_comment_stock_request" model="res.groups">
+            <!-- Nombre descriptivo del grupo -->
+            <field name="name">Permitir editar comentarios</field>
+
+            <!-- Categoría del módulo para agrupar este grupo -->
+            <field name="category_id" ref="stock_request.module_category_stock_request"/>
+
+            <!-- Definición de los usuarios que tendrán este permiso por defecto -->
+            <field name="users" eval="[(4, ref('base.user_admin'))]"/>
+        </record>
+
+        <!-- Definición del grupo que tiene permiso para ver los comentarios en las solicitudes de existencias -->
+        <record id="group_view_comment_stock_request" model="res.groups">
+            <!-- Nombre descriptivo del grupo -->
+            <field name="name">Permitir ver comentarios</field>
+
+            <!-- Herencia del grupo de usuarios regulares -->
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+
+            <!-- Categoría del módulo para agrupar este grupo -->
+            <field name="category_id" ref="stock_request.module_category_stock_request"/>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="l10n_pe_report_invoice_classic" inherit_id="classic_format_invoice.report_invoice_classic">
+        <xpath expr="//div/div[hasclass('client_data_2')]/div[@name='another_document_type']" position="after">
+            <t t-if="o.l10n_latam_document_type_id.code in ['07', '08']">
+                <div class="row">
+                    <div class="label">
+                        <strong>CPE QUE MODIFICA</strong>
+                    </div>
+                    <div class="separator">
+                        <strong style="font-weight: 800;">:</strong>
+                    </div>
+                    <div class="data">
+                        <t t-if="o.l10n_latam_document_type_id.code in ['07', '08']" t-esc="o.origin_number"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="label">
+                        <strong>MOTIVO</strong>
+                    </div>
+                    <div class="separator">
+                        <strong style="font-weight: 800;">:</strong>
+                    </div>
+                    <div class="data">
+                        <t t-if="o.l10n_latam_document_type_id.code == '07' and o.l10n_pe_edi_refund_reason" t-esc="dict(o._fields['l10n_pe_edi_refund_reason']._description_selection(env)).get(o.l10n_pe_edi_refund_reason)"/>
+                        <t t-if="o.l10n_latam_document_type_id.code == '08' and o.l10n_pe_edi_charge_reason" t-esc="dict(o._fields['l10n_pe_edi_charge_reason']._description_selection(env)).get(o.l10n_pe_edi_charge_reason)"/>
+                    </div>
+                </div>
+            </t>
+        </xpath>
+    </template>
+
+</odoo>

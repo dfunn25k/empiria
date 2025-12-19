@@ -1,0 +1,6 @@
+---Models in module 'ruc_validation_pos_sunat'---
+new inherit model pos [model]
+---Fields in module 'ruc_validation_pos_sunat'---
+---XML records in module 'ruc_validation_pos_sunat'---
+DEL point_of_sale.ClientDetailsEdit | point_of_sale.ClientListScreen | ClientListScreenVATValidation
+NEW point_of_sale.PartnerDetailsEdit | point_of_sale.PartnerListScreen | PartnerListScreenVATValidation

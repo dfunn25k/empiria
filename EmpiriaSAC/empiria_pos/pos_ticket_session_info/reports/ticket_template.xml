@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <template id="report_invoice_document_tickets_inherit_session_info" inherit_id="pos_ticket_format_invoice.report_invoice_document_tickets">
+            <xpath expr="//table[hasclass('table-pos-receipt-vendor')]/tbody/tr[2]" position="after">
+                <t t-set="pos_orders" t-value="o.sudo().pos_order_ids"/>
+                <tr>
+                    <td>
+                        <strong>Tienda</strong>
+                    </td>
+                    <td>:</td>
+                    <td>
+                        <t t-if="pos_orders">
+                            <t t-esc="pos_orders[0].session_id.config_id.name"/>
+                        </t>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>Empleado</strong>
+                    </td>
+                    <td>:</td>
+                    <td>
+                        <t t-if="pos_orders">
+                            <t t-esc="pos_orders[0].employee_id.name "/>
+                        </t>
+                    </td>
+                </tr>
+            </xpath>
+
+            <xpath expr="//div[hasclass('pos-receipt-print-ticket')]/div[hasclass('total_write')]" position="after">
+                <t t-set="payment_method_value" t-value="false"/>
+                <t t-if="pos_orders">
+                    <t t-foreach="pos_orders[0].payment_ids" t-as="payment">
+                        <t t-if="payment">
+<!--                            <t t-if="payment.amount &gt; 0">-->
+                                <t t-set="payment_method_value" t-value="true"/>
+<!--                            </t>-->
+                        </t>
+                    </t>
+                </t>
+
+                <table t-attf-class="table-session-payment-method#{'' if payment_method_value else '-inv'}" style="border-color: #fff;">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody style="font-size: 10px;">
+                        <t t-set="change_found" t-value="false"/>
+                        <t t-if="pos_orders">
+                            <t t-foreach="pos_orders[0].payment_ids" t-as="line_payment">
+                                <t t-if="line_payment.amount ==  - 1 * (o.pos_order_change) and not change_found">
+                                    <t t-set="change_found" t-value="true"/>
+                                </t>
+                                <t t-else="">
+                                    <tr>
+                                        <td>
+                                            <strong>
+                                                <span t-field="line_payment.payment_method_id.name"/>
+                                            </strong>
+                                        </td>
+                                        <td align="right">
+                                            <span t-field="line_payment.amount"/>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </t>
+                        </t>
+
+                        <t t-if="o.pos_order_change != 0">
+                            <tr>
+                                <td>
+                                    <strong><span>Vuelto</span></strong>
+                                </td>
+                                <td align="right">
+                                    <span t-field="o.pos_order_change"/>
+                                </td>
+                            </tr>
+                        </t>
+
+                    </tbody>
+                </table>
+            </xpath>
+        </template>
+
+    </data>
+</odoo>

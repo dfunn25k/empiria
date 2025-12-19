@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="view_picking_form_exchange_rate" model="ir.ui.view">
+            <field name="name">stock.picking.form.exchange.rate</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.view_picking_form"/>
+            <field name="arch" type="xml">
+                <!-- 
+                <xpath expr="//notebook/page[@name='extra']/group/group[@name='other_infos']" position="before">
+                    <group string="Tipo de Cambio" attrs="{'invisible': [('picking_type_code', '!=', 'incoming')]}">
+                        <field name="exchange_rate_date" string="Fecha del T.C." attrs="{'readonly': [('state', 'in', ['done', 'cancel'])]}"/>
+                        <field name="exchange_rate" string="Tipo de Cambio" digits="[12,6]" />
+                        <field name="to_force_exchange_rate" string="Forzar T.C." digits="[12,12]" attrs="{'readonly': [('state', 'in', ['done', 'cancel'])]}"/>
+                    </group>
+                </xpath> 
+                -->
+
+                <!-- ========================================================= -->
+                <!--              PICKING: FORZAR TIPO DE CAMBIO               -->
+                <!-- ========================================================= -->
+                <xpath expr="//sheet/group/group[last()]" position="after">
+                    <!-- Grupo para manipulación del tipo de cambio solo para recepciones -->
+                    <group name="exchange_rate_group" string="Tipo de Cambio" attrs="{'invisible': [('picking_type_code', '!=', 'incoming')]}">
+                        <!-- Fecha que determina qué tipo de cambio aplicar -->
+                        <field name="exchange_rate_date" string="Fecha del T.C." attrs="{'readonly': [('state', 'in', ['done', 'cancel'])]}"/>
+                        <!-- Tipo de cambio aplicado -->
+                        <field name="exchange_rate" string="Tipo de Cambio" digits="[12,6]" />
+                        <!-- Valor numérico forzado por el usuario -->
+                        <field name="to_force_exchange_rate" string="Forzar T.C." digits="[12,12]" attrs="{'readonly': [('state', 'in', ['done', 'cancel'])]}"/>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,94 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* document_type_on_pos
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-18 17:30+0000\n"
+"PO-Revision-Date: 2023-01-18 17:30+0000\n"
+"Last-Translator: Leo Daniel Flores Sánchez <leo.dev.ganemo@gmail.com>\n"
+"Language-Team: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: document_type_on_pos
+#. odoo-javascript
+#: code:addons/document_type_on_pos/static/src/js/PartnerDetailsEdit.js:0
+#, python-format
+msgid "A Customer Name Is Required"
+msgstr "Se requiere un nombre de cliente"
+
+#. module: document_type_on_pos
+#: model:ir.model,name:document_type_on_pos.model_res_partner
+msgid "Contact"
+msgstr "Contacto"
+
+#. module: document_type_on_pos
+#. odoo-javascript
+#: code:addons/document_type_on_pos/static/src/xml/PartnerDetailsEdit.xml:0
+#, python-format
+msgid "Document N°"
+msgstr "N° Documento"
+
+#. module: document_type_on_pos
+#. odoo-javascript
+#: code:addons/document_type_on_pos/static/src/xml/PartnerDetailsEdit.xml:0
+#, python-format
+msgid "Document type"
+msgstr "Tipo Documento"
+
+#. module: document_type_on_pos
+#. odoo-javascript
+#: code:addons/document_type_on_pos/static/src/xml/OrderReceipt.xml:0
+#, python-format
+msgid "Document:"
+msgstr "Documento:"
+
+#. module: document_type_on_pos
+#. odoo-javascript
+#: code:addons/document_type_on_pos/static/src/js/PartnerDetailsEdit.js:0
+#, python-format
+msgid "Error Save Changes"
+msgstr "Error al guardar cambios"
+
+#. module: document_type_on_pos
+#. odoo-javascript
+#: code:addons/document_type_on_pos/static/src/xml/PartnerDetailsEdit.xml:0
+#, python-format
+msgid "None"
+msgstr "None"
+
+#. module: document_type_on_pos
+#: model:ir.model,name:document_type_on_pos.model_pos_session
+msgid "Point of Sale Session"
+msgstr "Sesión TPV"
+
+#. module: document_type_on_pos
+#. odoo-javascript
+#: code:addons/document_type_on_pos/static/src/js/PartnerDetailsEdit.js:0
+#, python-format
+msgid "The \"Document N°\" field is empty"
+msgstr "El campo \"N° Documento\" está vacío"
+
+#. module: document_type_on_pos
+#. odoo-javascript
+#: code:addons/document_type_on_pos/static/src/js/PartnerDetailsEdit.js:0
+#, python-format
+msgid "The \"Document Type\" field is empty"
+msgstr "El campo \"Tipo Documento\" está vacío"
+
+#. module: document_type_on_pos
+#. odoo-python
+#: code:addons/document_type_on_pos/models/partner.py:0
+#: code:addons/document_type_on_pos/models/partner.py:0
+#, python-format
+msgid ""
+"You must resolve the following observations before saving: \n"
+" %s"
+msgstr ""
+"Debe resolver las siguientes observaciones antes de guardar: \n"
+" %s"

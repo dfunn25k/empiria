@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="view_cost_center_report_wizard_form" model="ir.ui.view">
+            <field name="name">cost.center.report.wizard.form</field>
+            <field name="model">cost.center.report.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Asistente de Reportes de Centros de Costos">
+                    <sheet>
+                        <!-- =================  SECCIÓN PRINCIPAL Y CONFIGURACIÓN ================= -->
+                        <group>
+                            <group string="Periodo">
+                                <field name="date_filter_type" widget="radio"/>
+                            </group>
+
+                            <group string="Configuración General">
+                                <field name="company_id" placeholder="Seleccione una compañía" options="{'no_create_edit': True}" />
+                                <field name="report_type" placeholder="Seleccione un tipo de reporte" />
+                            </group>
+                        </group>
+
+                        <!-- ================= FILTROS DEPENDIENTES DE LA SELECCIÓN ================= -->
+                        <group>
+                            <!-- FILTRO ACUMULADO AL PERIODO (YTD) -->
+                            <group string="Año Específico" attrs="{'invisible': [('date_filter_type', '!=', 'period_year')]}">
+                                <field name="year" placeholder="Seleccione el año" attrs="{'required': [('date_filter_type','=','period_year')]}" help="Año fiscal."/>
+                            </group>
+
+                            <!-- FILTRO POR PERIODO (MES + AÑO) -->
+                            <group string="Mes Específico" attrs="{'invisible': [('date_filter_type', '!=', 'period_month')]}">
+                                <label for="year"/>
+                                <div class="o_row">
+                                    <field name="year" nolabel="1" placeholder="Seleccione el año" attrs="{'required': [('date_filter_type','=','period_month')]}" help="Año fiscal para el análisis del periodo seleccionado." />
+
+                                    <label for="month" class="fw-bold"/>
+                                    <field name="month" nolabel="1" placeholder="Seleccione el mes" help="Mes correspondiente al periodo seleccionado."/>
+                                </div>
+                            </group>
+
+                            <!-- FILTRO ACUMULADO AL PERIODO (YTD) -->
+                            <group string="Acumulado al Periodo" attrs="{'invisible': [('date_filter_type', '!=', 'up_to_period')]}">
+                                <label for="year"/>
+                                <div class="o_row">
+                                    <field name="year" nolabel="1" placeholder="Seleccione el año" attrs="{'required': [('date_filter_type','=','up_to_period')]}" help="Año hasta el cual se hará el acumulado."/>
+
+                                    <label for="month" class="fw-bold"/>
+                                    <field name="month" nolabel="1" placeholder="Seleccione el mes" attrs="{'required': [('date_filter_type','=','up_to_period')]}" help="Mes final del acumulado: se incluirán movimientos hasta el último día de este mes."/>
+                                </div>
+                            </group>
+
+                            <!-- FILTRO POR FECHA DE CORTE -->
+                            <group string="Acumulado a la Fecha" attrs="{'invisible': [('date_filter_type', '!=', 'up_to_date')]}">
+                                <field name="date_up_to" placeholder="Seleccione una fecha"/>
+                            </group>
+
+                            <!-- FILTRO POR RANGO PERSONALIZADO -->
+                            <group string="Rango Personalizado" attrs="{'invisible': [('date_filter_type', '!=', 'range')]}">
+                                <label for="date_from"/>
+                                <div class="o_row">
+                                    <field name="date_from" nolabel="1" placeholder="dd/mm/yyyy" attrs="{'required': [('date_filter_type','=','range')]}"/>
+
+                                    <label for="date_to" class="fw-bold"/>
+                                    <field name="date_to" nolabel="1" placeholder="dd/mm/yyyy" attrs="{'required': [('date_filter_type','=','range')]}"/>
+                                </div>
+                            </group>
+
+                            <!-- ================= DESCARGA ================= -->
+                            <group string="Descarga del Reporte" attrs="{'invisible': [('xlsx_binary', '=', False)]}">
+                                <field name="xlsx_filename" invisible="1"/>
+                                <field name="xlsx_binary" filename="xlsx_filename" readonly="1"/>
+                            </group>
+                        </group>
+
+                        <!-- ================= PESTAÑAS AVANZADAS ================= -->
+                        <notebook>
+                            <!-- FILTROS ANALÍTICOS -->
+                            <page string="Filtros Analíticos">
+                                <group>
+                                    <field name="analytic_plan_ids" widget="many2many_tags" placeholder="Todos los Planes Analíticos" options="{'no_create_edit': True}"/>
+                                    <field name="analytic_account_ids" widget="many2many_tags" placeholder="Todos los Centros de Costo" options="{'no_create_edit': True}"/>
+                                </group>
+                            </page>
+
+                            <!-- FILTROS CONTABLES -->
+                            <page string="Filtros Contables">
+                                <group>
+                                    <field name="account_group_ids" widget="many2many_tags" placeholder="Seleccione grupos contables" options="{'no_create_edit': True}" />
+                                    <field name="account_ids" widget="many2many_tags" placeholder="Todas las Cuentas Contables" options="{'no_create_edit': True}" />
+                                    <field name="journal_ids" widget="many2many_tags" placeholder="Todos los Diarios Contables" options="{'no_create_edit': True}"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+
+                    <!-- ================= BOTONES DE ACCIÓN ================= -->
+                    <footer>
+                        <button string="Generar Reporte" 
+                            name        = "action_generate_report" 
+                            type        = "object" 
+                            class       = "btn-primary" 
+                            icon        = "fa-file-excel-o" 
+                            data-hotkey = "q" 
+                            help        = "Genera un reporte Excel con los gastos agrupados por concepto y centro de costo."/>
+
+                        <button string="Cancelar" class="btn-secondary" special="cancel" icon="fa-times" data-hotkey="z"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_cost_center_report_wizard" model="ir.actions.act_window">
+            <field name="name">Reportes de Centros de Costos</field>
+            <field name="res_model">cost.center.report.wizard</field>
+            <field name="groups_id" eval="[(4, ref('account.group_account_invoice'))]" />
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_cost_center_report_wizard_form" />
+            <field name="target">new</field>
+        </record>
+    </data>
+</odoo>

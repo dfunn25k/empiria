@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>    
+        <menuitem id="menu_closing_entries" name="Asientos de cierre" parent="account.menu_finance_entries" action="action_closing_entry_wizard" sequence="100"/>
+    </data>
+</odoo>

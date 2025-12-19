@@ -1,0 +1,31 @@
+# -*- coding: utf-8 -*-
+{
+    "name": "HR Document Management",
+    "version": "16.0.1.0.1",
+    "summary": "Allows creating dynamic contract addendums and other HR documents.",
+    "author": "Tu Nombre",
+    "website": "https://www.tuweb.com",
+    "category": "Human Resources/Contracts",
+    "depends": [
+        "hr",
+        "hr_contract",
+        "hr_payroll",
+        "hr_work_entry_contract_enterprise",
+    ],
+    "data": [
+        "security/ir.model.access.csv",
+        "reports/contract_addendum_template.xml",
+        "reports/report_actions.xml",
+        "wizard/hr_contract_addendum_wizard_views.xml",
+        "views/hr_document_template_views.xml",
+        "views/hr_contract_clause_views.xml",
+        "views/hr_document_placeholder_views.xml",
+        "views/hr_contract_views.xml",
+        "views/hr_payroll_menuitems.xml",
+        "data/hr_contract_clause_data.xml",
+        "data/hr_document_placeholder_data.xml",
+    ],
+    "installable": True,
+    "application": False,
+    "auto_install": False,
+}

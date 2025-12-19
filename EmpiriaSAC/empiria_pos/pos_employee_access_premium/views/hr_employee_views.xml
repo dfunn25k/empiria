@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="hr_employee_form_view_inherit_pos_user_access_mac5" model="ir.ui.view">
+        <field name="name">hr.employee.form.view.inherit.pos_user_access_mac5</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='identification_group']" position="inside">
+                <field name="pos_access_close" widget="boolean_toggle"/>
+                <field name="pos_access_delete_orderline" widget="boolean_toggle"/>
+                <field name="pos_access_payment" widget="boolean_toggle"/>
+                <field name="pos_access_decrease_quantity" widget="boolean_toggle"/>
+                <field name="pos_access_delete_order" widget="boolean_toggle"/>
+                <field name="pos_access_discount" widget="boolean_toggle"/>
+                <field name="pos_access_price" widget="boolean_toggle"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

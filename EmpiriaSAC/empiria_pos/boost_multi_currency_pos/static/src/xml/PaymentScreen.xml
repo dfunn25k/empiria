@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="PaymentScreen" t-inherit="point_of_sale.PaymentScreen" t-inherit-mode="extension" owl="1">
+        
+        <xpath expr="//div[@class='main-content']/div[@class='left-content']/div[@class='paymentmethods-container']" position="after">
+            <t t-if="!env.isMobile">
+                <t t-if="env.pos.config.enable_multi_currency">
+                    <section>
+                        <div class="switch_center">
+                            <label class="switch">
+                                <input type="checkbox" id="toggle_multi_currency" t-on-change="switch_change"/>
+                                <span class="slider round"/>
+                            </label>
+                            <span style="width: 75%; font-size: 15px;">
+                                Currency
+                            </span>
+                        </div>
+                    </section>
+                </t>
+            </t>
+        </xpath>
+
+        <xpath expr="//div[@class='main-content']/div[@class='left-content']/t" position="after">
+            <t t-if="env.isMobile">
+                <t t-if="env.pos.config.enable_multi_currency">
+                    <section>
+                        <div class="switch_center">
+                            <label class="switch">
+                                <input type="checkbox" id="toggle_multi_currency" t-on-change="switch_change"/>
+                                <span class="slider round"/>
+                            </label>
+                            <span style="width: 75%; font-size: 15px;">
+                                Currency
+                            </span>
+                        </div>
+                    </section>
+                </t>
+            </t>
+        </xpath>
+
+        <xpath expr="//div[@class='main-content']/div[@class='center-content']" position="replace">
+            <div class="center-content">
+                <t t-if="!env.isMobile">
+                    <section class="paymentlines-container">
+                        <PaymentScreenStatus order="currentOrder" />
+                        <t t-if="env.pos.config.enable_multi_currency">
+                            <div class="multi_currency_pos display-none">
+                                <div class="currency_rate">
+                                    <div class="currency_header">
+                                        <div class="currency_title">
+                                            <label>Currency rate</label>
+                                        </div>
+                                        <select class="currency_selection" id="currency_selection" t-on-change="select_change">
+                                        <t t-foreach="env.pos.currency_list" t-as="currencylist" t-key="currencylist.id">
+                                                <t t-if="selected_curr==currencylist.id">
+                                                    <option selected="selected" t-att-value="currencylist.id">
+                                                        <t t-esc="currencylist.name"/>
+                                                    </option>
+                                                </t>
+                                                <t t-if="selected_curr!=currencylist.id">
+                                                    <option t-att-value="currencylist.id">
+                                                        <t t-esc="currencylist.name"/>
+                                                    </option>
+                                                </t>
+                                            </t>
+                                        </select>
+                                    </div>
+                                    <div class="currency_conversion">
+                                        <t t-if="env.pos.config.display_conversion">
+                                            <span id="conversion_rate"/>
+                                        </t>
+                                    </div>
+                                    <div class="currency_value">
+                                        <span class="currency_value_one" id="currency_value_label"/>
+                                        <span class="currency_value_two" id="currency_value"/>
+                                    </div>
+                                </div>
+                                <div class="currency_button">
+                                    <button class="order-button" id="btn_rate_update" t-on-click="update_rate">
+                                        Update Rate
+                                    </button>
+                                </div>
+                            </div>
+                        </t>
+                    </section>
+                </t>
+                <div class="payment-buttons-container">
+                    <section class="payment-numpad">
+                        <PaymentScreenNumpad />
+                    </section>
+                </div>
+            </div>
+        </xpath>
+
+        <xpath expr="//div[@class='main-content']/div[@class='right-content']/div[@class='payment-buttons']/div[@class='partner-button']/div[@class='button']" position="after">
+            <t t-if="env.isMobile">
+                <t t-if="env.pos.config.enable_multi_currency">
+                    <div class="multi_currency_pos display-none">
+                        <div class="currency_rate">
+                            <div class="currency_header">
+                                <div class="currency_title">
+                                    <label>Currency rate</label>
+                                </div>
+                                <select class="currency_selection" id="currency_selection" t-on-change="select_change">
+                                <t t-foreach="env.pos.currency_list" t-as="currencylist" t-key="currencylist.id">
+                                        <t t-if="selected_curr==currencylist.id">
+                                            <option selected="selected" t-att-value="currencylist.id">
+                                                <t t-esc="currencylist.name"/>
+                                            </option>
+                                        </t>
+                                        <t t-if="selected_curr!=currencylist.id">
+                                            <option t-att-value="currencylist.id">
+                                                <t t-esc="currencylist.name"/>
+                                            </option>
+                                        </t>
+                                    </t>
+                                </select>
+                            </div>
+                            <div class="currency_conversion">
+                                <t t-if="env.pos.config.display_conversion">
+                                    <span id="conversion_rate"/>
+                                </t>
+                            </div>
+                            <div class="currency_value">
+                                <span class="currency_value_one" id="currency_value_label"/>
+                                <span class="currency_value_two" id="currency_value"/>
+                            </div>
+                        </div>
+                        <div class="currency_button">
+                            <button class="order-button" id="btn_rate_update" t-on-click="update_rate">
+                                Update Rate
+                            </button>
+                        </div>
+                    </div>
+                    <div class="div_currency_inputs display-none">
+                        <t t-set="selected_curr" t-value="currency_selection()"/>
+                        <div class="div_currency_checkbox">
+                            <div>
+                                <span id="receipt_currency_label"/>
+                            </div>
+                            <div>
+                                <input type="checkbox" name="receipt_in_other_curr" id="curr_receipt" t-on-change="receipt_change"/>
+                            </div>
+                        </div>
+                        <div class="div_currency_input">
+                            <div>
+                                <span id="foreign_input_label"/>
+                            </div>
+                            <div>
+                                <input placeholder="Enter Amount" id="curr_input" t-on-keyup="value_input" autocomplete="off"/>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </xpath>
+
+        <xpath expr="//div[@t-on-click='toggleIsToShip']" position="after">
+            <t t-if="!env.isMobile">
+                <t t-if="env.pos.config.enable_multi_currency">
+                    <div class="div_currency_inputs display-none">
+                        <t t-set="selected_curr" t-value="currency_selection()"/>
+                        <div class="div_currency_checkbox">
+                            <div>
+                                <span id="receipt_currency_label"/>
+                            </div>
+                            <div>
+                                <input type="checkbox" name="receipt_in_other_curr" id="curr_receipt" t-on-change="receipt_change"/>
+                            </div>
+                        </div>
+                        <div class="div_currency_input">
+                            <div>
+                                <span id="foreign_input_label"/>
+                            </div>
+                            <div>
+                                <input placeholder="Enter Amount" id="curr_input" t-on-keyup="value_input" autocomplete="off"/>
+                            </div>
+                        </div>
+                    </div>
+                 </t>
+            </t>
+        </xpath>
+
+    </t>
+</templates>

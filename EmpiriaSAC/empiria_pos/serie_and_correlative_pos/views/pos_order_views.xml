@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="pos_order_form_view_inherit_serie_and_correlative_pos" model="ir.ui.view">
+        <field name="name">pos.order.form.view.inherit.serie_and_correlative_pos</field>
+        <field name="model">pos.order</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_pos_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='payments']" position='after'>
+                <page string="FE" name="electronic_page">
+                    <group>
+                        <field name="l10n_latam_document_type_id"/>
+                        <field name="l10n_latam_journal_id"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

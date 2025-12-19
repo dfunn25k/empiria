@@ -1,0 +1,256 @@
+// QuoteHistory
+.qt-history {
+    color: #5EB937;
+}
+
+// ConfirmNotifyPopup
+.modal-dialog .confirm-notify-popup {
+    border-radius: 5px;
+    height: 220px;
+}
+
+.modal-dialog .confirm-notify-popup .order_status {
+    height: 80px;
+    width: 80px;
+    margin-top: 15px;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    border-left-color: #5cb85c;
+    animation-name: load_order;
+    animation-duration: 0.8s;
+    display: inline-block;
+    border-radius: 50%;
+}
+
+.modal-dialog .confirm-notify-popup .order_status:after {
+    border-radius: 50%;
+}
+
+.modal-dialog .confirm-notify-popup .order_status .show_tick {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin-top: 10px;
+}
+
+.modal-dialog .confirm-notify-popup .order_status .show_tick.draw:after {
+    animation-name: show_tick;
+    transform: scaleX(-0.9) rotate(135deg);
+    animation-duration: 1.2s;
+    animation-timing-function: ease;
+}
+
+.modal-dialog .confirm-notify-popup .order_status .show_tick:after {
+    opacity: 1;
+    height: 40px;
+    width: 20px;
+    border-right: 3px solid #5cb85c;
+    border-top: 3px solid #5cb85c;
+    content: '';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-dialog .confirm-notify-popup h2 {
+    color: #5CB85C;
+}
+
+// QuoteHistoryPopup
+.modal-dialog .quote-history-popup {
+    max-width: 800px !important;
+}
+
+.modal-dialog .quote-history-popup .quote-history-body {
+    max-height: 300px;
+    padding: 2%;
+    height: 64%;
+    margin-top: -4%;
+    overflow-y: auto;
+    overflow-x: auto;
+}
+
+.modal-dialog .quote-history-popup .quote-history-body .history {
+    width: 100%;
+}
+
+.modal-dialog .quote-history-popup .quote-history-body .history tr:nth-child(even) {
+    background: #FFFFFF;
+}
+
+.modal-dialog .quote-history-popup .quote-history-body .history th {
+    padding: 10px 8px;
+    font-size: initial;
+}
+
+.modal-dialog .quote-history-popup .quote-history-body .history td {
+    padding: 10px 8px;
+    font-size: initial;
+    font-weight: normal;
+}
+
+// SendOrderPopup
+.quote_title {
+    margin-left: 15px;
+    font-size: 16px;
+    color: #4C4B4B;
+    border: 1px solid #e5e5e5;
+    padding: 10px;
+    text-align: left;
+    width: 90%;
+}
+
+.quote_title span {
+    color: #707070;
+}
+
+.sessions {
+    height: 40%;
+    overflow-y: auto;
+    overflow-x: auto;
+}
+
+.sessions .select_session {
+    font-size: 13px;
+    color: rgb(76, 75, 75);
+    box-shadow: 0px 1px 0.94px 0.06px rgba(0, 0, 0, 0.24), 0px 0px 0.98px 0.02px rgba(0, 0, 0, 0.16);
+    position: relative;
+    vertical-align: top;
+    display: inline-block;
+    margin: 8px;
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    border-radius: 5px;
+    border-bottom-width: 3px;
+    cursor: pointer;
+}
+
+.sessions .select_session i {
+    font-size: 48px;
+    color: rgb(76, 75, 75);
+    margin-top: 9px;
+}
+
+.sessions .select_session p {
+    word-wrap: break-word;
+}
+
+.sessions .select_session .p_one {
+    margin-top: 3px;
+}
+
+.sessions .select_session .p_two {
+    margin-top: -9px;
+}
+
+.note {
+    text-align: left;
+}
+
+.note .wk_note {
+    font-size: 16px;
+    color: #4C4B4B;
+    margin-left: 15px;
+}
+
+.note textarea {
+    font-size: 14px;
+    color: #4C4B4B;
+    margin-left: 15px;
+    border: 1px solid #e5e5e5;
+    background-color: #FFFFFF;
+    width: 90%;
+    resize: none;
+    overflow: hidden;
+    margin-top: 5px
+}
+
+.send_print_quote {
+    size: 14px;
+    color: #FFFFFF !important;
+    background-color: #3e66c1;
+    border-radius: 4px;
+}
+
+.send_print_quote:active {
+    background: #3e66c1 !important;
+    border: 1px solid #3e66c1 !important;
+}
+
+.send_quote {
+    size: 14px;
+    color: #FFFFFF !important;
+    background-color: #2ba339;
+    border-radius: 4px;
+}
+
+.send_quote:active {
+    background: #2ba339 !important;
+    border: 1px solid #2ba339 !important;
+}
+
+.order_done {
+    -webkit-animation: none;
+    background-color: #FFFFFF;
+    border-color: #5cb85c;
+    animation: none;
+}
+
+// Chrome //
+#click-send-quote-id {
+    cursor: pointer;
+    background: #FFFFFF;
+}
+
+#click-send-quote-id i {
+    font-size: 24px;
+    color: #959595;
+}
+
+#click-notification-quote-id {
+    cursor: pointer;
+    background: #FFFFFF;
+}
+
+#click-notification-quote-id i {
+    font-size: 24px;
+    color: #959595;
+}
+
+
+// keyframes //
+@keyframes load_order {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes show_tick {
+    0% {
+        height: 0;
+        width: 0;
+        opacity: 1;
+    }
+
+    20% {
+        height: 0;
+        width: 20px;
+        opacity: 1;
+    }
+
+    40% {
+        height: 40px;
+        width: 20px;
+        opacity: 1;
+    }
+
+    100% {
+        height: 40px;
+        width: 20px;
+        opacity: 1;
+    }
+}

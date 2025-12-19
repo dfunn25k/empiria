@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-inherit="point_of_sale.OrderReceipt" t-inherit-mode="extension">
+        <xpath expr="//span[@class='partner-no']" position="before">
+            <span class="partner-document_id">
+                Document:
+                <t t-if="props.order.get_partner() and props.order.get_partner().l10n_latam_identification_type_id">
+                    <t t-set="order_partner" t-value="props.order.get_partner()"/>
+                    <t t-esc="order_partner.l10n_latam_identification_type_id[1]"/>
+                </t>
+            </span>
+            <br/>
+        </xpath>
+    </t>
+</templates>

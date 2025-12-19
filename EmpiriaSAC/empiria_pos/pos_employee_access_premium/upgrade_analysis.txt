@@ -1,0 +1,5 @@
+---Models in module 'serie_and_correlative_pos'---
+new inherit model pos.session [model]
+---Fields in module 'serie_and_correlative_pos'---
+---XML records in module 'serie_and_correlative_pos'---
+-- Depends in module 'serie_and_correlative_pos' --

@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<odoo>
+	<record id="pos_config_settings_view_inherit_form" model="ir.ui.view">
+		<field name="name">res.config.setting.form.extended.view</field>
+        <field name="model">res.config.settings</field>
+		<field name="inherit_id" ref="pos_extend_receipt_app.pos_config_view_inherit_form"/>
+		<field name="arch" type="xml">
+			<!-- Modify if the position of div in pos_extend_receipt_app has changed -->
+            <xpath expr="//div[@data-key='point_of_sale']/div[3]/div[hasclass('row')][1]" position="replace">
+			</xpath>
+			<xpath expr="//div[@id='pos_interface_section']" position="after">
+				<h2 name="order">POS Receipt Extended</h2>
+				<div class="row mt16 o_settings_container pos_receipt_extended">
+					<div class="col-xs-12 col-md-6 o_setting_box">
+						<div class="o_setting_left_pane">
+							<field name="order_barcode"/>
+						</div>
+						<div class="o_setting_right_pane">
+							<label for="order_barcode"/>
+							<div class="text-muted">
+								Enable to show Barcode in Receipt
+							</div>
+							<div class="mt8">
+								<field name="barcode_selection" widget="radio" attrs="{'invisible': [('order_barcode','=', False)]}"/>
+							</div>
+						</div>
+					</div>
+					<div class="col-xs-12 col-md-6 o_setting_box">
+						<div class="o_setting_left_pane">
+							<field name="invoice_number"/>
+						</div>
+						<div class="o_setting_right_pane">
+							<label for="invoice_number"/>
+							<div class="text-muted">
+								Enable View Invoice Number in Receipt
+							</div>
+						</div>
+					</div>
+					<div class="col-xs-12 col-md-6 o_setting_box">
+						<div class="o_setting_left_pane">
+							<field name="customer_details"/>
+						</div>
+						<div class="o_setting_right_pane">
+							<label for="customer_details"/>
+							<div class="text-muted">
+								Enable to view Customer details in Receipt
+							</div>
+							<br/>
+							<div class="content-group mt16" style="display: flex;">
+								<div style="display: grid;min-width: 120px;"  attrs="{'invisible': [('customer_details' ,'=', False)]}">
+									<label for="customer_name"/>
+									<label for="customer_address"/>
+									<label for="customer_mobile"/>
+									<label for="customer_phone"/>
+									<label for="customer_email"/>
+									<label for="order_number"/>
+									<label for="customer_vat"/>
+								</div>
+								<div style="display: grid;min-width: 230px;"  attrs="{'invisible': [('customer_details' ,'=', False)]}">
+									<field name="customer_name_custom_title" style="width: 200px;"/>
+									<field name="customer_address_custom_title" style="width: 200px;"/>
+									<field name="customer_mobile_custom_title" style="width: 200px;"/>
+									<field name="customer_phone_custom_title" style="width: 200px;"/>
+									<field name="customer_email_custom_title" style="width: 200px; margin-bottom: 14px;"/>
+									<field name="customer_vat_custom_title" style="width: 200px; margin-top: 14px;"/>
+								</div>
+								<div style="display: grid;min-width: 50px;" attrs="{'invisible': [('customer_details' ,'=', False)]}">
+									<field name="customer_name" attrs="{'required': [('customer_details', '!=', False)]}" />
+									<field name="customer_address" attrs="{'required': [('customer_details', '!=', False)]}" />
+									<field name="customer_mobile" attrs="{'required': [('customer_details', '!=', False)]}" />
+									<field name="customer_phone" attrs="{'required': [('customer_details', '!=', False)]}" />
+									<field name="customer_email" attrs="{'required': [('customer_details', '!=', False)]}" />
+									<field name="order_number" attrs="{'required': [('customer_details', '!=', False)]}" />
+									<field name="customer_vat" attrs="{'required': [('customer_details', '!=', False)]}" />
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-xs-12 col-md-6 o_setting_box">
+						<div class="o_setting_left_pane"/>
+						<div class="o_setting_right_pane">
+							<span class="o_form_label">Costumer detail design</span>
+							<div class="mt16">
+                                <div class="content-group mt16" style="display: flex;">
+                                    <div style="display: grid;min-width: 80px;">
+										<label for="font_size"/>
+										<label for="bold_format"/>
+                                    </div>
+                                    <div style="display: grid;min-width: 50px;">
+                                        <field name="font_size" style="width: 50px;"/>
+										<field name="bold_format"/>
+                                    </div>
+                                </div>
+                            </div>
+						</div>
+					</div>
+				</div>
+			</xpath>
+		</field>
+	</record>
+
+</odoo>

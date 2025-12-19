@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_account_journal_form" model="ir.ui.view">
+        <field name="name">account.journal.view.form.inherit.payroll_accounting_entry_separate</field>
+        <field name="model">account.journal</field>
+        <field name="inherit_id" ref="account.view_account_journal_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//label[@for='default_account_id']" position="after">
+                <label for="default_account_id" string="Cuenta de gastos por defecto"
+                       attrs="{'invisible': [('type', '!=', 'general')]}" groups="account.group_account_readonly"/>            
+        
+            </xpath>
+            <xpath expr="//field[@name='default_account_id']" position="attributes">
+                <attribute name="attrs">{'required': ['|', '&amp;', ('id', '!=', False), ('type', 'in', ('bank', 'cash')), ('type', 'in', ('sale', 'purchase'))], 'invisible': [('type', 'in', (False))]}</attribute>          
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

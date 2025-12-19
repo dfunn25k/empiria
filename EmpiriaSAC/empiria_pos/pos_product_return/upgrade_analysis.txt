@@ -1,0 +1,4 @@
+---Models in module 'autocreate_pos_invoice'---
+---Fields in module 'autocreate_pos_invoice'---
+---XML records in module 'autocreate_pos_invoice'---
+-- Depends in module 'autocreate_pos_invoice' --

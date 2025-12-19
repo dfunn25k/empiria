@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="0">
+        <menuitem
+            id          = "menu_hr_payroll_document_template_root"
+            name        = "Documentos"
+            parent      = "hr_work_entry_contract_enterprise.menu_hr_payroll_root"
+            sequence    = "54"
+            groups      = "hr_payroll.group_hr_payroll_employee_manager"/>
+
+        <menuitem 
+            id          = "menu_hr_template" 
+            name        = "Plantillas" 
+            parent      = "l10n_pe_hr_contract_addendum.menu_hr_payroll_document_template_root" 
+            action      = "l10n_pe_hr_contract_addendum.action_hr_document_template" 
+            groups      = "hr_payroll.group_hr_payroll_manager"
+            sequence    = "10"/>
+
+        <menuitem 
+            id          = "menu_hr_contract_clause" 
+            name        = "Cláusulas" 
+            parent      = "l10n_pe_hr_contract_addendum.menu_hr_payroll_document_template_root" 
+            action      = "l10n_pe_hr_contract_addendum.action_hr_contract_clause" 
+            groups      = "hr_payroll.group_hr_payroll_manager"
+            sequence    = "20"/>
+
+        <menuitem 
+            id          = "menu_hr_document_placeholder" 
+            name        = "Placeholders"
+            parent      = "l10n_pe_hr_contract_addendum.menu_hr_payroll_document_template_root" 
+            action      = "l10n_pe_hr_contract_addendum.action_hr_document_placeholder" 
+            groups      = "hr_payroll.group_hr_payroll_manager"
+            sequence    = "30"/>
+    </data>
+</odoo>

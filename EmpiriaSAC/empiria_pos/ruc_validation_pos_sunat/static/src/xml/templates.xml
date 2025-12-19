@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-inherit="point_of_sale.PartnerDetailsEdit" t-inherit-mode="extension">
+        <xpath expr="//div[@class='partner-details-box clearfix']/div[@class='partner-details-right']" position="inside">
+            <div class='partner-detail'>
+                <span class='label'>Est. Contrib.</span>
+                <input class='detail partner-state-contributor-sunat' name='state_contributor_sunat' t-on-change="captureChange"
+                       t-att-value='props.partner.state_contributor_sunat || ""'/>
+            </div>
+            <div class='partner-detail'>
+                <span class='label'>Cond. Contrib.</span>
+                <input class='detail partner-condition-contributor-sunat' name='condition_contributor_sunat' t-on-change="captureChange"
+                       t-att-value='props.partner.condition_contributor_sunat || ""'/>
+            </div>
+        </xpath>
+        <xpath expr="//div[@class='partner-details-box clearfix']/div[@class='partner-details-left']/div[@class='partner-detail']" position="inside">
+            <div class='partner-detail' style="display: none;">
+                <span class='label'>Validación?</span>
+                <input type="checkbox" class='detail validation-ruc' id="validation-ruc"/>
+            </div>
+        </xpath>
+    </t>
+
+    <t t-name="PartnerListScreenVATValidation" t-inherit="point_of_sale.PartnerListScreen" t-inherit-mode="extension">
+        <xpath expr="//div[@class='button back']" position="before">
+            <div class="button ruc_validation" t-if="state.detailIsShown" t-on-click="triggerValidationSunat">
+                <t t-if="!env.isMobile">
+                    <i class="fa fa-address-card"/>
+                    <span> RUC Sunat</span>
+                </t>
+                <t t-else="">
+                    <i class="fa fa-address-card"/>
+                </t>
+            </div>
+        </xpath>
+    </t>
+
+</templates>

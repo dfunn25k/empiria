@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="port_catalog_view_tree" model="ir.ui.view">
+        <field name="name">port.catalog.view.tree</field>
+        <field name="model">port.catalog</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="code"/>
+                <field name="name"/>
+                <field name="ubigeo"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="port_catalog_view_form" model="ir.ui.view">
+        <field name="name">port.catalog.view.form</field>
+        <field name="model">port.catalog</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="code"/>
+                            <field name="name"/>
+                            <field name="ubigeo"/>
+                            <field name="department"/>
+                        </group>
+                        <group>
+                            <field name="province"/>
+                            <field name="district"/>
+                            <field name="address"/>
+                            <field name="state"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="port_catalog_action" model="ir.actions.act_window">
+        <field name="name">Puertos</field>
+        <field name="res_model">port.catalog</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_electronic_guide" name="Guía electrónica" parent="localization_menu.menu_localization" sequence="6"/>
+    <menuitem id="menu_port_catalog" name="Puertos" action="port_catalog_action" parent="menu_electronic_guide" sequence="1"/>
+
+</odoo>

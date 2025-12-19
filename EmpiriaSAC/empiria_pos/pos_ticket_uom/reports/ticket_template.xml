@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="add_uom_report_invoice_document_tickets" name="invoice tickets extensds uom" inherit_id="pos_ticket_format_invoice.report_invoice_document_tickets">
+
+        <xpath expr="//div[@class='pos-receipt-print-ticket']/table[@class='table-ticket']//th[@name='th_quantity']" position="attributes">
+            <attribute name="style">width: 16%;</attribute>
+        </xpath>
+
+        <xpath expr="//div[@class='pos-receipt-print-ticket']/table[@class='table-ticket']//th[@name='th_quantity']" position="after">
+            <th name="th_UdM" style="width: 16%;" class="text-center">
+                <span>UdM</span>
+            </th>
+        </xpath>
+
+        <xpath expr="//div[@class='pos-receipt-print-ticket']/table[@class='table-ticket']//th[@name='th_description']" position="attributes">
+            <attribute name="style">width: 38%;</attribute>
+        </xpath>
+
+        <xpath expr="//div[@class='pos-receipt-print-ticket']/table[@class='table-ticket']//th[@name='th_priceunit']" position="attributes">
+            <attribute name="style">width: 15%;</attribute>
+        </xpath>
+
+        <xpath expr="//div[@class='pos-receipt-print-ticket']/table[@class='table-ticket']//th[@name='th_subtotal']" position="attributes">
+            <attribute name="style">text-align: right; width: 15%;</attribute>
+        </xpath>
+
+        <xpath expr="//div[@class='pos-receipt-print-ticket']/table[@class='table-ticket']/tbody//td[@name='account_invoice_line_quantity']" position="after">
+            <td class="text-center">
+                <t t-if="(line.product_uom_id.name).lower() == 'units'">
+                    <span>Unidades</span>
+                </t>
+                <t t-else="">
+                    <span>
+                        <t t-esc="line.product_uom_id.name"/>
+                    </span>
+                </t>
+            </td>
+        </xpath>
+
+    </template>
+
+</odoo>

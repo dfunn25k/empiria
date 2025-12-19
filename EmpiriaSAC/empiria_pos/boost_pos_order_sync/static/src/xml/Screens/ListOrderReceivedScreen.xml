@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="ListOrderReceivedScreen" owl="1">
+        <div class="partnerlist-screen screen">
+            <div class="screen-content">
+                <div class="top-content">
+                    <div class="button back" t-on-click="back">
+                        <t t-if="!env.isMobile"> Back</t>
+                        <i t-if="env.isMobile" class="fa fa-angle-double-left"></i>
+                    </div>
+                </div>
+                <section class="full-content">
+                    <div class="partner-window">
+                        <section class="subwindow list">
+                            <div class="subwindow-container">
+                                <div class="subwindow-container-fix scrollable">
+                                    <table class="partner-list">
+                                        <thead align="center">
+                                            <tr>
+                                                <th>Quote Id</th>
+                                                <th>Customer</th>
+                                                <th>Total Amount</th>
+                                                <th>From session</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="partner-list-contents" align="center">
+                                            <t t-foreach="props.quotes_received" t-as="quote" t-key="quote.quote_id">
+                                                <tr t-attf-class="partner-line {{highlight}}" t-att-data-quote_id="quote.quote_id" t-on-click="_clickOrderReceived">
+                                                    <td>
+                                                        <t t-esc="quote.quote_id"/>
+                                                    </td>
+                                                    <td>
+                                                        <t t-esc="quote.partner_id[1]|| '-'"/>
+                                                    </td>
+                                                    <td>
+                                                        <t t-esc="env.pos.format_currency_no_symbol(quote.amount_total)"/>
+                                                    </td>
+                                                    <td>
+                                                        <t t-esc="quote.from_session_id"/>
+                                                    </td>
+                                                </tr>
+                                            </t>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </t>
+</templates>

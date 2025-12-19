@@ -1,0 +1,115 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_validation_by_document
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-18 21:56+0000\n"
+"PO-Revision-Date: 2023-01-18 21:56+0000\n"
+"Last-Translator: Leo Daniel Flores Sánchez <leo.dev.ganemo@gmail.com>\n"
+"Language-Team: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pos_validation_by_document
+#. odoo-javascript
+#: code:addons/pos_validation_by_document/static/src/js/PaymentScreen.js:0
+#, python-format
+msgid "Choose a client who has an identity document that is fiscal"
+msgstr "Escoga un cliente que tenga un documento de identidad que sea fiscal"
+
+#. module: pos_validation_by_document
+#: model:ir.model,name:pos_validation_by_document.model_res_config_settings
+msgid "Config Settings"
+msgstr "Opciones de configuración"
+
+#. module: pos_validation_by_document
+#. odoo-javascript
+#: code:addons/pos_validation_by_document/static/src/js/PaymentScreen.js:0
+#, python-format
+msgid "Document number"
+msgstr "Número de documento"
+
+#. module: pos_validation_by_document
+#: model:ir.model.fields,field_description:pos_validation_by_document.field_pos_config__identify_client
+#: model:ir.model.fields,field_description:pos_validation_by_document.field_res_config_settings__pos_identify_client
+#: model_terms:ir.ui.view,arch_db:pos_validation_by_document.res_config_settings_view_form_inherit_pos_validation_by_document
+msgid "Identify customer from"
+msgstr "Identificar cliente desde"
+
+#. module: pos_validation_by_document
+#: model:ir.model,name:pos_validation_by_document.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr "Configuración del TPV"
+
+#. module: pos_validation_by_document
+#: model:ir.model,name:pos_validation_by_document.model_pos_session
+msgid "Point of Sale Session"
+msgstr "Sesión TPV"
+
+#. module: pos_validation_by_document
+#. odoo-javascript
+#: code:addons/pos_validation_by_document/static/src/js/PaymentScreen.js:0
+#, python-format
+msgid "The amount of the sale is greater than  so you must identify a client"
+msgstr "El importe de la venta es mayor a  por lo que debe identificar un cliente"
+
+#. module: pos_validation_by_document
+#. odoo-javascript
+#: code:addons/pos_validation_by_document/static/src/js/PaymentScreen.js:0
+#, python-format
+msgid "The customer must have a document number to make the purchase"
+msgstr "El cliente debe tener un numero de documento para hacer la compra"
+
+#. module: pos_validation_by_document
+#. odoo-javascript
+#: code:addons/pos_validation_by_document/static/src/js/PaymentScreen.js:0
+#, python-format
+msgid "The number of characters for the field  must be "
+msgstr "La cantidad de caracteres para el campo  debe ser"
+
+#. module: pos_validation_by_document
+#. odoo-javascript
+#: code:addons/pos_validation_by_document/static/src/js/PaymentScreen.js:0
+#, python-format
+msgid "The number of characters for the field  must be at most "
+msgstr "La cantidad de caracteres para el campo  debe ser como máximo"
+
+#. module: pos_validation_by_document
+#. odoo-javascript
+#: code:addons/pos_validation_by_document/static/src/js/PaymentScreen.js:0
+#, python-format
+msgid ""
+"The type of identification document of the Client, requires that another "
+"\"Type of Document\" of sale be used. I know suggests that you use another "
+"sales document, or change the type of customer identification"
+msgstr ""
+"El tipo de documento de identificación del cliente, requiere que utilice otro "
+"\"Tipo de Documento\" de venta. Sé sugiere que utilice otro "
+"documento de venta, o cambiar el tipo de identificación del cliente"
+
+#. module: pos_validation_by_document
+#. odoo-javascript
+#: code:addons/pos_validation_by_document/static/src/js/PaymentScreen.js:0
+#: code:addons/pos_validation_by_document/static/src/js/PaymentScreen.js:0
+#: code:addons/pos_validation_by_document/static/src/js/PaymentScreen.js:0
+#: code:addons/pos_validation_by_document/static/src/js/PaymentScreen.js:0
+#: code:addons/pos_validation_by_document/static/src/js/PaymentScreen.js:0
+#: code:addons/pos_validation_by_document/static/src/js/PaymentScreen.js:0
+#: code:addons/pos_validation_by_document/static/src/js/PaymentScreen.js:0
+#: code:addons/pos_validation_by_document/static/src/js/PaymentScreen.js:0
+#, python-format
+msgid "Wrong value"
+msgstr "Valor incorrecto"
+
+#. module: pos_validation_by_document
+#. odoo-javascript
+#: code:addons/pos_validation_by_document/static/src/js/PaymentScreen.js:0
+#: code:addons/pos_validation_by_document/static/src/js/PaymentScreen.js:0
+#, python-format
+msgid "You must select a client"
+msgstr "Debe seleccionar un cliente"

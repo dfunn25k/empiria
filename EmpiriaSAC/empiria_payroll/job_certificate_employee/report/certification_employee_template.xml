@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="template_job_certification_employee">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <div class="page">
+                    <div>
+                        <div style="text-align:right">
+                            <strong t-field="o.date_today"/>
+                        </div>
+                        <div style="text-align:left">
+                            <img style="width: 275px; height: 100px;" t-attf-src="data:image/*;base64,{{o.company_id.logo}}"/>
+                        </div>
+                    </div>
+                    <div>
+                        <br/>
+                        <div class="subtitulo" style="text-align:center">
+                            <strong>Certificado de trabajo</strong>
+                        </div>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <div style="text-align:justify">
+                            Por medio de la presente, yo, <span t-esc="o.search_employee().address_home_id.name"/>,
+                            en calidad de <span t-field="o.parent_id.job_title"/> de la empresa <span t-field="o.company_id.name"/>,
+                            hago constar que <span t-field="o.lastname"/> <span t-field="o.secondname"/> <span t-field="o.firstname"/>,
+                            identificado/a con <span t-field="o.type_identification_id.name"/> <span t-field="o.identification_id"/>,
+                            labora en nuestra organización desde el <span t-field="o.service_start_date"/>
+                            hasta <span t-field="o.service_termination_date"/> en el puesto de <span t-field="o.job_id.name"/>.
+                        </div>
+                        <br/>
+                        <div style="text-align:justify">
+                            Durante el tiempo que ha estado en nuestra empresa, ha demostrado ser una persona comprometida,
+                            responsable y proactiva, con un gran interés en aprender y aplicar los conocimientos adquiridos.
+                            <br/>
+                            <br/>
+                            Asimismo, ha destacado por su capacidad para trabajar en equipo y su habilidad
+                            para adaptarse a diferentes situaciones y contextos.
+                            <br/>
+                            <br/>
+                            Estamos seguros/as de que ha adquirido valiosas experiencias y habilidades durante su estancia
+                            en nuestra empresa, las cuales serán de gran ayuda para su formación y desarrollo profesional en el futuro.
+                            <br/>
+                            <br/>
+                            Quedamos a su disposición para cualquier consulta o información adicional que requieran.
+                        </div>
+                        <br/>
+                        <div style="text-align:justify">
+                            Constancia que se expide a petición de la parte interesada el <span t-esc="o.get_date_to_print()"/>.
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            Atentamente,
+                        </div>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <div style="text-align:center">
+                            <img style="width: 165px; height: 60px;" t-attf-src="data:image/*;base64,{{o.search_employee().employer_sign}}"/>
+                        </div>
+                        <div style="text-align:center">
+                            <strong>___________________________________________</strong>
+                        </div>
+                        <div style="text-align:center">
+                            <strong>
+                                <span t-esc="o.search_employee().address_home_id.name"/>
+                            </strong>
+                        </div>
+                        <div style="text-align:center">
+                            <strong>Empleador</strong>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </t>
+
+    </template>
+
+    <template id="report_job_certificate_employee">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="job_certificate_employee.template_job_certification_employee"/>
+            </t>
+        </t>
+    </template>
+
+</odoo>

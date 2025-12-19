@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_closing_entry_wizard_form" model="ir.ui.view">
+            <field name="name">closing.entry.wizard.form</field>
+            <field name="model">closing.entry.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Generar Asientos de Cierre">
+                    <group>
+                        <group>
+                            <field name="date_from"/>
+                            <field name="date_to"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                        <group>
+                            <field name="closing_date"/>
+                            <field name="journal_id"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="narration"/>
+                    </group>
+                    <footer>
+                        <button name="action_generate_entries" string="Aceptar" type="object" class="btn-primary" data-hotkey="q"/>
+                        <button string="Cancelar" class="btn-secondary" special="cancel" data-hotkey="z"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_closing_entry_wizard" model="ir.actions.act_window">
+            <field name="name">Asientos de cierre</field>
+            <field name="res_model">closing.entry.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+    </data>
+</odoo>

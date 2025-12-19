@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="ProductSelectionPopup" owl="1">
+        <div role="dialog" class="modal-dialog">
+            <div class="popup popup-selection popup-med">
+                <header class="title header-pos-combo-reload" t-att-data-product_id="props.main_product">
+                    <span t-esc="props.main_product_name"/>
+                    <span class="span-product-price">Item Price = <b><t t-esc="env.pos.format_currency(props.main_product_price, 'Main Product Price')"/></b></span>
+                </header>
+                <main class="product_selection_combo col-lg-4 col-md-6 col-sm-12">
+                    <div class="rightpane-header">
+                        <t t-foreach="props.data" t-as="topping" t-key="topping.id">
+                            <span t-attf-class="category-simple-button category-pos-combo-reload" t-on-click="() => this.trigger('switch-category', topping.id)">
+                                <t t-esc="topping.category"/>
+                            </span>
+                        </t>
+                    </div>
+                    <div class='selection scrollable-y touch-scrollable selection-height' style='background: #c0c0c0;'>
+                        <div>
+                            <div class="col-md-3">
+                                <div>
+                                    <SelectionComboOrderMenuList OrderMenu="orderMenuToDisplay"/>
+                                    <div class="order-total">
+                                        <div>
+                                            <span>Total = </span>
+                                        </div>
+                                        <div style="padding-left: 3px;">
+                                            <b class="total-price"> <t t-esc="env.pos.format_currency(totalPriceToDisplay, 'Total Price Combo')" /></b>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-9">
+                                <SelectionComboProductList products="productsToDisplay"/>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+                <footer class="footer">
+                    <div class="button confirm highlight" t-on-click="confirm">
+                        <t t-esc="props.confirmText" />
+                    </div>
+                    <div class="button cancel" t-on-click="cancel">
+                        <t t-esc="props.cancelText" />
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </t>
+</templates>

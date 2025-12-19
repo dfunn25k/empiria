@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="view_account_retention_form" model="ir.ui.view">
+            <field name="name">account.retention.form</field>
+            <field name="model">account.retention</field>
+            <field name="arch" type="xml">
+                <form string="Información del comprobante">
+                    <header>
+                        <!-- Botón Confirmar -->
+                        <button name="set_terminate" string="PUBLICAR" type="object" class="btn-primary" states="draft" confirm="¿Estas seguro de PUBLICAR EL COMPROBANTE?" />
+
+                        <!-- Botón Cancelar -->
+                        <button name="button_cancel" string="CANCELAR" type="object" class="btn-secondary" states="draft" confirm="¿Estas seguro de CANCELAR EL COMPROBANTE?" />
+
+                        <!-- Botón Volver a Borrador -->
+                        <button name="button_draft" string="RESTABLECER A BORRADOR" type="object" class="btn-secondary" states="terminate" confirm="¿Estas seguro de RESTABLECER A BORRADOR EL COMPROBANTE?" />
+
+                        <!-- Barra de estado -->
+                        <field name="state" widget="statusbar" statusbar_visible="draft,terminate,cancel"/>
+                    </header>
+
+                    <sheet>
+                        <div class="o_not_full oe_button_box" name="button_box">
+                            <button name="open_related_account_move" type="object" class="oe_stat_button" icon="fa-book" string="Asiento Contable" attrs="{'invisible': [('account_move_id', '=', False)]}"/>
+                        </div>
+
+                        <!-- 
+                        <div class="alert alert-warning mb-0" role="alert" attrs="{'invisible': [('error_dialog', 'in', [False,''])]}">
+                            <field name="error_dialog" string="" nolabel="1" decoration-danger="1" decoration-bf="1"/>
+                        </div> 
+                        -->
+
+                        <field name="company_id" invisible="1" options="{'no_open': True, 'no_create': True}" />
+                        <field name="account_move_id" invisible="1" options="{'no_open': True, 'no_create': True}" />
+
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name"/>
+                            </h1>
+                        </div>
+
+                        <notebook colspan="4">
+                            <page string="Facturas" name="invoice">
+                            </page>
+                        </notebook>
+                    </sheet>
+
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_account_retention_tree" model="ir.ui.view">
+            <field name="name">account.retention.tree</field>
+            <field name="model">account.retention</field>
+            <field name="arch" type="xml">
+                <tree string="Comprobante Information">
+                    <field name="name"/>
+                    <field name="date_voucher" />
+                    <field name="partner_id"/>
+                    <field name="journal_id"/>
+                    <field name="amount_total"/>
+                    <field name="state" decoration-warning="state =='draft'" decoration-success="state =='terminate'" decoration-danger="state =='cancel'" widget="badge" optional="show"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="account_retention_action" model="ir.actions.act_window">
+            <field name="name">Comprobantes de retención</field>
+            <field name="res_model">account.retention</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="add_extra_tags" inherit_id="purchase.report_purchaseorder_document">
+            <xpath expr="//div[@class='page']/div[@id='informations']" position="replace">
+                <!-- Insert your additional tags here -->
+                <div id="informations" class="row mt-4 mb32">
+
+                    <div class="col-3">
+                        <div t-if="o.user_id">
+                            <strong>Representante de Compra:</strong>
+                            <p t-field="o.user_id" class="bm-2"/>
+                        </div>
+
+                        <div t-if="o.partner_ref">
+                            <strong>Referencia de proveedor:</strong>
+                            <p t-field="o.partner_ref" class="bm-2"/>
+                        </div>
+                    </div>
+
+                    <div class="col-3">
+                        <div t-if="o.state in ['purchase','done'] and o.date_approve">
+                            <strong>Fecha del pedido:</strong>
+                            <p t-field="o.date_approve" class="bm-2"/>
+                        </div>
+
+                        <div t-elif="o.date_order">
+                            <strong >Fecha límite de pedido:</strong>
+                            <p t-field="o.date_order" class="bm-2"/>
+                        </div>
+                    </div>
+
+                    <div class="col-6 bm-2">
+                        <div t-if="o.partner_id" class="col-12">
+                            <span t-field="o.partner_id.name"/>
+                            -                            
+                            <span t-field="o.partner_id.vat"/>
+                        </div>
+
+                        <div t-if="o.account_number_partner_id" class="col-12">
+                            <span t-field="o.account_number_partner_id.bank_id.name"/>
+                                :                            
+                            <span t-field="o.account_number_partner_id.acc_number"/>
+                            -
+                            <span t-field="o.currency_partner_id"/>
+                        </div>
+
+                        <!-- 
+                        <div t-if="o.partner_id.bank_ids">
+                            <t t-foreach="o.partner_id.bank_ids[:2]" t-as="line">
+                                <div class="col-12">
+                                    <span t-field="line.bank_id"/>
+                                    :
+                                    <span t-field="line.acc_number"/>
+                                </div>
+                            </t>
+                        </div> 
+                        -->
+                    </div>
+                </div>
+            </xpath>
+        </template>
+    </data>
+</odoo>

@@ -1,0 +1,8 @@
+---Models in module 'select_invoice_format_pos'---
+new model inherit res.config.settings [transient]
+---Fields in module 'select_invoice_format_pos'---
+delete field android_download_invoice (pos.config)
+delete field pos_android_download_invoice (res.config.settings)
+---XML records in module 'select_invoice_format_pos'---
+-- Depends in module 'select_invoice_format_pos' --
+add account dependency

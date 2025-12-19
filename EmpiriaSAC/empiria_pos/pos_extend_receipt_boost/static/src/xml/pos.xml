@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="OrderReceipt" t-inherit="point_of_sale.OrderReceipt" t-inherit-mode="extension" owl="1">
+    
+        <xpath expr="//div[hasclass('pos-receipt')]/t[@t-if='env.pos.config.customer_details']" position="replace">   
+        </xpath>
+
+        <xpath expr="//div[hasclass('pos-receipt-contact')]" position="after">
+            <t t-if="env.pos.config.customer_details">
+                <t t-set="font_size" t-value="env.pos.config.font_size"/>
+                <t t-set="is_bold" t-value="env.pos.config.bold_format"/>
+                <br/>
+                <t t-if="props.order.partner">
+                    <div t-attf-style="font-size:{{font_size}}px; font-weight:{{is_bold ?'bold':'normal'}};" align="center">
+                        <t t-if="env.pos.config.customer_name">
+                            <t t-if="props.order.partner.name"> 
+                                <t t-if="env.pos.config.customer_name_custom_title"> 
+                                    <t t-esc="env.pos.config.customer_name_custom_title"/> :
+                                </t>
+                                <t t-esc="props.order.partner.name"/><br/>
+                            </t>
+                        </t>
+                        <t t-if="env.pos.config.customer_address">
+                            <t t-if="props.order.partner.address != false">
+                                
+                                <t t-if="env.pos.config.customer_address_custom_title"> 
+                                    <t t-esc="env.pos.config.customer_address_custom_title"/> :
+                                </t>
+                                <t t-esc="props.order.partner.address"/><br/>
+                            </t>
+                        </t>
+                        <t t-if="env.pos.config.customer_mobile">
+                            <t t-if="props.order.partner.mobile != false">
+                                <t t-if="env.pos.config.customer_mobile_custom_title"> 
+                                    <t t-esc="env.pos.config.customer_mobile_custom_title"/> :
+                                </t>
+                                <t t-esc="props.order.partner.mobile"/><br/>
+                            </t>
+                        </t>
+                        <t t-if="env.pos.config.customer_phone">
+                            <t t-if="props.order.partner.phone != false">
+                                <t t-if="env.pos.config.customer_phone_custom_title"> 
+                                    <t t-esc="env.pos.config.customer_phone_custom_title"/> :
+                                </t>
+                                <t t-esc="props.order.partner.phone"/><br/>
+                            </t>
+                        </t>
+                        <t t-if="env.pos.config.customer_email">
+                            <t t-if="props.order.partner.email != false">
+                                <t t-if="env.pos.config.customer_email_custom_title"> 
+                                    <t t-esc="env.pos.config.customer_email_custom_title"/> :
+                                </t>
+                                <t t-esc="props.order.partner.email"/><br/>
+                            </t>
+                        </t>
+                        <t t-if="env.pos.config.customer_vat">
+                            <t t-if="props.order.partner.vat != false">
+                                <t t-if="env.pos.config.customer_vat_custom_title"> 
+                                    <t t-esc="env.pos.config.customer_vat_custom_title"/> :
+                                </t>
+                                <t t-esc="props.order.partner.vat"/><br/>
+                            </t>
+                        </t>
+                    </div>
+                </t>
+            </t>
+
+            <t t-if="receipt.invoice_number and env.pos.config.invoice_number">
+                <br/>
+                    <div align="center">
+                        <strong><u>Invoice Number</u></strong><br></br>
+                        <td>
+                            <t t-esc="receipt.invoice_number"/>
+                        </td>
+                    </div>
+                <br/>
+            </t>
+        </xpath>
+
+        <xpath expr="//div[hasclass('pos-receipt')]/t[@t-if='env.pos.config.order_barcode']" position="replace">  
+        </xpath>
+
+        <xpath expr="//div[hasclass('after-footer')]" position="after">
+            <t t-if="env.pos.config.order_barcode">
+				<t t-if="env.pos.config.barcode_selection == 'qrcode'">
+					<div class="text-center" align="center">
+						<br/><img t-att-src="qrcode" style="height: 200px;width: 200px;"/>
+					</div>
+				</t>
+				<t t-if="env.pos.config.barcode_selection == 'barcode'">
+					<div class="text-center" align="center">
+						<br/><img t-att-src="barcode" style="height: 50px;width: 230px;"/>
+					</div>
+				</t>
+			</t>
+        </xpath>
+    </t>
+
+</templates>

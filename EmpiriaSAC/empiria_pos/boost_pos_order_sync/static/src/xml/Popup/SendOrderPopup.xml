@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="SendOrderPopup" owl="1">
+        <div class="modal-dialog">
+            <div class="popup">
+                <p class="title">
+                    <t t-esc="props.title"/>
+                </p>
+                <div class="quote_title">
+					Quote ID :&#160; <span id='quote_id'/>
+                </div>
+                <div class="body">
+                    <div id="active_session_div" class="sessions">
+                        <t t-if="!(env.pos.other_active_session.length > 0)">
+                            <h3> No active session is available.</h3>
+                        </t>
+                        <t t-foreach="env.pos.other_active_session" t-as="session" t-key="session.id">
+                            <span class='select_session' t-on-click="() => this.click_select_session(session.id)" t-att-id="session.id">
+                                <i class="fa fa-desktop" t-att-id="session.id"/>
+                                <t t-if="session.config_id and session.config_id[1]">
+                                    <p class="p_one">
+                                        <t t-esc="session.config_id[1].slice(0,session.config_id[1].indexOf('('))"/>
+                                    </p>
+                                    <p class="p_two">
+                                        <t t-esc="session.config_id[1].slice(session.config_id[1].indexOf('(')+1,session.config_id[1].length - 1)"/>
+                                    </p>
+                                </t>
+                            </span>
+                        </t>
+                    </div>
+                    <div class="note">
+                        <span class="wk_note">Note:</span>
+                        <br/>
+                        <textarea rows="2" cols="45" id="quote_note" placeholder="Note For Internal Use"/>
+                    </div>
+                </div>
+                <div class="footer">
+                    <div class="button cancel" t-on-click="confirm">
+                        <t t-esc="props.confirmText"/>
+                    </div>
+                    <div id='send_and_print_order_quote' class="button send_print_quote" t-on-click="() => this.send_and_print_order_quote()">
+						Send and Print
+                    </div>
+                    <div id='send_order_quote' class="button send_quote" t-on-click="() => this.send_order_quote(true)">
+						Send
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+</templates>

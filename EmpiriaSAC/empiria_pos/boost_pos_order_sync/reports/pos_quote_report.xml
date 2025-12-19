@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="external_layout_boost_pos_order_sync">
+        <div class="article doc_report_layout_standard" t-att-data-oe-model="doc and doc._name"
+             t-att-data-oe-id="doc and doc.id"
+             t-att-data-oe-lang="doc and doc.env.context.get('lang')">
+            <t t-call="web.address_layout"/>
+            <t t-raw="0"/>
+        </div>
+    </template>
+    
+    <template id="quote_order_report">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="boost_pos_order_sync.external_layout_boost_pos_order_sync">
+                    <div class="page">
+                        <div class="row" style="text-align: center;">
+                            <div class="col-12 text-center">
+                                <h2 t-esc="o.user_id.company_id.name"/>
+                                <h4>
+                                    <span>Quote #</span>
+                                    <span t-field="o.quote_id"/>
+                                </h4>
+                                <div t-field="o.partner_id"
+                                    t-field-options='{"widget": "contact", "fields": ["address", "name", "phone", "fax"], "no_marker": true, "phone_icons": true}'/>
+                                User:
+                                <span t-field="o.user_id"/>
+                                <br/>
+                                Date:
+                                <span t-field="o.date_order"/>
+                                <br/>
+                                <br id="block_final"/>
+                            </div>
+                        </div>
+                        <div class="row"/>
+                        <t t-set="display_discount" t-value="any([l.discount for l in o.lines])"/>
+                        <table class="table table-condensed">
+                            <thead>
+                                <tr>
+                                    <th>Description</th>
+                                    <th class="text-right">Quantity</th>
+                                    <th style="width:18px">Unit Price</th>
+                                    <th class="text-right">Price</th>
+                                </tr>
+                            </thead>
+                            <tbody class="sale_tbody">
+                                <t t-foreach="o.lines" t-as="l">
+                                    <tr t-if="l.qty">
+                                        <td>
+                                            <span t-field="l.product_id.name"/>
+                                        </td>
+                                        <td class="text-right">
+                                            <span t-field="l.qty"/>
+                                        </td>
+                                        <td class="text-right">
+                                            <span t-field="l.price_unit" t-options="{'widget': 'monetary', 'display_currency': o.pricelist_id.currency_id}"/>
+                                        </td>
+                                        <td class="text-right">
+                                            <span t-esc="l.price_subtotal_incl" t-options="{'widget': 'monetary', 'display_currency': o.pricelist_id.currency_id}"/>
+                                            <t t-if="l.discount != 0.0">
+                                                <span t-esc="l.discount"/>%
+                                            </t>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                        <div class="row" style="margin-left: 55%;">
+                            <div class="col-6 ml-auto">
+                                <table class="table table-condensed">
+                                    <tr class="border-black">
+                                        <td>
+                                            <strong>Taxes</strong>
+                                        </td>
+                                        <td class="text-right">
+                                            <strong t-esc="o.amount_tax" t-options="{'widget': 'monetary', 'display_currency': o.pricelist_id.currency_id}"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <strong>Total</strong>
+                                        </td>
+                                        <td class="text-right">
+                                            <strong t-esc="o.amount_total" t-options="{'widget': 'monetary', 'display_currency': o.pricelist_id.currency_id}"/>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+    <record id="paperformat_quotereceipt" model="report.paperformat">
+        <field name="name">Quotation Receipt</field>
+        <field name="default" eval="True"/>
+        <field name="format">custom</field>
+        <field name="page_height">150</field>
+        <field name="page_width">70</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">5</field>
+        <field name="margin_bottom">5</field>
+        <field name="margin_left">3</field>
+        <field name="margin_right">3</field>
+        <field name="header_line" eval="False"/>
+        <field name="header_spacing">3</field>
+        <field name="dpi">110</field>
+    </record>
+    <record id="report_quote" model="ir.actions.report">
+        <field name="name">Receipt</field>
+        <field name="model">pos.quote</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">boost_pos_order_sync.quote_order_report</field>
+        <field name="report_file">boost_pos_order_sync.quote_order_report</field>
+        <field name="binding_model_id" ref="model_pos_quote"/>
+        <field name="binding_type">report</field>
+        <field name="paperformat_id" ref="boost_pos_order_sync.paperformat_quotereceipt"/>
+    </record>
+</odoo>

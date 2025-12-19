@@ -1,0 +1,4 @@
+---Models in module 'pos_combo_reload'---
+---Fields in module 'pos_combo_reload'---
+---XML records in module 'pos_combo_reload'---
+-- Depends in module 'pos_combo_reload' --
